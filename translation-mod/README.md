@@ -66,6 +66,36 @@ E:\Game\steam\steamapps\common\SimplePlanes 2
 
 `Dev` 包用于采集文本，`Release` 包用于普通玩家安装。
 
+## GitHub Actions 发版
+
+项目带有 `.github/workflows/release.yml`，可以在 GitHub 上自动构建并发布压缩包。
+
+当前源码需要引用 `SimplePlanes 2_Data\Managed` 里的游戏程序集，所以不能直接使用普通 GitHub 托管 runner 编译。推荐使用一台已安装游戏的 Windows self-hosted runner。
+
+runner 要求：
+
+- Windows x64。
+- 已安装 `SimplePlanes 2`。
+- 能访问游戏目录里的 `SimplePlanes 2_Data\Managed`。
+- 能运行 Windows PowerShell 和 .NET Framework `csc.exe`。
+
+默认游戏路径仍是：
+
+```powershell
+E:\Game\steam\steamapps\common\SimplePlanes 2
+```
+
+如果 self-hosted runner 上的游戏路径不同，在 GitHub 仓库设置里新增 repository variable：
+
+```text
+SP2_GAME_DIR=D:\SteamLibrary\steamapps\common\SimplePlanes 2
+```
+
+发版方式：
+
+- 推送 `v*` tag，例如 `v0.1.0`，会自动构建并创建 GitHub Release。
+- 在 Actions 页面手动运行 `Build release packages`，可以只构建 artifact，也可以填写 `release_tag` 来发布。
+
 ## 安装
 
 分发包解压后运行：

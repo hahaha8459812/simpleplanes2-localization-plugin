@@ -42,3 +42,25 @@
 给普通玩家只发 `SimplePlanes2TranslationMod-Release.zip`。
 
 给翻译协作者可以发 `SimplePlanes2TranslationMod-Dev.zip`，但要说明它会生成采集文件。
+
+## GitHub Actions 发布
+
+仓库内置 `.github/workflows/release.yml`。
+
+由于当前插件编译需要 `SimplePlanes 2_Data\Managed` 下的游戏程序集，发布 runner 必须是装有游戏的 Windows self-hosted runner，或其他拥有同等合法本地依赖的 Windows runner。
+
+发布前确认：
+
+- self-hosted runner 在线。
+- runner 上已安装 `SimplePlanes 2`。
+- 如果游戏不在默认路径，仓库变量 `SP2_GAME_DIR` 已设置正确。
+- tag 使用 `v*` 格式，例如 `v0.1.0`。
+
+发布命令示例：
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+手动发布也可以在 GitHub Actions 页面运行 `Build release packages`，填写 `release_tag`。

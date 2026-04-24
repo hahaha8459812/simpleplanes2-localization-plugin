@@ -1,0 +1,69 @@
+name: Build release packages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release tag to publish, for example v0.1.0. Leave empty to build artifacts only."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build on Windows runner
+    runs-on: [self-hosted, Windows, X64]
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: translation-mod
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve game directory
+        id: game-dir
+        run: |
+          $gameDir = "${{ vars.SP2_GAME_DIR }}"
+          if ([string]::IsNullOrWhiteSpace($gameDir)) {
+              $gameDir = "E:\Game\steam\steamapps\common\SimplePlanes 2"
+          }
+
+          if (!(Test-Path (Join-Path $gameDir "SimplePlanes 2.exe"))) {
+              throw "SimplePlanes 2 was not found at '$gameDir'. Set repository variable SP2_GAME_DIR or install the game at the default path."
+          }
+
+          "path=$gameDir" >> $env:GITHUB_OUTPUT
+
+      - name: Build packages
+        run: |
+          .\build.ps1 -GameDir "${{ steps.game-dir.outputs.path }}"
+
+      - name: Upload dev package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimplePlanes2TranslationMod-Dev
+          path: translation-mod/release/SimplePlanes2TranslationMod-Dev.zip
+          if-no-files-found: error
+
+      - name: Upload release package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimplePlanes2TranslationMod-Release
+          path: translation-mod/release/SimplePlanes2TranslationMod-Release.zip
+          if-no-files-found: error
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/') || inputs.release_tag != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.release_tag || github.ref_name }}
+          files: |
+            translation-mod/release/SimplePlanes2TranslationMod-Dev.zip
+            translation-mod/release/SimplePlanes2TranslationMod-Release.zip

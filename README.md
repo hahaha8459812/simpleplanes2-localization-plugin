@@ -24,3 +24,5 @@ Build from `translation-mod`:
 ```
 
 Generated packages are written to `translation-mod/release/`.
+
+Automated releases are supported through GitHub Actions with a Windows self-hosted runner. The build needs the local `SimplePlanes 2_Data/Managed` assemblies from an installed copy of the game, so ordinary GitHub-hosted runners cannot compile the plugin by themselves.
