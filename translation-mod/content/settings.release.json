@@ -1,0 +1,12 @@
+{
+  "Mode": "translate",
+  "Language": "zh-CN",
+  "EnableSceneScan": true,
+  "LogMissingTexts": false,
+  "CaptureStandaloneTmpTexts": true,
+  "CapturedTextsFileName": "captured-texts.json",
+  "CaptureFlushIntervalSeconds": 10.0,
+  "SceneScanIntervalSeconds": 0.1,
+  "ApplyBoldStyleToTranslatedText": true,
+  "VerboseLogging": false
+}

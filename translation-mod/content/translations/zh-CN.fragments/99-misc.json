@@ -1,0 +1,109 @@
+{
+  "page": "99-misc",
+  "entries": [
+    {
+      "key": "Auto-Reconnect",
+      "value": "自动重新连接"
+    },
+    {
+      "key": "Back",
+      "value": "返回"
+    },
+    {
+      "key": "Building Style",
+      "value": "建筑风格"
+    },
+    {
+      "key": "Control Surfaces",
+      "value": "襟翼"
+    },
+    {
+      "key": "Corner 1",
+      "value": "角点 1"
+    },
+    {
+      "key": "Corner 2",
+      "value": "角点 2"
+    },
+    {
+      "key": "Corner 3",
+      "value": "角点 3"
+    },
+    {
+      "key": "Corner 4",
+      "value": "角点 4"
+    },
+    {
+      "key": "Corners",
+      "value": "角点"
+    },
+    {
+      "key": "CRAFT PROPERTIES",
+      "value": "载具属性"
+    },
+    {
+      "key": "Default Map",
+      "value": "默认地图"
+    },
+    {
+      "key": "Direction",
+      "value": "方向"
+    },
+    {
+      "key": "Done",
+      "value": "完成"
+    },
+    {
+      "key": "Front",
+      "value": "前方"
+    },
+    {
+      "key": "Legacy",
+      "value": "旧版"
+    },
+    {
+      "key": "Material Properties",
+      "value": "材质属性"
+    },
+    {
+      "key": "Max Drag Range",
+      "value": "最大阻力范围"
+    },
+    {
+      "key": "Preset",
+      "value": "预设"
+    },
+    {
+      "key": "Select Part By ID",
+      "value": "按 ID 选择零件"
+    },
+    {
+      "key": "Simple",
+      "value": "简单"
+    },
+    {
+      "key": "Surfaces",
+      "value": "表面"
+    },
+    {
+      "key": "SYMMETRY",
+      "value": "对称"
+    },
+    {
+      "key": "Wing Area",
+      "value": "翼面积"
+    },
+    {
+      "key": "Wing Loading",
+      "value": "翼载荷"
+    },
+    {
+      "key": "Wingspan",
+      "value": "翼展"
+    },
+    {
+      "key": "Wrap Mode",
+      "value": "环绕模式"
+    }
+  ]
+}

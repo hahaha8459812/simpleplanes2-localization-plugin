@@ -1,0 +1,61 @@
+{
+  "page": "31-save-load-and-validation",
+  "entries": [
+    {
+      "key": "A craft already exists with that name. Do you wish to overwrite it?",
+      "value": "已存在同名载具，是否要覆盖？"
+    },
+    {
+      "key": "Cancel",
+      "value": "取消"
+    },
+    {
+      "key": "Craft Name",
+      "value": "载具名称"
+    },
+    {
+      "key": "Craft Save Failed",
+      "value": "载具保存失败"
+    },
+    {
+      "key": "Load Craft Failed",
+      "value": "载具加载失败"
+    },
+    {
+      "key": "Okay",
+      "value": "确定"
+    },
+    {
+      "key": "Overwrite",
+      "value": "覆盖"
+    },
+    {
+      "key": "Save",
+      "value": "保存"
+    },
+    {
+      "key": "Save Craft",
+      "value": "保存载具"
+    },
+    {
+      "key": "The craft file could not be loaded. A backup file was found and loaded, but may be out of date. See the log for more details.",
+      "value": "无法加载载具文件。已改为读取备份文件，但备份可能不是最新版本。更多详情请查看日志。"
+    },
+    {
+      "key": "The craft file could not be loaded. See the log for more details.",
+      "value": "无法加载载具文件。更多详情请查看日志。"
+    },
+    {
+      "key": "The craft file name contains one or more invalid characters.",
+      "value": "载具文件名包含一个或多个非法字符。"
+    },
+    {
+      "key": "The craft to load could not be found.",
+      "value": "找不到要加载的载具。"
+    },
+    {
+      "key": "The target file name contains one or more invalid characters.",
+      "value": "目标文件名包含一个或多个非法字符。"
+    }
+  ]
+}

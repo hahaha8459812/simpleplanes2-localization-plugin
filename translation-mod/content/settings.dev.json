@@ -1,0 +1,12 @@
+{
+  "Mode": "collect",
+  "Language": "zh-CN",
+  "EnableSceneScan": true,
+  "LogMissingTexts": true,
+  "CaptureStandaloneTmpTexts": true,
+  "CapturedTextsFileName": "captured-texts.json",
+  "CaptureFlushIntervalSeconds": 10.0,
+  "SceneScanIntervalSeconds": 0.1,
+  "ApplyBoldStyleToTranslatedText": false,
+  "VerboseLogging": false
+}

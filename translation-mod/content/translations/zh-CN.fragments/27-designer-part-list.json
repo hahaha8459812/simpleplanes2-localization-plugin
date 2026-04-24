@@ -1,0 +1,193 @@
+{
+  "page": "27-designer-part-list",
+  "entries": [
+    {
+      "key": "Aircraft Propulsion",
+      "value": "航空发动机"
+    },
+    {
+      "key": "Bombs",
+      "value": "炸弹"
+    },
+    {
+      "key": "Angled Block",
+      "value": "斜角方块"
+    },
+    {
+      "key": "Bay",
+      "value": "舱体"
+    },
+    {
+      "key": "Block",
+      "value": "方块"
+    },
+    {
+      "key": "Blocks",
+      "value": "方块"
+    },
+    {
+      "key": "Cameras",
+      "value": "相机"
+    },
+    {
+      "key": "Car",
+      "value": "汽车"
+    },
+    {
+      "key": "Cockpits",
+      "value": "座舱"
+    },
+    {
+      "key": "Control",
+      "value": "控制"
+    },
+    {
+      "key": "Controls",
+      "value": "操纵器"
+    },
+    {
+      "key": "Countermeasures",
+      "value": "对抗措施"
+    },
+    {
+      "key": "Custom Missiles",
+      "value": "自定义导弹"
+    },
+    {
+      "key": "Decorations",
+      "value": "装饰件"
+    },
+    {
+      "key": "Engines",
+      "value": "发动机"
+    },
+    {
+      "key": "Gizmos",
+      "value": "活动部件"
+    },
+    {
+      "key": "Glass Fuselage",
+      "value": "玻璃机身"
+    },
+    {
+      "key": "Hemisphere",
+      "value": "半球体"
+    },
+    {
+      "key": "Hollow Fuselage",
+      "value": "空心机身"
+    },
+    {
+      "key": "Interiors",
+      "value": "内饰"
+    },
+    {
+      "key": "Instruments",
+      "value": "仪表"
+    },
+    {
+      "key": "Jets",
+      "value": "喷气"
+    },
+    {
+      "key": "Missiles",
+      "value": "导弹"
+    },
+    {
+      "key": "Mounts",
+      "value": "挂架"
+    },
+    {
+      "key": "Nose Cone",
+      "value": "鼻锥"
+    },
+    {
+      "key": "Pedals",
+      "value": "踏板"
+    },
+    {
+      "key": "Powertrain",
+      "value": "动力传动"
+    },
+    {
+      "key": "Procedural",
+      "value": "自定义机身"
+    },
+    {
+      "key": "Projectiles",
+      "value": "投射武器"
+    },
+    {
+      "key": "Prototype",
+      "value": "自定义开口"
+    },
+    {
+      "key": "Props",
+      "value": "螺旋桨"
+    },
+    {
+      "key": "Robotics",
+      "value": "机械机构"
+    },
+    {
+      "key": "Seats",
+      "value": "座椅"
+    },
+    {
+      "key": "Slidey Things",
+      "value": "滑动机构"
+    },
+    {
+      "key": "Sphere",
+      "value": "球体"
+    },
+    {
+      "key": "Straight Block",
+      "value": "直角方块"
+    },
+    {
+      "key": "Structure",
+      "value": "结构件"
+    },
+    {
+      "key": "Sub Assemblies",
+      "value": "子组件"
+    },
+    {
+      "key": "Suspensions",
+      "value": "悬挂"
+    },
+    {
+      "key": "Switches",
+      "value": "开关"
+    },
+    {
+      "key": "Targeting Pods",
+      "value": "瞄准吊舱"
+    },
+    {
+      "key": "Utility",
+      "value": "实用部件"
+    },
+    {
+      "key": "VTOL",
+      "value": "垂直起降"
+    },
+    {
+      "key": "Weapons",
+      "value": "武器"
+    },
+    {
+      "key": "Wheels",
+      "value": "车轮"
+    },
+    {
+      "key": "Window",
+      "value": "舷窗"
+    },
+    {
+      "key": "Wings",
+      "value": "机翼"
+    }
+  ]
+}

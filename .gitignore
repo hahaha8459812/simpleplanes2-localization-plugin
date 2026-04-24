@@ -1,0 +1,23 @@
+# Local dependency cache
+.deps/
+
+# Local scratch and investigation output
+.tools/
+scratch/
+AGENTS.md
+
+# Build outputs
+translation-mod/artifacts/
+translation-mod/release/
+
+# Runtime capture output copied back from the game plugin folder
+captured-texts*.json
+missing-texts.txt
+
+# Local editor and OS noise
+.vs/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+Desktop.ini

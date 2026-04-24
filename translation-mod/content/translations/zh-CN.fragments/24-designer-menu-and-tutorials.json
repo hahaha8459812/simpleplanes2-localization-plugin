@@ -1,0 +1,77 @@
+{
+  "page": "24-designer-menu-and-tutorials",
+  "entries": [
+    {
+      "key": "Build a Simple Car",
+      "value": "制作一辆简单汽车"
+    },
+    {
+      "key": "Build Your First Plane",
+      "value": "制作你的第一架飞机"
+    },
+    {
+      "key": "DESIGNER TUTORIALS",
+      "value": "设计器教程"
+    },
+    {
+      "key": "Designer Basics",
+      "value": "设计器基础"
+    },
+    {
+      "key": "Designer Environment",
+      "value": "设计器光照环境"
+    },
+    {
+      "key": "Designer Tutorials",
+      "value": "设计器教程"
+    },
+    {
+      "key": "Download Craft",
+      "value": "下载作品"
+    },
+    {
+      "key": "MENU",
+      "value": "菜单"
+    },
+    {
+      "key": "PARTS",
+      "value": "零件库"
+    },
+    {
+      "key": "Please enjoy our hand-crafted, organic, interactive tutorials.",
+      "value": "请体验我们精心制作的交互式教程。"
+    },
+    {
+      "key": "Quick intro to cars and working with the new powertrain system",
+      "value": "快速了解汽车制作，以及新的动力传动系统。"
+    },
+    {
+      "key": "Quick walkthrough on how to build a working prop plane",
+      "value": "快速带你完成一架可正常飞行的螺旋桨飞机。"
+    },
+    {
+      "key": "Start Tutorial",
+      "value": "开始教程"
+    },
+    {
+      "key": "Super quick tutorial that teaches the basics of working in the designer",
+      "value": "一份超简短教程，带你快速掌握设计器的基础操作。"
+    },
+    {
+      "key": "Undo History",
+      "value": "撤销历史"
+    },
+    {
+      "key": "Upload Craft",
+      "value": "上传作品"
+    }
+  ],
+  "contextEntries": [
+    {
+      "key": "FLY",
+      "value": "起飞",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/flyout-menu/"
+    }
+  ]
+}

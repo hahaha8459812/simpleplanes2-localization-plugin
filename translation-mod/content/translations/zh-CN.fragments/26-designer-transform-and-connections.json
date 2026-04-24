@@ -1,0 +1,73 @@
+{
+  "page": "26-designer-transform-and-connections",
+  "entries": [
+    {
+      "key": "Add Connection",
+      "value": "添加连接"
+    },
+    {
+      "key": "CONNECTIONS",
+      "value": "连接"
+    },
+    {
+      "key": "Disabled",
+      "value": "已禁用"
+    },
+    {
+      "key": "Disconnect All",
+      "value": "全部断开"
+    },
+    {
+      "key": "Hover Preview",
+      "value": "悬停预览"
+    },
+    {
+      "key": "Mirror Plane Offset",
+      "value": "镜像平面偏移"
+    },
+    {
+      "key": "Nudge Amount",
+      "value": "微调步长"
+    },
+    {
+      "key": "Offset",
+      "value": "偏移"
+    },
+    {
+      "key": "Options",
+      "value": "选项"
+    },
+    {
+      "key": "PART CONNECTIONS",
+      "value": "零件连接"
+    },
+    {
+      "key": "Position",
+      "value": "位置"
+    },
+    {
+      "key": "Rotation",
+      "value": "旋转"
+    },
+    {
+      "key": "Rotation Amount",
+      "value": "旋转量"
+    },
+    {
+      "key": "Snap Points To Road",
+      "value": "将节点吸附到道路"
+    },
+    {
+      "key": "To Delete",
+      "value": "删除"
+    },
+    {
+      "key": "TRANSFORM PART",
+      "value": "变换零件"
+    },
+    {
+      "key": "Zero Rotations",
+      "value": "归零旋转"
+    }
+  ]
+}

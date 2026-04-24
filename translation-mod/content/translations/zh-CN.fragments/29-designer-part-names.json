@@ -1,0 +1,421 @@
+{
+  "page": "29-designer-part-names",
+  "entries": [
+    {
+      "key": "Add Parts",
+      "value": "添加零件"
+    },
+    {
+      "key": "Air Brake",
+      "value": "减速板"
+    },
+    {
+      "key": "AR Missile",
+      "value": "AR 导弹"
+    },
+    {
+      "key": "ARD Missile",
+      "value": "ARD 导弹"
+    },
+    {
+      "key": "Attitude Indicator",
+      "value": "姿态仪"
+    },
+    {
+      "key": "Auto Cannon",
+      "value": "机炮"
+    },
+    {
+      "key": "Bare Wing Gear",
+      "value": "无罩机翼起落架"
+    },
+    {
+      "key": "Base Wing",
+      "value": "基础机翼"
+    },
+    {
+      "key": "Basic Frame",
+      "value": "基础框架"
+    },
+    {
+      "key": "Basic Joystick",
+      "value": "基础操纵杆"
+    },
+    {
+      "key": "Basic Lever",
+      "value": "基础拉杆"
+    },
+    {
+      "key": "Basic Seat",
+      "value": "基础座椅"
+    },
+    {
+      "key": "Blocked Canopy",
+      "value": "封闭座舱盖"
+    },
+    {
+      "key": "Boom 25",
+      "value": "Boom 25"
+    },
+    {
+      "key": "Boom 50",
+      "value": "Boom 50"
+    },
+    {
+      "key": "Brake Flap",
+      "value": "减速襟翼"
+    },
+    {
+      "key": "Brake Pedal",
+      "value": "刹车踏板"
+    },
+    {
+      "key": "Car Seat",
+      "value": "汽车座椅"
+    },
+    {
+      "key": "Chaffs",
+      "value": "箔条弹发射器"
+    },
+    {
+      "key": "Clutch Pedal",
+      "value": "离合踏板"
+    },
+    {
+      "key": "Cylinder Grip",
+      "value": "圆柱握把"
+    },
+    {
+      "key": "Delta Wing",
+      "value": "三角翼"
+    },
+    {
+      "key": "Double Wishbone",
+      "value": "双叉臂悬挂"
+    },
+    {
+      "key": "Economy Engine",
+      "value": "经济型发动机"
+    },
+    {
+      "key": "Ergonomic Lever",
+      "value": "人体工学拉杆"
+    },
+    {
+      "key": "Fighter Throttle",
+      "value": "战斗机油门杆"
+    },
+    {
+      "key": "Fin Details",
+      "value": "尾翼细节"
+    },
+    {
+      "key": "Fixed Gear",
+      "value": "固定起落架"
+    },
+    {
+      "key": "Flares",
+      "value": "热焰弹发射器"
+    },
+    {
+      "key": "Flight Computer",
+      "value": "飞控计算机"
+    },
+    {
+      "key": "Floor Mounted Pedal",
+      "value": "地板式踏板"
+    },
+    {
+      "key": "Formation Light",
+      "value": "编队灯"
+    },
+    {
+      "key": "Fowler Flap",
+      "value": "福勒襟翼"
+    },
+    {
+      "key": "Gas Pedal",
+      "value": "油门踏板"
+    },
+    {
+      "key": "Handy Lever",
+      "value": "便捷拉杆"
+    },
+    {
+      "key": "Hawk Eye",
+      "value": "鹰眼瞄准吊舱"
+    },
+    {
+      "key": "Hawk Eye Lite",
+      "value": "轻型鹰眼瞄准吊舱"
+    },
+    {
+      "key": "Hinge Rotator",
+      "value": "铰链旋转器"
+    },
+    {
+      "key": "Horizontal Stabilizer",
+      "value": "水平安定面"
+    },
+    {
+      "key": "IR Missile",
+      "value": "IR 导弹"
+    },
+    {
+      "key": "Jet Missile",
+      "value": "巡航导弹"
+    },
+    {
+      "key": "Joystick Base",
+      "value": "操纵杆基座"
+    },
+    {
+      "key": "Large Heli Rotor",
+      "value": "大型直升机主旋翼"
+    },
+    {
+      "key": "Large Prop",
+      "value": "大型螺旋桨发动机"
+    },
+    {
+      "key": "Large Turbofan",
+      "value": "大型涡扇发动机"
+    },
+    {
+      "key": "Laser Missile",
+      "value": "激光导弹"
+    },
+    {
+      "key": "Large Gear",
+      "value": "大型起落架"
+    },
+    {
+      "key": "Lazy 50",
+      "value": "Lazy 50"
+    },
+    {
+      "key": "Long Pylon",
+      "value": "长挂架"
+    },
+    {
+      "key": "Medium Turbofan",
+      "value": "中型涡扇发动机"
+    },
+    {
+      "key": "Menu",
+      "value": "菜单"
+    },
+    {
+      "key": "Military Jet",
+      "value": "军用喷气发动机"
+    },
+    {
+      "key": "Minigun",
+      "value": "加特林机枪"
+    },
+    {
+      "key": "Missile Details",
+      "value": "导弹细节"
+    },
+    {
+      "key": "Missile Fins",
+      "value": "导弹尾翼"
+    },
+    {
+      "key": "Missile Jet Inlet",
+      "value": "导弹喷气进气口"
+    },
+    {
+      "key": "Missile Wings",
+      "value": "导弹机翼"
+    },
+    {
+      "key": "Modern Frame",
+      "value": "现代框架"
+    },
+    {
+      "key": "Modern Joystick",
+      "value": "现代操纵杆"
+    },
+    {
+      "key": "Modern Seat",
+      "value": "现代座椅"
+    },
+    {
+      "key": "Orbit Camera",
+      "value": "环绕相机"
+    },
+    {
+      "key": "Offroad Wheel",
+      "value": "越野车轮"
+    },
+    {
+      "key": "Paint Tool",
+      "value": "喷涂工具"
+    },
+    {
+      "key": "Pirate Cannon",
+      "value": "海盗炮"
+    },
+    {
+      "key": "Primary Wing",
+      "value": "主翼"
+    },
+    {
+      "key": "Procedural Missile",
+      "value": "程序化导弹"
+    },
+    {
+      "key": "Prop Assembly",
+      "value": "螺旋桨总成"
+    },
+    {
+      "key": "Push Throttle",
+      "value": "推杆式油门"
+    },
+    {
+      "key": "Pylon",
+      "value": "挂架"
+    },
+    {
+      "key": "Racing Engine",
+      "value": "赛车发动机"
+    },
+    {
+      "key": "Racing Wheel",
+      "value": "赛车车轮"
+    },
+    {
+      "key": "Radial Prop",
+      "value": "星型螺旋桨发动机"
+    },
+    {
+      "key": "Rear Gear",
+      "value": "后起落架"
+    },
+    {
+      "key": "Refuel Drogue",
+      "value": "加油锥套"
+    },
+    {
+      "key": "Refuel Probe",
+      "value": "受油探管"
+    },
+    {
+      "key": "Right Angle Gearbox",
+      "value": "直角变速箱"
+    },
+    {
+      "key": "SAR Missile",
+      "value": "SAR 导弹"
+    },
+    {
+      "key": "Saves the current craft.",
+      "value": "保存当前载具。"
+    },
+    {
+      "key": "Semi Truck Engine",
+      "value": "半挂卡车发动机"
+    },
+    {
+      "key": "Slat",
+      "value": "前缘缝翼"
+    },
+    {
+      "key": "Short Gear",
+      "value": "短起落架"
+    },
+    {
+      "key": "Small Heli Rotor",
+      "value": "小型直升机主旋翼"
+    },
+    {
+      "key": "Small Prop",
+      "value": "小型螺旋桨发动机"
+    },
+    {
+      "key": "Small Rotator",
+      "value": "小型旋转器"
+    },
+    {
+      "key": "Sports Engine",
+      "value": "运动型发动机"
+    },
+    {
+      "key": "Standard Flap",
+      "value": "标准襟翼"
+    },
+    {
+      "key": "Steering Wheel",
+      "value": "方向盘"
+    },
+    {
+      "key": "Steering Wheel GT",
+      "value": "GT 方向盘"
+    },
+    {
+      "key": "Street Wheel",
+      "value": "公路车轮"
+    },
+    {
+      "key": "Tank Cannon",
+      "value": "坦克炮"
+    },
+    {
+      "key": "Tiny Engine",
+      "value": "微型发动机"
+    },
+    {
+      "key": "Torpedo",
+      "value": "鱼雷"
+    },
+    {
+      "key": "Transfer Case",
+      "value": "分动箱"
+    },
+    {
+      "key": "Ultra Turbofan",
+      "value": "超大型涡扇发动机"
+    },
+    {
+      "key": "Unguided Missile",
+      "value": "非制导导弹"
+    },
+    {
+      "key": "Variables",
+      "value": "变量"
+    },
+    {
+      "key": "Vertical Stabilizer",
+      "value": "垂直安定面"
+    },
+    {
+      "key": "Vintage Lever",
+      "value": "复古拉杆"
+    },
+    {
+      "key": "VTOL Engine",
+      "value": "VTOL 发动机"
+    },
+    {
+      "key": "VTOL Nozzle",
+      "value": "VTOL 喷口"
+    },
+    {
+      "key": "VTOL RCN",
+      "value": "VTOL 姿控喷口"
+    },
+    {
+      "key": "Wing Gun",
+      "value": "翼内机炮"
+    },
+    {
+      "key": "Wing Gear",
+      "value": "机翼起落架"
+    },
+    {
+      "key": "Yoke",
+      "value": "驾驶盘"
+    }
+  ]
+}

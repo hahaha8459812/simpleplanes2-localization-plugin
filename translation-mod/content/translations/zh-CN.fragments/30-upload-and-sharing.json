@@ -1,0 +1,65 @@
+{
+  "page": "30-upload-and-sharing",
+  "entries": [
+    {
+      "key": "Add Screenshot",
+      "value": "添加截图"
+    },
+    {
+      "key": "Confirm Upload",
+      "value": "确认上传"
+    },
+    {
+      "key": "Description",
+      "value": "作品简介"
+    },
+    {
+      "key": "Log In",
+      "value": "登录"
+    },
+    {
+      "key": "Please confirm that you are ready to upload.",
+      "value": "请确认作品已经准备好上传。"
+    },
+    {
+      "key": "Please, provide a title.",
+      "value": "请填写作品名称。"
+    },
+    {
+      "key": "Public",
+      "value": "公开上传"
+    },
+    {
+      "key": "Review Before Submitting",
+      "value": "提交前检查"
+    },
+    {
+      "key": "Share",
+      "value": "上传"
+    },
+    {
+      "key": "The upload failed. Please verify your internet connection and try again.",
+      "value": "上传失败，请检查网络连接后重试。"
+    },
+    {
+      "key": "Unlisted",
+      "value": "非公开上传"
+    },
+    {
+      "key": "Upload Complete",
+      "value": "上传完成"
+    },
+    {
+      "key": "Upload finished. Waiting for reply...",
+      "value": "作品已上传，正在等待服务器响应..."
+    },
+    {
+      "key": "You need to include at least one screenshot.",
+      "value": "至少需要添加一张截图。"
+    },
+    {
+      "key": "You need to log in before you can upload.",
+      "value": "请先登录，再上传作品。"
+    }
+  ]
+}

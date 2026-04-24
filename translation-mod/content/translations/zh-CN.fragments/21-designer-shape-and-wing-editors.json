@@ -1,0 +1,149 @@
+{
+  "page": "21-designer-shape-and-wing-editors",
+  "entries": [
+    {
+      "key": "< Backwards",
+      "value": "< 向后"
+    },
+    {
+      "key": "< Root",
+      "value": "< 根部"
+    },
+    {
+      "key": "Add Section",
+      "value": "添加截面"
+    },
+    {
+      "key": "AIRFOIL",
+      "value": "翼型"
+    },
+    {
+      "key": "All",
+      "value": "全部"
+    },
+    {
+      "key": "Bend",
+      "value": "弯折"
+    },
+    {
+      "key": "Bottom",
+      "value": "底部"
+    },
+    {
+      "key": "Camber Height",
+      "value": "弯度高度"
+    },
+    {
+      "key": "Camber Offset",
+      "value": "弯度偏移"
+    },
+    {
+      "key": "Delete Section",
+      "value": "删除截面"
+    },
+    {
+      "key": "Forwards >",
+      "value": "向前 >"
+    },
+    {
+      "key": "FUSELAGE SHAPE",
+      "value": "机身形状"
+    },
+    {
+      "key": "Height",
+      "value": "高度"
+    },
+    {
+      "key": "Interpolated",
+      "value": "插值"
+    },
+    {
+      "key": "Left",
+      "value": "左侧"
+    },
+    {
+      "key": "Length",
+      "value": "长度"
+    },
+    {
+      "key": "Mode",
+      "value": "模式"
+    },
+    {
+      "key": "Off",
+      "value": "关闭"
+    },
+    {
+      "key": "Right",
+      "value": "右侧"
+    },
+    {
+      "key": "Rise",
+      "value": "垂直高度"
+    },
+    {
+      "key": "Rounded",
+      "value": "圆角"
+    },
+    {
+      "key": "Roundness",
+      "value": "圆度"
+    },
+    {
+      "key": "Run",
+      "value": "水平距离"
+    },
+    {
+      "key": "Scale",
+      "value": "缩放"
+    },
+    {
+      "key": "Smoothing",
+      "value": "平滑"
+    },
+    {
+      "key": "Snapping",
+      "value": "吸附"
+    },
+    {
+      "key": "STATISTICS",
+      "value": "统计信息"
+    },
+    {
+      "key": "Sweep",
+      "value": "后掠"
+    },
+    {
+      "key": "Sync Adjacent",
+      "value": "同步相邻"
+    },
+    {
+      "key": "Thickness",
+      "value": "厚度"
+    },
+    {
+      "key": "Tip >",
+      "value": "翼尖 >"
+    },
+    {
+      "key": "Top",
+      "value": "顶部"
+    },
+    {
+      "key": "Trapezium",
+      "value": "梯形"
+    },
+    {
+      "key": "Type",
+      "value": "类型"
+    },
+    {
+      "key": "Width",
+      "value": "宽度"
+    },
+    {
+      "key": "WING EDITOR",
+      "value": "机翼编辑器"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "page": "25-designer-paint-and-appearance",
+  "entries": [
+    {
+      "key": "Blend",
+      "value": "混合"
+    },
+    {
+      "key": "Bottom Fill",
+      "value": "底部填充"
+    },
+    {
+      "key": "Color",
+      "value": "颜色"
+    },
+    {
+      "key": "Color 1",
+      "value": "颜色 1"
+    },
+    {
+      "key": "Color 2",
+      "value": "颜色 2"
+    },
+    {
+      "key": "Color 3",
+      "value": "颜色 3"
+    },
+    {
+      "key": "Color 4",
+      "value": "颜色 4"
+    },
+    {
+      "key": "Delete Image",
+      "value": "删除图片"
+    },
+    {
+      "key": "Drop Here",
+      "value": "拖到此处"
+    },
+    {
+      "key": "Emission Day",
+      "value": "白天自发光"
+    },
+    {
+      "key": "Emission Night",
+      "value": "夜间自发光"
+    },
+    {
+      "key": "Fill",
+      "value": "填充"
+    },
+    {
+      "key": "Finish",
+      "value": "漆面"
+    },
+    {
+      "key": "Left Fill",
+      "value": "左侧填充"
+    },
+    {
+      "key": "Metallic",
+      "value": "金属度"
+    },
+    {
+      "key": "Open Image",
+      "value": "打开图片"
+    },
+    {
+      "key": "PAINT",
+      "value": "喷涂"
+    },
+    {
+      "key": "Paint Target",
+      "value": "喷涂目标"
+    },
+    {
+      "key": "Paint Name",
+      "value": "涂装名称"
+    },
+    {
+      "key": "Right Fill",
+      "value": "右侧填充"
+    },
+    {
+      "key": "Shading",
+      "value": "着色"
+    },
+    {
+      "key": "Smoothness",
+      "value": "光滑度"
+    },
+    {
+      "key": "Style",
+      "value": "样式"
+    },
+    {
+      "key": "Texture",
+      "value": "纹理"
+    },
+    {
+      "key": "Texture Settings",
+      "value": "纹理设置"
+    },
+    {
+      "key": "Top Fill",
+      "value": "顶部填充"
+    },
+    {
+      "key": "Vertical Fill",
+      "value": "垂直填充"
+    }
+  ]
+}

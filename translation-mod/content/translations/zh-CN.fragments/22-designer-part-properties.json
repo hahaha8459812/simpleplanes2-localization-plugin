@@ -1,0 +1,277 @@
+{
+  "page": "22-designer-part-properties",
+  "entries": [
+    {
+      "key": "Arresting Hook",
+      "value": "拦阻钩"
+    },
+    {
+      "key": "Attitude Ball",
+      "value": "姿态球"
+    },
+    {
+      "key": "Beacon Light",
+      "value": "航标灯"
+    },
+    {
+      "key": "Bomb",
+      "value": "炸弹"
+    },
+    {
+      "key": "Button",
+      "value": "按钮"
+    },
+    {
+      "key": "Camera",
+      "value": "相机"
+    },
+    {
+      "key": "Cannon",
+      "value": "机炮"
+    },
+    {
+      "key": "Canopy",
+      "value": "座舱盖"
+    },
+    {
+      "key": "Car Engine",
+      "value": "汽车发动机"
+    },
+    {
+      "key": "Catapult Connector",
+      "value": "弹射器连接器"
+    },
+    {
+      "key": "Cockpit",
+      "value": "座舱"
+    },
+    {
+      "key": "Cockpit Sound",
+      "value": "座舱音效"
+    },
+    {
+      "key": "Control Base",
+      "value": "控制基座"
+    },
+    {
+      "key": "Control Surface",
+      "value": "操纵面"
+    },
+    {
+      "key": "Countermeasure Dispenser",
+      "value": "干扰弹发射器"
+    },
+    {
+      "key": "Decal",
+      "value": "贴花"
+    },
+    {
+      "key": "Detacher",
+      "value": "分离器"
+    },
+    {
+      "key": "Differential",
+      "value": "差速器"
+    },
+    {
+      "key": "Drive Shaft",
+      "value": "传动轴"
+    },
+    {
+      "key": "Engine",
+      "value": "发动机"
+    },
+    {
+      "key": "Fuel Tank",
+      "value": "油箱"
+    },
+    {
+      "key": "Fuselage",
+      "value": "机身"
+    },
+    {
+      "key": "Gauge",
+      "value": "仪表"
+    },
+    {
+      "key": "Gearbox",
+      "value": "变速箱"
+    },
+    {
+      "key": "Gun",
+      "value": "机枪"
+    },
+    {
+      "key": "Gyroscope",
+      "value": "陀螺仪"
+    },
+    {
+      "key": "IK Target",
+      "value": "IK 目标"
+    },
+    {
+      "key": "Input Controller",
+      "value": "输入控制器"
+    },
+    {
+      "key": "Jet Engine",
+      "value": "喷气发动机"
+    },
+    {
+      "key": "Jet Engine Shroud",
+      "value": "喷气发动机整流罩"
+    },
+    {
+      "key": "Joystick",
+      "value": "操纵杆"
+    },
+    {
+      "key": "Label",
+      "value": "标签"
+    },
+    {
+      "key": "Landing Gear",
+      "value": "起落架"
+    },
+    {
+      "key": "Magnet",
+      "value": "电磁铁"
+    },
+    {
+      "key": "Main Rotor",
+      "value": "主旋翼"
+    },
+    {
+      "key": "MFD",
+      "value": "多功能显示器"
+    },
+    {
+      "key": "Missile",
+      "value": "导弹"
+    },
+    {
+      "key": "Missile Configuration",
+      "value": "导弹配置"
+    },
+    {
+      "key": "Nosecone",
+      "value": "鼻锥"
+    },
+    {
+      "key": "Parachute",
+      "value": "降落伞"
+    },
+    {
+      "key": "PART PROPERTIES",
+      "value": "零件属性"
+    },
+    {
+      "key": "Part Targeting",
+      "value": "零件瞄准"
+    },
+    {
+      "key": "Pedal",
+      "value": "脚蹬"
+    },
+    {
+      "key": "Piston",
+      "value": "活塞"
+    },
+    {
+      "key": "Posed Grip",
+      "value": "预设握姿"
+    },
+    {
+      "key": "Procedural Bay",
+      "value": "程序化舱"
+    },
+    {
+      "key": "Procedural Window",
+      "value": "程序化窗口"
+    },
+    {
+      "key": "Propeller Engine",
+      "value": "螺旋桨发动机"
+    },
+    {
+      "key": "Propellers",
+      "value": "螺旋桨"
+    },
+    {
+      "key": "Reaction Control Nozzle",
+      "value": "反作用控制喷口"
+    },
+    {
+      "key": "Refuel Drouge",
+      "value": "空中加油锥套"
+    },
+    {
+      "key": "Resizable Shape",
+      "value": "可调整形状"
+    },
+    {
+      "key": "Rocket",
+      "value": "火箭"
+    },
+    {
+      "key": "Rocket Pod",
+      "value": "火箭发射巢"
+    },
+    {
+      "key": "Rotator",
+      "value": "旋转器"
+    },
+    {
+      "key": "Seat",
+      "value": "座椅"
+    },
+    {
+      "key": "Seat IK",
+      "value": "座椅 IK"
+    },
+    {
+      "key": "Suspension",
+      "value": "悬挂"
+    },
+    {
+      "key": "Switch",
+      "value": "开关"
+    },
+    {
+      "key": "Tail Rotor",
+      "value": "尾桨"
+    },
+    {
+      "key": "Targeting Pod",
+      "value": "瞄准吊舱"
+    },
+    {
+      "key": "Text Decal",
+      "value": "文字贴花"
+    },
+    {
+      "key": "Transmission",
+      "value": "传动系统"
+    },
+    {
+      "key": "Transparency",
+      "value": "透明度"
+    },
+    {
+      "key": "Wheel",
+      "value": "机轮"
+    },
+    {
+      "key": "Wheel Suspension",
+      "value": "轮悬挂"
+    },
+    {
+      "key": "Winch",
+      "value": "绞盘"
+    },
+    {
+      "key": "Wing",
+      "value": "机翼"
+    }
+  ]
+}

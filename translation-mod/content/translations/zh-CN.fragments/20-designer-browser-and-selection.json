@@ -1,0 +1,77 @@
+{
+  "page": "20-designer-browser-and-selection",
+  "entries": [
+    {
+      "key": "Click here to\nde-select part",
+      "value": "点击此处\n取消选择零件"
+    },
+    {
+      "key": "Create",
+      "value": "创建"
+    },
+    {
+      "key": "Date",
+      "value": "日期"
+    },
+    {
+      "key": "Date ▲",
+      "value": "日期 ▲"
+    },
+    {
+      "key": "LOAD CRAFT",
+      "value": "加载载具"
+    },
+    {
+      "key": "Name",
+      "value": "名称"
+    },
+    {
+      "key": "No filters selected",
+      "value": "未选择筛选器"
+    },
+    {
+      "key": "Part Count",
+      "value": "零件数量"
+    },
+    {
+      "key": "Parts",
+      "value": "零件"
+    },
+    {
+      "key": "Path",
+      "value": "路径"
+    },
+    {
+      "key": "Propeller, Fighter, World War II",
+      "value": "螺旋桨, 战斗机, 二战"
+    },
+    {
+      "key": "Search",
+      "value": "搜索"
+    },
+    {
+      "key": "SEARCH PARTS",
+      "value": "搜索零件"
+    },
+    {
+      "key": "Selected Part",
+      "value": "已选零件"
+    },
+    {
+      "key": "Selected Part Cost",
+      "value": "已选零件成本"
+    },
+    {
+      "key": "Selection",
+      "value": "选择"
+    },
+    {
+      "key": "Show All",
+      "value": "显示全部"
+    },
+    {
+      "key": "Subassembly",
+      "value": "子组件"
+    }
+  ]
+}

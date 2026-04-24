@@ -1,0 +1,645 @@
+{
+  "page": "28-designer-tooltips-and-search",
+  "entries": [
+    {
+      "key": "Fuselage\nA versatile, procedural fuselage section. Customize its shape, size, and corner style to build sleek, modern aircraft bodies.",
+      "value": "机身\n一种灵活的程序化机身截面。你可以自定义其形状、尺寸和角点样式，用来打造流线型的现代机身。"
+    },
+    {
+      "key": "Horizontal Stabilizer\nA smaller version of the procedural wing to help you control your pitch.",
+      "value": "水平安定面\n程序化机翼的缩小版本，用来帮助你控制俯仰。"
+    },
+    {
+      "key": "Share your creation with the community by uploading it to SimplePlanes.com.",
+      "value": "将你的作品上传到 SimplePlanes.com，与社区分享。"
+    },
+    {
+      "key": "Large Heli Rotor\nA main rotor assembly for a helicopter.  It produces a lot of torque when it generates lift, so make sure to slap a tail rotor on as well.",
+      "value": "大型直升机主旋翼\n直升机用的主旋翼总成。它在产生升力时也会带来很大的扭矩，所以别忘了再装一个尾旋翼。"
+    },
+    {
+      "key": "Nose Cone\nA procedural nose cone. Adjust its length, shape, and roundness for optimal aerodynamics and style.",
+      "value": "鼻锥\n一种程序化鼻锥。可以调整长度、形状和圆润度，以兼顾空气动力表现与外观。"
+    },
+    {
+      "key": "Large Turbofan\nA fuel-efficient high-bypass engine made for standard-sized airliners and big transports.",
+      "value": "大型涡扇发动机\n一款省油的高涵道比发动机，适合标准尺寸的客机和大型运输机。"
+    },
+    {
+      "key": "Menu\nOpens the main menu for the designer.",
+      "value": "菜单\n打开设计器主菜单。"
+    },
+    {
+      "key": "Missile Wings\nWings specially designed for missiles to give them a little extra lift. Goes together with missile jet engines like lamb and tunafish.",
+      "value": "导弹机翼\n专为导弹设计的机翼，能提供一点额外升力。适合和导弹喷气发动机之类的部件搭配使用。"
+    },
+    {
+      "key": "Angled Block\nIf used in the right place, this can improve the aerodynamics of your airplane.",
+      "value": "斜角方块\n用在合适的位置时，它能改善飞机的空气动力外形。"
+    },
+    {
+      "key": "Modern Frame\nIt's a clean slate to create your own cockpit.  This version has side rails to attach parts, and comfortable foot-holes to rest your feet.",
+      "value": "现代框架\n用于打造自定义座舱的基础框架。这个版本带有侧边安装轨和舒适的脚踏位。"
+    },
+    {
+      "key": "Rotator\nSpecial little block that can rotate stuff that's attached to it. It's really neat.",
+      "value": "旋转器\n一个能带动所连接部件旋转的小装置，实用又灵活。"
+    },
+    {
+      "key": "Flares\nDispenses chaff or flares when triggered, for helping evade missiles and break locks.",
+      "value": "热焰弹发射器\n触发后会释放箔条弹或热焰弹，用于规避导弹和解除锁定。"
+    },
+    {
+      "key": "VTOL Nozzle\nPowered by VTOL Engines. Power is evenly spread across all VTOL Nozzles. Carefully place these so that the Center of Thrust is near your airplane's Center of Mass, or you will have a lot of trouble hovering and transitioning to forward flight.",
+      "value": "VTOL 喷口\n由 VTOL 发动机供能。动力会平均分配到所有 VTOL 喷口。请谨慎布置，使推力中心尽量靠近重心，否则悬停和转换到前飞时会很难控制。"
+    },
+    {
+      "key": "Exits back to the main menu",
+      "value": "返回主菜单"
+    },
+    {
+      "key": "Small Heli Rotor\nA small main rotor assembly for a helicopter.  It produces torque when it generates lift, so make sure to slap a tail rotor on as well.",
+      "value": "小型直升机主旋翼\n小型直升机用主旋翼总成。它在产生升力时也会带来扭矩，所以别忘了再装一个尾旋翼。"
+    },
+    {
+      "key": "Transfer Case\nA specialized differential that splits power between the front and rear axles, allowing for dynamic FWD, RWD, and AWD configurations using the VTOL slider.",
+      "value": "分动箱\n一种特殊的差速装置，可在前后轴之间分配动力，并结合 VTOL 滑块实现 FWD、RWD 和 AWD 的动态切换。"
+    },
+    {
+      "key": "Arresting Hook\nCatches on arresting cables. Maybe if you use this you can finally manage to land on that carrier, despite your piloting skills?",
+      "value": "拦阻钩\n用于钩住拦阻索。也许装上它之后，即使你的驾驶技术有点悬，也终于能降落到航母上了？"
+    },
+    {
+      "key": "Catapult Connector\nTells an aircraft catapult where to connect to your plane, defines catapult acceleration and target launch speed. Not strictly required for catapult connection.",
+      "value": "弹射器连接器\n指定飞机弹射器应连接到载具的哪个位置，并定义弹射加速度和目标起飞速度。连接弹射器时并非强制需要。"
+    },
+    {
+      "key": "Racing Wheel\nHigh performance on asphalt, but try not to touch grass with these.",
+      "value": "赛车车轮\n在柏油路上性能很强，但尽量别让它们碰到草地。"
+    },
+    {
+      "key": "Street Wheel\nOffers a good balance between performance and style.",
+      "value": "公路车轮\n在性能与外观之间取得了不错平衡。"
+    },
+    {
+      "key": "Offroad Wheel\nAggressive treads designed to chew through mud and climb mountains.",
+      "value": "越野车轮\n激进胎纹专为碾过泥地、攀爬山地而设计。"
+    },
+    {
+      "key": "Double Wishbone\nMakes the wheel bounce up and down, improves traction and handling. Only works with wheels.",
+      "value": "双叉臂悬挂\n让车轮上下弹跳，改善抓地力和操控。仅适用于车轮。"
+    },
+    {
+      "key": "Rear Gear\nBeefy landing gear that sport a wider stance and are intended to be used in the rear for jet airplanes.",
+      "value": "后起落架\n坚固的起落架，轮距更宽，主要用于喷气飞机后部。"
+    },
+    {
+      "key": "Wing Gear\nLanding gear specially made to attach to a wing. They are capable of retracting and snuggling up right under the wing.",
+      "value": "机翼起落架\n专为安装在机翼上的起落架。可收起并贴合到机翼下方。"
+    },
+    {
+      "key": "Bare Wing Gear\nLanding gear specially made to attach to a wing with a custom cover. They are capable of retracting and snuggling up right under the wing.",
+      "value": "无罩机翼起落架\n专为安装在带自定义整流罩的机翼上的起落架。可收起并贴合到机翼下方。"
+    },
+    {
+      "key": "Fixed Gear\nUseful for taking off, and landing without destroying your airplane.",
+      "value": "固定起落架\n适合起飞和降落，帮你别把飞机摔坏。"
+    },
+    {
+      "key": "Short Gear\nFancy landing gear that can hide on command. This is great because it's one of the few animations in the game, and it reduces drag.",
+      "value": "短起落架\n可按指令收起的精致起落架。这很好，因为它是游戏中少有的动画之一，还能降低阻力。"
+    },
+    {
+      "key": "Large Gear\nLarger version of the retractable landing gear.",
+      "value": "大型起落架\n可收放起落架的大型版本。"
+    },
+    {
+      "key": "Coilover\nShocks are useful when you want to soften impact with terra firma.",
+      "value": "绞牙避震器\n想要缓冲着陆或撞击地面时，避震器很有用。"
+    },
+    {
+      "key": "Fin Details\nCosmetic details that don't affect the physics of fins, but can make it look more neato.",
+      "value": "尾翼细节\n不会影响尾翼物理表现的装饰性细节，但能让它看起来更精致。"
+    },
+    {
+      "key": "Glass Fuselage\nA procedural hollow fuselage section made of glass. Customize its shape, size, and thickness.",
+      "value": "玻璃机身\n一种玻璃材质的程序化空心机身截面。可自定义形状、尺寸和厚度。"
+    },
+    {
+      "key": "Straight Block\nSometimes people don't want smooth blocks. If you are that kind of person, then this block is for you.",
+      "value": "直角方块\n有些人就是不喜欢圆滑的方块。如果你也是这种人，这个零件就是给你的。"
+    },
+    {
+      "key": "Sports Engine\nA roaring V8 sports engine.",
+      "value": "运动型发动机\n一台咆哮的 V8 跑车发动机。"
+    },
+    {
+      "key": "Hollow Fuselage\nA procedural hollow fuselage section. Customize its shape, size, and thickness.",
+      "value": "空心机身\n一种程序化空心机身截面。可自定义形状、尺寸和厚度。"
+    },
+    {
+      "key": "Prop Assembly\nGive it a fast spin and it will pull ya where you want to go.",
+      "value": "螺旋桨总成\n让它高速旋转起来，它就会带你飞向想去的地方。"
+    },
+    {
+      "key": "Steering Wheel\nA classic steering wheel for ground vehicles. Connect its input to 'Roll' for conventional steering.",
+      "value": "方向盘\n适用于地面载具的经典方向盘。将其输入绑定到“Roll”即可实现常规转向。"
+    },
+    {
+      "key": "Refuel Probe\nA part for taking fuel from a fuel tanker. Any part can take fuel from a refuel drogue, but this part will tell the drogue where the probe is, so the assist mode will work.",
+      "value": "受油探管\n用于从空中加油机获取燃油的部件。任何部件都能从加油锥套受油，但这个部件会告诉锥套探管的位置，从而让辅助对接功能生效。"
+    },
+    {
+      "key": "SAR Missile\nA fast mid-range Semi-Active Radar missile, don't let anyone run away from you.",
+      "value": "SAR 导弹\n一款高速中程半主动雷达导弹，别让任何目标轻易从你面前逃走。"
+    },
+    {
+      "key": "Small Prop\nCompact and lightweight engine, well suited for small aircraft.",
+      "value": "小型螺旋桨发动机\n紧凑轻量，适合小型飞机。"
+    },
+    {
+      "key": "Take your current craft design for a flight",
+      "value": "驾驶当前设计的载具进行试飞"
+    },
+    {
+      "key": "Delta Wing\nA procedural delta wing with an efficient airfoil, ready for speed!",
+      "value": "三角翼\n带高效翼型的程序化三角翼，为高速飞行而生！"
+    },
+    {
+      "key": "Differential\nOne drive shaft as an input and two drive shafts as output. It's like a fork in the road for a drive shaft.",
+      "value": "差速器\n一根传动轴输入、两根传动轴输出。就像传动轴在路口分叉一样。"
+    },
+    {
+      "key": "Hawk Eye\nYour eyes in the sky when precision matters. This targeting pod not only directs your laser-guided love letters with pinpoint accuracy but also comes equipped with a high-zoom camera, allowing you to watch your handiwork unfold from a safe distance. Essential for those who like to keep an eye on the prize.",
+      "value": "鹰眼瞄准吊舱\n当你需要精确打击时，它就是你的空中之眼。它不仅能精确引导激光制导武器，还自带高倍率摄像机，让你能在安全距离外欣赏命中效果。"
+    },
+    {
+      "key": "Hawk Eye Lite\nJust like the Hawk Eye, but a smaller, lighter variant with a little less range.",
+      "value": "轻型鹰眼瞄准吊舱\n和鹰眼类似，但体积更小、更轻，探测距离也略短一些。"
+    },
+    {
+      "key": "Medium Turbofan\nA compact high-bypass turbofan engine for smaller, regional jets.",
+      "value": "中型涡扇发动机\n适用于小型区域喷气机的紧凑型高涵道比涡扇发动机。"
+    },
+    {
+      "key": "Radial Prop\nIt's big, it's torque-y, and it's great for those classic, WW2 style birds. Has the aerodynamics of a barn door.",
+      "value": "星型螺旋桨发动机\n体积大、扭矩足，非常适合经典的二战风格飞机。空气动力外形就像一扇谷仓门。"
+    },
+    {
+      "key": "Show how much drag your design is producing.",
+      "value": "显示你的设计当前产生的阻力大小。"
+    },
+    {
+      "key": "VTOL RCN\nReaction Control Nozzles (RCN) are used to control the aircraft in a hover. The larger VTOL Nozzles provide the main thrust to get off the ground, and these little nozzles help to make sure you don't crash n' burn.",
+      "value": "VTOL 姿控喷口\n反作用控制喷口（RCN）用于悬停时控制飞机姿态。较大的 VTOL 喷口负责主要升力，而这些小喷口则帮助你别在悬停时一头栽下去。"
+    },
+    {
+      "key": "Detacher\nUse these to drop missiles, a mini aircraft, or create an ejection seat for last-second bailouts. Select a detacher and click the part options icon to change which group it is assigned to.",
+      "value": "分离器\n可用于投放导弹、释放小型飞行器，或制作弹射座椅。选中分离器后点击零件选项图标，可以修改它所属的分组。"
+    },
+    {
+      "key": "Drive Shaft\nThe backbone of a powertrain. Use these to connect powertrain components like engines, transmissions, and differentials together.",
+      "value": "传动轴\n动力系统的骨架。用它来连接发动机、变速箱、差速器等动力总成部件。"
+    },
+    {
+      "key": "Large Prop\nHigh-performance, liquid cooled V-engine built for speed and it even supports a supercharger if you need an extra boost.",
+      "value": "大型螺旋桨发动机\n高性能液冷 V 型发动机，为速度而生，还支持加装机械增压器来获得额外动力。"
+    },
+    {
+      "key": "Laser Missile\nA fat laser guided missile to bring the annoyance of trolling with a laser pointer to a whole new level, remember to bring a targeting pod.",
+      "value": "激光导弹\n一枚体型偏大的激光制导导弹，把拿激光笔逗人的烦人成本提升到了新高度，记得搭配瞄准吊舱一起用。"
+    },
+    {
+      "key": "Tiny Engine\nA small I2 engine, perfect for motorbikes or other small vehicles.",
+      "value": "微型发动机\n小巧的直列双缸发动机，非常适合摩托车和其他小型车辆。"
+    },
+    {
+      "key": "Torpedo\nSelf-propelled weapon with an explosive warhead. Drop it into the water and it will go boom if it touches anything.",
+      "value": "鱼雷\n带爆炸战斗部的自推进武器。投进水里后，只要碰到东西就会爆炸。"
+    },
+    {
+      "key": "Transmission\nManages the engine's power with multiple gears. Adjust its gearing to create a trade-off between quick acceleration and high top speed. Has a built-in clutch.",
+      "value": "变速箱\n用多个挡位管理发动机动力。你可以通过齿比在加速性能和最高速度之间做取舍，内置离合器。"
+    },
+    {
+      "key": "Vertical Stabilizer\nA smaller version of the procedural wing meant to go vertical to help you fly straight like an arrow.",
+      "value": "垂直安定面\n程序化机翼的缩小版本，设计成垂直安装，帮助你像箭一样飞得更稳。"
+    },
+    {
+      "key": "AR Missile\nA very agile mid-range Active Radar missile, perfect to make your enemies panic while all their alarms go off.",
+      "value": "AR 导弹\n一款非常灵活的中程主动雷达导弹，足够让敌人在警报声中手忙脚乱。"
+    },
+    {
+      "key": "Basic Frame\nIt's a clean slate to create your own cockpit.",
+      "value": "基础框架\n打造自定义座舱的空白基础。"
+    },
+    {
+      "key": "Brake Flap\nA flap that can act as a normal control surface, until the brake input is activated and it splits in two to become an airbrake.",
+      "value": "减速襟翼\n平时可作为普通操纵面使用；启用刹车输入后，它会分成两片并展开成减速板。"
+    },
+    {
+      "key": "Camera\nSpecial camera that can give you a different view from your plane. Check the Part Properties for several features.",
+      "value": "相机\n一种可为你的飞机提供额外视角的特殊相机。更多功能可在“零件属性”中调整。"
+    },
+    {
+      "key": "Economy Engine\nA Swiss Army knife, a daily driver with the perfect balance between efficiency and performance.",
+      "value": "经济型发动机\n像瑞士军刀一样全能的日用发动机，在效率和性能之间取得了很好的平衡。"
+    },
+    {
+      "key": "Military Jet\nA high-performance low-bypass engine built for speed. Features a variable nozzle and an optional afterburner for supersonic dashes. Perfect for fighters and interceptors where raw thrust matters more than fuel economy.",
+      "value": "军用喷气发动机\n一款为速度而生的高性能低涵道比发动机。带可变喷口，并可选加力燃烧室用于超音速冲刺。非常适合战斗机和截击机。"
+    },
+    {
+      "key": "Pirate Cannon\nYARR! Behold this mighty boom‑barrel! It can't hit a lazy kraken, but by the Brown Pearl, if it clips ye, ye'll be floppin' like a drunken gull!",
+      "value": "海盗炮\n呀哈！瞧瞧这门威力十足的轰鸣炮！它未必打得中懒洋洋的海怪，但只要擦到你一下，你就会像醉酒的海鸥一样翻着飞出去！"
+    },
+    {
+      "key": "Primary Wing\nA procedural main wing with a control surface to coast the skies in style.",
+      "value": "主翼\n一款带操纵面的程序化主翼，让你优雅地遨游天际。"
+    },
+    {
+      "key": "Standard Flap\nThe simplest control surface. Can deflect up and down ",
+      "value": "标准襟翼\n最基础的操纵面，可向上或向下偏转。"
+    },
+    {
+      "key": "Ultra Turbofan\nEssentially a giant ducted fan that happens to have a jet engine hidden inside. It sips fuel and can push an obscene amount of mass, but good luck finding enough ground clearance under your wings to mount it.",
+      "value": "超大型涡扇发动机\n本质上就是一台内部藏着喷气发动机的超大涵道风扇。它非常省油，也能推动夸张的重量，但要在机翼下给它留出足够离地间隙可不容易。"
+    },
+    {
+      "key": "Auto Cannon\nAn explosive round autocannon to tear apart anything that decides to step in front of you.",
+      "value": "机炮\n发射爆炸弹的自动炮，足以撕碎任何敢挡在你前面的东西。"
+    },
+    {
+      "key": "Blocked Canopy\nIt's a canopy for your own cockpit.",
+      "value": "封闭座舱盖\n可用于你自定义座舱的座舱盖。"
+    },
+    {
+      "key": "Create a new craft, losing any unsaved progress on the current craft.",
+      "value": "新建载具，当前载具中所有未保存的进度都会丢失。"
+    },
+    {
+      "key": "IR Missile\nA simple yet effective Infrared seeking missile with a wide FoV for short range fights.",
+      "value": "IR 导弹\n一种简单但有效的红外制导导弹，拥有较宽视场，适合近距离缠斗。"
+    },
+    {
+      "key": "Learn how to build with an interactive tutorials. It's much easier once you know the basics.",
+      "value": "通过交互式教程学习建造。掌握基础之后会轻松很多。"
+    },
+    {
+      "key": "Missile Details\nCosmetic details that don't affect the physics of the missile, but can make it look more neato.",
+      "value": "导弹细节\n不会影响导弹物理表现的装饰性细节，但能让它看起来更精致。"
+    },
+    {
+      "key": "Missile Jet Inlet\nInlets specially designed for missiles with jet engines.",
+      "value": "导弹喷气进气口\n专为巡航导弹设计的进气口。"
+    },
+    {
+      "key": "Opens the environment settings.",
+      "value": "打开光照环境设置。"
+    },
+    {
+      "key": "Tail Rotor\nAttempts to counteract torque from a helicopter rotor assembly, and provides yaw control",
+      "value": "尾桨\n用于抵消直升机主旋翼产生的扭矩，并提供偏航控制。"
+    },
+    {
+      "key": "Tank Cannon\nA customisable tank cannon with mighty shells.",
+      "value": "坦克炮\n一门可自定义、威力十足的坦克炮。"
+    },
+    {
+      "key": "Boom 50\n500-pound dumb bomb. It makes a bigger boom.",
+      "value": "Boom 50\n500 磅非制导炸弹，爆炸更带劲。"
+    },
+    {
+      "key": "Fighter Throttle\nAn ergonomic fighter-jet-style throttle control.",
+      "value": "战斗机油门杆\n符合人体工学的战斗机风格油门控制器。"
+    },
+    {
+      "key": "Fowler Flap\nA flap that slides backwards as well as deflecting, increasing the wing's surface area when it is deployed.",
+      "value": "福勒襟翼\n一种在偏转的同时还会向后滑出的襟翼，展开时能增大机翼面积。"
+    },
+    {
+      "key": "Handy Lever\nA simple lever that can be bound to any control.",
+      "value": "便捷拉杆\n一种可绑定到任意控制输入的简单拉杆。"
+    },
+    {
+      "key": "Minigun\nThe minigun has a higher rate of fire, but it must shut off briefly every three seconds so the barrels don't overheat.",
+      "value": "加特林机枪\n射速更高，但为了防止枪管过热，每三秒必须短暂停火一次。"
+    },
+    {
+      "key": "Refuel Drogue\nA part that can be towed by a large aircraft on a winch in order to give fuel to other aircraft.",
+      "value": "加油锥套\n可由大型飞机通过绞盘拖曳，用于为其他飞机进行空中加油。"
+    },
+    {
+      "key": "Slat\nA surface on the leading (front) edge of the wing, that slides forward and down, increasing lift for takeoff and landing.",
+      "value": "前缘缝翼\n安装在机翼前缘的装置，会向前下方滑出，以在起飞和着陆时增加升力。"
+    },
+    {
+      "key": "Switch\nAn interactable switch that performs some action when toggled.",
+      "value": "开关\n一个可交互的开关，切换时会执行相应操作。"
+    },
+    {
+      "key": "Vintage Lever\nA simple lever that can be bound to any control.",
+      "value": "复古拉杆\n一种可绑定到任意控制输入的简单拉杆。"
+    },
+    {
+      "key": "VTOL Engine\nThis engine produces thrust which is channelled to VTOL Nozzles for vertical take-off and landing maneuvers.",
+      "value": "VTOL 发动机\n这种发动机产生的推力会被引导到 VTOL 喷口，用于垂直起降机动。"
+    },
+    {
+      "key": "Window\nIt's realer",
+      "value": "舷窗\n这次可比真的还真。"
+    },
+    {
+      "key": "Add Parts\nBrowse and add new parts to your craft.",
+      "value": "添加零件\n浏览并为当前载具添加新零件。"
+    },
+    {
+      "key": "Attitude Indicator\nAn instrument panel indicator that shows your pitch and roll on a ball-shaped device. Is bigger on the inside than the outside, warranty void if opened.",
+      "value": "姿态仪\n一种仪表盘指示器，用球形显示装置展示俯仰和滚转。里面比外面大，拆开即失去保修。"
+    },
+    {
+      "key": "Car Seat\nA sporty seat designed for cars. Features adjustable reclination for those moments when you just need to kick back.",
+      "value": "汽车座椅\n为汽车设计的运动座椅，支持靠背调节，适合偶尔想要放松一下的时候。"
+    },
+    {
+      "key": "Chaffs\nDispenses chaff or flares when triggered, for helping evade missiles and break locks.",
+      "value": "箔条弹发射器\n触发后会释放箔条弹或热焰弹，用于规避导弹和解除锁定。"
+    },
+    {
+      "key": "Decal\nA part for projecting a decal/sticker onto your aircraft.",
+      "value": "贴花\n一种可将贴纸或图案投射到载具表面的部件。"
+    },
+    {
+      "key": "Download a craft made by the community.",
+      "value": "下载社区玩家制作的作品。"
+    },
+    {
+      "key": "Hinge Rotator\nRotate parts around a hinge.",
+      "value": "铰链旋转器\n让零件围绕铰链旋转。"
+    },
+    {
+      "key": "Lazy 50\nThis is a laser-guided bomb with 500lbs of love.",
+      "value": "Lazy 50\n这是一枚装着 500 磅“爱意”的激光制导炸弹。"
+    },
+    {
+      "key": "Modern Seat\nA chunkier seat destined for something sportier.",
+      "value": "现代座椅\n更厚实的一体式座椅，天生适合更运动化的载具。"
+    },
+    {
+      "key": "Racing Engine\nA high performance racing engine, ready to push you to the craziest top speeds.",
+      "value": "赛车发动机\n高性能赛车发动机，准备把你推向疯狂的极速。"
+    },
+    {
+      "key": "Right Angle Gearbox\nNever argue with a gearbox with a 90-degree angle. It's always right.",
+      "value": "直角变速箱\n永远别和一个直角变速箱争论，因为它总是“正确”的。\n<size=70%><color=#D8E3F0>译者注：原文用 right 同时表示“正确”和“直角”。</color></size>"
+    },
+    {
+      "key": "Rocket Pod\nHolds seven 2.75-inch rockets and can be very effective against ground targets, as long as the pilot has the skills.",
+      "value": "火箭发射巢\n可挂载七枚 2.75 英寸火箭弹，只要飞行员技术到位，对地目标会非常好用。"
+    },
+    {
+      "key": "Semi Truck Engine\nA massive heavy duty V8 engine so you can carry the weight of the biggest cannon you can fit.",
+      "value": "半挂卡车发动机\n一台巨大的重载 V8 发动机，让你扛得起你能装上的最大火炮。"
+    },
+    {
+      "key": "Text Decal\nA part for projecting a text-based decal onto your aircraft.",
+      "value": "文字贴花\n一种可将文字类贴花投射到载具表面的部件。"
+    },
+    {
+      "key": "Yoke\nA two-handed control for pitch and roll, common in light/medium aircraft.",
+      "value": "驾驶盘\n一种用于俯仰和滚转的双手操纵器，常见于轻型和中型飞机。"
+    },
+    {
+      "key": "Basic Seat\nA simple seat for a cockpit or interior.",
+      "value": "基础座椅\n适用于座舱或内饰的简单座椅。"
+    },
+    {
+      "key": "Bay\nIt's real",
+      "value": "舱体\n这回是真的。"
+    },
+    {
+      "key": "Block\nThe basic building block. Snap these together to build the body of your airplane.",
+      "value": "方块\n最基础的结构块。把它们拼起来，就能搭出机体外形。"
+    },
+    {
+      "key": "Button\nAn interactable button that performs some action when used.",
+      "value": "按钮\n一个可交互的按钮，使用时会执行相应操作。"
+    },
+    {
+      "key": "Ergonomic Lever\nA simple lever that can be bound to any control.",
+      "value": "人体工学拉杆\n一种可绑定到任意控制输入的简单拉杆。"
+    },
+    {
+      "key": "Gyroscope\nA control moment gyro that is capable of providing powerful torques to keep your design upright.",
+      "value": "陀螺仪\n控制力矩陀螺，能提供强大的力矩来让你的设计保持稳定直立。"
+    },
+    {
+      "key": "Long Pylon\nLonger version of a pylon. Nothing special about it.",
+      "value": "长挂架\n挂架的加长版本，没有什么特别之处，就是更长。"
+    },
+    {
+      "key": "Magnet\nTurn it on with an activation group and this powerful electromagnet will stick to anything that has even the slightest hint of metal inside of it.",
+      "value": "电磁铁\n通过激活组开启后，这个强力电磁铁会吸附任何内部哪怕只含一点金属的东西。"
+    },
+    {
+      "key": "Push Throttle\nA simple general aviation-style throttle that can be mounted directly to the instrument panel.",
+      "value": "推杆式油门\n一种简单的通航风格油门，可直接安装在仪表板上。"
+    },
+    {
+      "key": "Pylon\nStandard hardpoint for attaching weapons and fuel tanks under wings. Includes a built-in detacher for when it's time to release the payload.",
+      "value": "挂架\n用于在机翼下挂载武器和油箱的标准挂点，自带分离器，可在需要时释放挂载。"
+    },
+    {
+      "key": "Small Rotator\nSlimmer version of the rotator.",
+      "value": "小型旋转器\n旋转器的纤细版。"
+    },
+    {
+      "key": "Air Brake\nSometimes slowing down can be tough, but these can really help with that.",
+      "value": "减速板\n有时想把速度降下来并不容易，但这东西确实很有帮助。"
+    },
+    {
+      "key": "Base Wing\nOne-size-fits-all wing part that can mould to any wing shape size!",
+      "value": "基础机翼\n一种万能的基础机翼，可以塑形成各种机翼尺寸和外形！"
+    },
+    {
+      "key": "Boom 25\nIt's a 250-pound dumb bomb. It goes boom when it hits something.",
+      "value": "Boom 25\n一枚 250 磅非制导炸弹，撞上东西就会爆。"
+    },
+    {
+      "key": "Floor Mounted Pedal\nCar pedal with a floor-mount base.",
+      "value": "地板式踏板\n带地板安装底座的汽车踏板。"
+    },
+    {
+      "key": "Gauge\nAn instrument panel gauge used to display a piece of information (such as altitude or airspeed).",
+      "value": "仪表\n一种用于显示信息的仪表盘部件，例如高度或空速。"
+    },
+    {
+      "key": "Jet Missile\nA massive air breathing missile with extremely long range. Why? You may ask. Why not.",
+      "value": "巡航导弹\n一款体型庞大、航程极长的吸气式导弹。为什么？你可能会问。为什么不呢。\n<size=70%><color=#D8E3F0>导弹知道自己在哪里，因为它知道自己不在哪里。\n通过用它在哪里减去它不在哪里，或者用它不在哪里减去它在哪里……</color></size>"
+    },
+    {
+      "key": "Piston\nPush parts away from each other with a customizable hydraulic piston.",
+      "value": "活塞\n使用可自定义的液压活塞将零件彼此顶开。"
+    },
+    {
+      "key": "Procedural Missile\nThe ultimate in customizable ordnance. This modular missile body is the foundation for your own unique creation. Build anything from a nimble dogfighting missile to a long-range cruise missile.",
+      "value": "程序化导弹\n可自定义武装的终极形态。这种模块化导弹本体是你独特设计的基础，从灵活的格斗弹到远程巡航导弹都能造。"
+    },
+    {
+      "key": "Saves the current craft.\nShortcut: <b>Ctrl + S</b>",
+      "value": "保存当前载具。\n快捷键：<b>Ctrl + S</b>"
+    },
+    {
+      "key": "Show various properties of your design.",
+      "value": "显示你的设计的各项属性。"
+    },
+    {
+      "key": "Steering Wheel GT\nA modern, GT-style steering wheel for high-performance cars. Functionally identical to the standard steering wheel, but with a sportier look.",
+      "value": "GT 方向盘\n现代 GT 风格高性能车方向盘。功能与标准方向盘相同，但外观更加运动。"
+    },
+    {
+      "key": "Winch\nRotating drum that extends and retracts a durable cable. Works great with a magnet attached to the end of its cable.",
+      "value": "绞盘\n可旋转的卷筒机构，可伸缩一根耐用缆绳。配合缆绳末端的磁吸器效果极佳。"
+    },
+    {
+      "key": "Wing Gun\nA respectable cannon with a slim design that fits nicely inside of wings.",
+      "value": "翼内机炮\n一门体面又纤细的火炮，很适合装进机翼内部。"
+    },
+    {
+      "key": "ARD Missile\nA mid-range Air to Ground Anti-Radiation missile with mounted wings, to smack targets in style.",
+      "value": "ARD 导弹\n一款带弹翼的中程对地反辐射导弹，专门用来帅气地收拾地面目标。"
+    },
+    {
+      "key": "Basic Lever\nA simple lever that can be bound to any control.",
+      "value": "基础拉杆\n一种可绑定到任意控制输入的简单拉杆。"
+    },
+    {
+      "key": "Canopy\nIt's a canopy for your own cockpit.",
+      "value": "座舱盖\n用于自定义座舱的座舱盖。"
+    },
+    {
+      "key": "Formation Light\nSimple light that you can color however you like and they can also flash.",
+      "value": "编队灯\n简单的灯光部件，你可以随意设置颜色，也可以让它闪烁。"
+    },
+    {
+      "key": "Gearbox\nTransfers rotational power through the powertrain. Use the gear ratio to trade torque for RPM and tune performance.",
+      "value": "变速箱\n在动力系统中传递旋转动力。可通过齿比在扭矩与转速之间做权衡，并据此调校性能。"
+    },
+    {
+      "key": "Open the settings menu.",
+      "value": "打开设置菜单。"
+    },
+    {
+      "key": "Orbit Camera\nThis is a magical 'camera' that gives you the ability to orbit the camera around different parts of your plane. Don't worry about its ugly appearance, it will disappear when you start flying.",
+      "value": "环绕相机\n这是一台神奇的“相机”，能让你围绕飞机不同部位旋转视角。别在意它丑丑的外形，开始飞行后它就会消失。"
+    },
+    {
+      "key": "Parachute\nThese are great when you want to rapidly slow things down.",
+      "value": "降落伞\n当你想让某样东西迅速减速时，它就特别好用。"
+    },
+    {
+      "key": "Select a craft to load from your list of saved crafts.",
+      "value": "从已保存载具列表中选择一个进行加载。"
+    },
+    {
+      "key": "Show center of mass/lift/thrust, which are very important aspects to balance.",
+      "value": "显示重心、升力中心和推力中心，这些都是平衡设计时非常重要的指标。"
+    },
+    {
+      "key": "Beacon Light\nSimple light that you can color however you like and they can also flash.",
+      "value": "航标灯\n简单的灯光部件，你可以随意设置颜色，也可以让它闪烁。"
+    },
+    {
+      "key": "Brake Pedal\nCar brake pedal with a wall-mount base.",
+      "value": "刹车踏板\n带壁挂底座的汽车刹车踏板。"
+    },
+    {
+      "key": "Clutch Pedal\nCar clutch pedal with a wall-mount base.",
+      "value": "离合踏板\n带壁挂底座的汽车离合踏板。"
+    },
+    {
+      "key": "Flight Computer\nA part that can act as the main cockpit of a craft without taking up a lot of space or having a cockpit camera view.",
+      "value": "飞控计算机\n一种可作为载具主座舱使用的部件，不占太多空间，也不提供座舱相机视角。"
+    },
+    {
+      "key": "Gas Pedal\nCar throttle pedal with a wall-mount base.",
+      "value": "油门踏板\n带壁挂底座的汽车油门踏板。"
+    },
+    {
+      "key": "Label\nLabel part, to add text or numbers. Supports inputs.",
+      "value": "标签\n用于添加文本或数字的标签部件，支持输入绑定。"
+    },
+    {
+      "key": "MFD\nMultifunction display unit for easy system control from the cockpit and adding that extra high-tech look.",
+      "value": "多功能显示器\n便于在座舱内进行系统控制的多功能显示单元，还能顺便增加一点高科技氛围。"
+    },
+    {
+      "key": "Missile Fins\nFins that can go on missiles for function, for fun, or for both.",
+      "value": "导弹尾翼\n可安装在导弹上的尾翼，既能为了功能，也能为了好看，或者两者兼得。"
+    },
+    {
+      "key": "Modern Joystick\nA modern-looking grip object with a hand pose, and a trigger that you can rebind.",
+      "value": "现代操纵杆\n现代外观的握把部件，带手部握姿，并有一个可重新绑定的扳机。"
+    },
+    {
+      "key": "Unguided Missile\nA dumb missile that flies as straight as it can, kinda like a rocket.",
+      "value": "非制导导弹\n一枚尽可能直线飞行的“傻瓜导弹”，基本就像火箭。"
+    },
+    {
+      "key": "Variables\nVariables can be set to match expressions in this menu, and then used in other expressions as inputs to parts. It's for advanced players, but variables offer great functionality for crafts.",
+      "value": "变量\n你可以在这个菜单里把变量设为某个表达式的结果，再把这些变量作为输入用于其他零件表达式。它更适合高级玩家，但功能很强。"
+    },
+    {
+      "key": "Fuel Tank\nGimme fuel, gimme fire, gimme that which I desire.",
+      "value": "油箱\n给我燃料，给我火焰，给我我想要的一切。"
+    },
+    {
+      "key": "Joystick Base\nA part that forms the base of a joystick, or any other control. Any parts that are on the physics body that is connected to the top of this become part of the control and can be grabbed in VR.",
+      "value": "操纵杆基座\n作为操纵杆或其他控制器底座的部件。连接在其顶部所连刚体上的零件都会成为控制器的一部分，并且在 VR 中可被抓取。"
+    },
+    {
+      "key": "Provide instructions for this craft that can be displayed in the flight scene.",
+      "value": "为这架载具编写可在飞行场景中显示的说明。"
+    },
+    {
+      "key": "Basic Joystick\nA simpler-looking grip object with a hand pose, and a trigger that you can rebind.",
+      "value": "基础操纵杆\n外观更简单的握把部件，带手部握姿，并有一个可重新绑定的扳机。"
+    },
+    {
+      "key": "Cylinder Grip\nA simple grippable cylinder object with symmetric hand poses.",
+      "value": "圆柱握把\n简单的可抓握圆柱体部件，左右手握姿对称。"
+    },
+    {
+      "key": "View your undo history.",
+      "value": "查看撤销历史。"
+    },
+    {
+      "key": "Paint Tool\nCustomize the colors and textures of your craft.\nShortcut: <b>P</b>",
+      "value": "喷涂工具\n自定义载具的颜色和纹理。\n快捷键：<b>P</b>"
+    },
+    {
+      "key": "Shows the active tool. Click to open the tool selection panel.",
+      "value": "显示当前正在使用的工具。点击可打开工具选择面板。"
+    },
+    {
+      "key": "Conceal Mode",
+      "value": "隐藏模式"
+    },
+    {
+      "key": "Enter text...",
+      "value": "输入文本..."
+    },
+    {
+      "key": "Invert Hidden",
+      "value": "反转隐藏"
+    },
+    {
+      "key": "Part Name",
+      "value": "零件名称"
+    },
+    {
+      "key": "ProceduralMissileSubPartData",
+      "value": "程序化导弹子部件"
+    }
+  ]
+}

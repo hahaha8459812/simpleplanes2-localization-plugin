@@ -1,0 +1,101 @@
+{
+  "page": "23-designer-environment-and-analysis",
+  "entries": [
+    {
+      "key": "Ambient Color",
+      "value": "环境光颜色"
+    },
+    {
+      "key": "BLUEPRINTS",
+      "value": "蓝图"
+    },
+    {
+      "key": "CoL",
+      "value": "升力中心"
+    },
+    {
+      "key": "CoM",
+      "value": "重心"
+    },
+    {
+      "key": "CoT",
+      "value": "推力中心"
+    },
+    {
+      "key": "Drag Model",
+      "value": "阻力模型"
+    },
+    {
+      "key": "Drag Points",
+      "value": "阻力点"
+    },
+    {
+      "key": "DRAG VISUALIZER",
+      "value": "阻力可视化"
+    },
+    {
+      "key": "Empty Weight",
+      "value": "空重"
+    },
+    {
+      "key": "ENVIRONMENT",
+      "value": "环境"
+    },
+    {
+      "key": "HP/Weight Ratio",
+      "value": "马力重量比"
+    },
+    {
+      "key": "Light Intensity",
+      "value": "光照强度"
+    },
+    {
+      "key": "Light Rotation",
+      "value": "光照旋转"
+    },
+    {
+      "key": "Loaded Weight",
+      "value": "满载重量"
+    },
+    {
+      "key": "Performance",
+      "value": "性能"
+    },
+    {
+      "key": "Performance Cost",
+      "value": "性能开销"
+    },
+    {
+      "key": "Platform",
+      "value": "平台"
+    },
+    {
+      "key": "Platform Color",
+      "value": "平台颜色"
+    },
+    {
+      "key": "Power/Weight Ratio",
+      "value": "功率重量比"
+    },
+    {
+      "key": "Reflections Intensity",
+      "value": "反射强度"
+    },
+    {
+      "key": "Sky",
+      "value": "天空"
+    },
+    {
+      "key": "Sky Color",
+      "value": "天空颜色"
+    },
+    {
+      "key": "UNDO HISTORY",
+      "value": "撤销历史"
+    },
+    {
+      "key": "Visualize Drag",
+      "value": "可视化阻力"
+    }
+  ]
+}
