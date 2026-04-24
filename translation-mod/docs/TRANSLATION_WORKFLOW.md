@@ -1,5 +1,7 @@
 # 翻译维护流程
 
+[English](TRANSLATION_WORKFLOW.en.md)
+
 ## 模式
 
 - `collect`：只采集文本，不翻译。适合第一次粗采集。

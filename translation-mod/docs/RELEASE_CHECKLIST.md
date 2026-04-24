@@ -1,5 +1,7 @@
 # 发布检查清单
 
+[English](RELEASE_CHECKLIST.en.md)
+
 ## 构建前
 
 - 确认 `content/translations/zh-CN.fragments/*.json` 是最新翻译源。
