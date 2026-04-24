@@ -12,6 +12,7 @@ translation-mod/
 
 Start here:
 
+- [Player guide](translation-mod/docs/USER_GUIDE.md)
 - [Project README](translation-mod/README.md)
 - [Translation workflow](translation-mod/docs/TRANSLATION_WORKFLOW.md)
 - [Release checklist](translation-mod/docs/RELEASE_CHECKLIST.md)

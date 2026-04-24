@@ -4,6 +4,24 @@
 
 当前目标很明确：先把游戏主要 UI、设计器、零件列表、悬浮说明和上传发布流程翻译到可玩可维护的程度，再逐步精修术语和语境。
 
+## 玩家快速使用
+
+普通玩家只需要下载 `SimplePlanes2TranslationMod-Release.zip`。
+
+安装步骤：
+
+1. 关闭 `SimplePlanes 2`。
+2. 解压 Release 包。
+3. 运行解压目录里的 `install.ps1`。
+4. 启动游戏。
+
+快捷键：
+
+- `F6`：重新加载汉化。
+- `F10`：临时开关汉化。
+
+更完整的安装、卸载和常见问题见 [玩家使用说明](docs/USER_GUIDE.md)。
+
 ## 功能
 
 - 运行时翻译 `TextWidget.SetText()` 和独立 `TextMeshProUGUI` 文本。
@@ -22,6 +40,7 @@ translation-mod/
   install.ps1                       分发包内的一键安装脚本
   CHANGELOG.md                      当前阶段变更记录
   docs/
+    USER_GUIDE.md                   玩家安装和使用说明
     RELEASE_CHECKLIST.md            发布前检查清单
     TRANSLATION_WORKFLOW.md         采集、翻译、热更新流程
   content/
