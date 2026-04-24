@@ -24,12 +24,14 @@ Expected output:
 ## Release Package Test
 
 1. Extract `SimplePlanes2TranslationMod-Release.zip`.
-2. Run `install.ps1`.
-3. Start the game and open the main menu and designer.
-4. Confirm Chinese text does not render as boxes.
-5. Confirm `F6` reloads translations.
-6. Confirm `F10` toggles localization.
-7. Check the part list, tooltips, upload page, and settings page for obvious untranslated text.
+2. Confirm the zip root directly contains `BepInEx`, `.doorstop_version`, `doorstop_config.ini`, and `winhttp.dll`.
+3. Copy all zip contents into the folder containing `SimplePlanes 2.exe`.
+4. You may also run `install.ps1` to verify the fallback installer path.
+5. Start the game and open the main menu and designer.
+6. Confirm Chinese text does not render as boxes.
+7. Confirm `F6` reloads translations.
+8. Confirm `F10` toggles localization.
+9. Check the part list, tooltips, upload page, and settings page for obvious untranslated text.
 
 ## Dev Package Test
 

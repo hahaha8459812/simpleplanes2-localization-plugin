@@ -22,13 +22,14 @@ Do not download `SimplePlanes2TranslationMod-Dev.zip` unless you are helping col
 
 1. Close `SimplePlanes 2`.
 2. Extract `SimplePlanes2TranslationMod-Release.zip`.
-3. Run `install.ps1` in the extracted folder.
+3. Put all extracted contents into the `SimplePlanes 2` game root, the same folder that contains `SimplePlanes 2.exe`.
 4. Start the game.
 
-If PowerShell blocks the script, open PowerShell in the extracted folder and run:
+The release package already uses the game root layout, so the easiest path is to extract the zip contents directly into the local game files folder.
+
+If you prefer the installer script, run:
 
 ```powershell
-Set-ExecutionPolicy -Scope Process Bypass
 .\install.ps1
 ```
 
@@ -36,6 +37,12 @@ If your game is installed elsewhere:
 
 ```powershell
 .\install.ps1 -GameDir "D:\SteamLibrary\steamapps\common\SimplePlanes 2"
+```
+
+If PowerShell blocks the script, run this first:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 ```
 
 The plugin is installed to:
@@ -65,6 +72,8 @@ If BepInEx was installed only for this translation mod, you can also remove:
 
 ```text
 BepInEx
+.doorstop_version
+changelog.txt
 doorstop_config.ini
 winhttp.dll
 ```

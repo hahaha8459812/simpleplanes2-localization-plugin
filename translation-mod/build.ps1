@@ -73,6 +73,16 @@ function Copy-DirectoryContents {
     Copy-Item -Path (Join-Path $Source "*") -Destination $Destination -Recurse -Force
 }
 
+function Compress-PackageContents {
+    param(
+        [string]$PackageRoot,
+        [string]$ZipPath
+    )
+
+    $packageContents = Join-Path $PackageRoot "*"
+    Compress-Archive -Path $packageContents -DestinationPath $ZipPath -CompressionLevel Optimal
+}
+
 function Get-SystemDrawingReferencePath {
     $candidates = @(
         "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.Drawing.dll",
@@ -126,11 +136,16 @@ function Ensure-BundledChineseFontPayload {
 function New-Package {
     param(
         [string]$PackageName,
-        [string]$SettingsTemplatePath
+        [string]$SettingsTemplatePath,
+        [bool]$UseGameRootLayout = $false
     )
 
     $packageRoot = Join-Path $releaseRoot $PackageName
     $packageFilesDir = Join-Path $packageRoot "files"
+    if ($UseGameRootLayout) {
+        $packageFilesDir = $packageRoot
+    }
+
     $packagePluginDir = Join-Path $packageFilesDir "BepInEx\plugins\SimplePlanes2Translation"
     $packageFontDir = Join-Path $packagePluginDir "fonts"
     $packageTranslationDir = Join-Path $packagePluginDir "translations"
@@ -158,7 +173,7 @@ function New-Package {
     Copy-Item -Path (Join-Path $projectRoot "CHANGELOG.md") -Destination (Join-Path $packageRoot "CHANGELOG.md") -Force
     Copy-DirectoryContents -Source (Join-Path $projectRoot "docs") -Destination (Join-Path $packageRoot "docs")
 
-    Compress-Archive -Path $packageRoot -DestinationPath $zipPath -CompressionLevel Optimal
+    Compress-PackageContents -PackageRoot $packageRoot -ZipPath $zipPath
 
     return $packageRoot
 }
@@ -420,10 +435,23 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $devPackageRoot = New-Package -PackageName "SimplePlanes2TranslationMod-Dev" -SettingsTemplatePath (Join-Path $projectRoot "content\settings.dev.json")
-$releasePackageRoot = New-Package -PackageName "SimplePlanes2TranslationMod-Release" -SettingsTemplatePath (Join-Path $projectRoot "content\settings.release.json")
+$releasePackageRoot = New-Package -PackageName "SimplePlanes2TranslationMod-Release" -SettingsTemplatePath (Join-Path $projectRoot "content\settings.release.json") -UseGameRootLayout $true
 
 if ($InstallToGame) {
-    Copy-DirectoryContents -Source (Join-Path $releasePackageRoot "files") -Destination $GameDir
+    $installPayloadNames = @(
+        "BepInEx",
+        ".doorstop_version",
+        "changelog.txt",
+        "doorstop_config.ini",
+        "winhttp.dll"
+    )
+
+    foreach ($payloadName in $installPayloadNames) {
+        $payloadPath = Join-Path $releasePackageRoot $payloadName
+        if (Test-Path $payloadPath) {
+            Copy-Item -LiteralPath $payloadPath -Destination $GameDir -Recurse -Force
+        }
+    }
 }
 
 Write-Host "Build completed: ${releaseRoot}"

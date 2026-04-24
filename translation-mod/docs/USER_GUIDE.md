@@ -18,11 +18,14 @@ SimplePlanes2TranslationMod-Release.zip
 
 1. 关闭 `SimplePlanes 2`。
 2. 解压 `SimplePlanes2TranslationMod-Release.zip`。
-3. 在解压后的文件夹里右键运行 `install.ps1`。
-4. 如果 PowerShell 阻止脚本运行，在该文件夹空白处打开 PowerShell，执行：
+3. 把解压出来的全部内容放进 `SimplePlanes 2` 游戏根目录，也就是 `SimplePlanes 2.exe` 所在目录。
+4. 启动游戏。
+
+Release 包本身已经按游戏根目录结构打包，所以最省事的方式就是直接把压缩包内容解压到游戏本地文件夹。
+
+如果不想手动复制，也可以运行备用安装脚本：
 
 ```powershell
-Set-ExecutionPolicy -Scope Process Bypass
 .\install.ps1
 ```
 
@@ -30,6 +33,12 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 ```powershell
 .\install.ps1 -GameDir "D:\SteamLibrary\steamapps\common\SimplePlanes 2"
+```
+
+如果 PowerShell 阻止脚本运行，在该文件夹空白处打开 PowerShell，先执行：
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 ```
 
 安装成功后，插件会被复制到：
@@ -61,6 +70,8 @@ SimplePlanes 2\BepInEx\plugins\SimplePlanes2Translation
 
 ```text
 BepInEx
+.doorstop_version
+changelog.txt
 doorstop_config.ini
 winhttp.dll
 ```
