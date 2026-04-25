@@ -7,11 +7,11 @@
     },
     {
       "key": "IAS",
-      "value": "指示空速"
+      "value": "表速"
     },
     {
       "key": "TAS",
-      "value": "真空速"
+      "value": "真速"
     },
     {
       "key": "Scores are only available while using default settings.",
@@ -44,6 +44,10 @@
     {
       "key": "CARS",
       "value": "汽车"
+    },
+    {
+      "key": "Countermeasures\nShortcut: <b>V</b>",
+      "value": "干扰物\n快捷键：<b>V</b>"
     },
     {
       "key": "Disabled During \n\n\nChallenge",
@@ -195,7 +199,7 @@
     },
     {
       "key": "G\nE\nA\nR",
-      "value": "挡\n位"
+      "value": "起\n落\n架"
     },
     {
       "key": "Aggressive",
@@ -596,6 +600,18 @@
     {
       "key": "Add Current Location",
       "value": "添加当前位置"
+    },
+    {
+      "key": "Speed",
+      "value": "速度"
+    },
+    {
+      "key": "Gust Mode",
+      "value": "阵风模式"
+    },
+    {
+      "key": "Part damaged: Flight Computer",
+      "value": "零件受损：飞控计算机"
     }
   ],
   "dynamicSuffixEntries": [
@@ -610,6 +626,14 @@
     {
       "sourceSuffix": " minutes",
       "valueSuffix": " 分钟"
+    },
+    {
+      "sourceSuffix": " degrees",
+      "valueSuffix": " 度"
+    },
+    {
+      "sourceSuffix": " became a landmark",
+      "valueSuffix": " 成为了地标"
     }
   ],
   "dynamicPrefixEntries": [
@@ -643,6 +667,30 @@
       "sceneName": "Terrain",
       "gameObjectPathContains": "/FlightUIRoot/Empty(Clone)/flyout-menu/",
       "parentName": "Button(Clone)"
+    },
+    {
+      "key": "Speed",
+      "value": "风速",
+      "sceneName": "Terrain",
+      "gameObjectPathContains": "/wind-settings-dialog/"
+    },
+    {
+      "key": "Light",
+      "value": "弱",
+      "sceneName": "Terrain",
+      "gameObjectPathContains": "/wind-settings-dialog/"
+    },
+    {
+      "key": "Medium",
+      "value": "中",
+      "sceneName": "Terrain",
+      "gameObjectPathContains": "/wind-settings-dialog/"
+    },
+    {
+      "key": "Heavy",
+      "value": "强",
+      "sceneName": "Terrain",
+      "gameObjectPathContains": "/wind-settings-dialog/"
     }
   ]
 }

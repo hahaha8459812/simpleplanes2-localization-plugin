@@ -59,7 +59,7 @@
     },
     {
       "key": "Countermeasure Dispenser",
-      "value": "干扰弹发射器"
+      "value": "干扰物发射器"
     },
     {
       "key": "Decal",
@@ -251,7 +251,7 @@
     },
     {
       "key": "Transmission",
-      "value": "变速箱"
+      "value": "变速器"
     },
     {
       "key": "Transparency",
@@ -352,6 +352,10 @@
     {
       "key": "Glass",
       "value": "玻璃"
+    },
+    {
+      "key": "Gear Ratio",
+      "value": "齿比"
     },
     {
       "key": "Hollow",
@@ -692,6 +696,514 @@
     {
       "key": "Zero Angle",
       "value": "零位角度"
+    },
+    {
+      "key": "Blade Control",
+      "value": "桨距控制"
+    },
+    {
+      "key": "Blade Count",
+      "value": "桨叶数量"
+    },
+    {
+      "key": "Blade Style",
+      "value": "桨叶样式"
+    },
+    {
+      "key": "Blade Width",
+      "value": "桨叶宽度"
+    },
+    {
+      "key": "Diameter",
+      "value": "直径"
+    },
+    {
+      "key": "Hub Scale",
+      "value": "桨毂缩放"
+    },
+    {
+      "key": "Hub Style",
+      "value": "桨毂样式"
+    },
+    {
+      "key": "Max Pitch",
+      "value": "最大桨距"
+    },
+    {
+      "key": "Push Prop",
+      "value": "推进式螺旋桨"
+    },
+    {
+      "key": "Reverse Blades",
+      "value": "反转桨叶"
+    },
+    {
+      "key": "Twist Angle",
+      "value": "扭转角"
+    },
+    {
+      "key": "PointyLarge",
+      "value": "大号尖头"
+    },
+    {
+      "key": "PointySpiral",
+      "value": "尖头螺旋"
+    },
+    {
+      "key": "RoundLarge",
+      "value": "大号圆头"
+    },
+    {
+      "key": "RoundSpiral",
+      "value": "圆头螺旋"
+    },
+    {
+      "key": "Warbird",
+      "value": "战鸟"
+    },
+    {
+      "key": "Armed Group",
+      "value": "武装分组"
+    },
+    {
+      "key": "Impact Cam",
+      "value": "命中相机"
+    },
+    {
+      "key": "Acceleration",
+      "value": "加速度"
+    },
+    {
+      "key": "Attach Position",
+      "value": "挂载位置"
+    },
+    {
+      "key": "Burn Time",
+      "value": "燃烧时间"
+    },
+    {
+      "key": "Engine Type",
+      "value": "发动机类型"
+    },
+    {
+      "key": "Explosiveness",
+      "value": "爆炸威力"
+    },
+    {
+      "key": "Guidance",
+      "value": "制导"
+    },
+    {
+      "key": "Guidance Activation Delay",
+      "value": "制导启动延迟"
+    },
+    {
+      "key": "Guidance Type",
+      "value": "制导类型"
+    },
+    {
+      "key": "Ignition Delay",
+      "value": "点火延迟"
+    },
+    {
+      "key": "Lofting",
+      "value": "弹道抬升"
+    },
+    {
+      "key": "Max Speed",
+      "value": "最高速度"
+    },
+    {
+      "key": "Nose Length",
+      "value": "头锥长度"
+    },
+    {
+      "key": "Seeker FOV",
+      "value": "导引头视场"
+    },
+    {
+      "key": "Tracking Rate",
+      "value": "跟踪速率"
+    },
+    {
+      "key": "Turn Rate",
+      "value": "转向率"
+    },
+    {
+      "key": "Radial Offset",
+      "value": "径向偏移"
+    },
+    {
+      "key": "Angle",
+      "value": "角度"
+    },
+    {
+      "key": "Ammo Count",
+      "value": "弹药数量"
+    },
+    {
+      "key": "Auto Center",
+      "value": "自动居中"
+    },
+    {
+      "key": "Auto Orient",
+      "value": "自动定向"
+    },
+    {
+      "key": "Barrel Length",
+      "value": "炮管长度"
+    },
+    {
+      "key": "Barrel Recoil",
+      "value": "炮管后坐"
+    },
+    {
+      "key": "Base Length",
+      "value": "底座长度"
+    },
+    {
+      "key": "Caliber: \n",
+      "value": "口径：\n"
+    },
+    {
+      "key": "Camera Name",
+      "value": "相机名称"
+    },
+    {
+      "key": "Gun Reticle",
+      "value": "机炮准星"
+    },
+    {
+      "key": "Is Primary",
+      "value": "主座舱"
+    },
+    {
+      "key": "Laser Guided",
+      "value": "激光制导"
+    },
+    {
+      "key": "Launch Force",
+      "value": "发射力度"
+    },
+    {
+      "key": "Catapult Acceleration",
+      "value": "弹射加速度"
+    },
+    {
+      "key": "Target Launch Speed",
+      "value": "目标弹射速度"
+    },
+    {
+      "key": "Deployed Angle",
+      "value": "展开角度"
+    },
+    {
+      "key": "Gyroscopic Speed",
+      "value": "陀螺转速"
+    },
+    {
+      "key": "Gyroscopic Stability",
+      "value": "陀螺稳定性"
+    },
+    {
+      "key": "Pitch Range",
+      "value": "俯仰范围"
+    },
+    {
+      "key": "Roll Range",
+      "value": "滚转范围"
+    },
+    {
+      "key": "Yaw Power",
+      "value": "偏航力度"
+    },
+    {
+      "key": "Yaw Input",
+      "value": "Yaw（偏航）输入"
+    },
+    {
+      "key": "Blink Style",
+      "value": "闪烁样式"
+    },
+    {
+      "key": "Intensity",
+      "value": "强度"
+    },
+    {
+      "key": "Power",
+      "value": "功率"
+    },
+    {
+      "key": "Penetration",
+      "value": "嵌入深度"
+    },
+    {
+      "key": "Font Size",
+      "value": "字体大小"
+    },
+    {
+      "key": "Render Priority",
+      "value": "渲染优先级"
+    },
+    {
+      "key": "Font",
+      "value": "字体"
+    },
+    {
+      "key": "H. Align",
+      "value": "水平对齐"
+    },
+    {
+      "key": "V. Align",
+      "value": "垂直对齐"
+    },
+    {
+      "key": "Tiling",
+      "value": "平铺"
+    },
+    {
+      "key": "Start Range",
+      "value": "起始范围"
+    },
+    {
+      "key": "Max Range",
+      "value": "最大范围"
+    },
+    {
+      "key": "Look At Cockpit",
+      "value": "看向座舱"
+    },
+    {
+      "key": "Minimum Firing Delay",
+      "value": "最小射击间隔"
+    },
+    {
+      "key": "Missile Locking",
+      "value": "导弹锁定"
+    },
+    {
+      "key": "Muzzle Brake",
+      "value": "炮口制退器"
+    },
+    {
+      "key": "Projectile Style",
+      "value": "弹丸样式"
+    },
+    {
+      "key": "Projectile Type",
+      "value": "弹丸类型"
+    },
+    {
+      "key": "Projectile Velocity: \n",
+      "value": "弹丸速度：\n"
+    },
+    {
+      "key": "Recoil Force",
+      "value": "后坐力"
+    },
+    {
+      "key": "Coast Stiffness",
+      "value": "滑行刚度"
+    },
+    {
+      "key": "Differential Lock",
+      "value": "差速锁"
+    },
+    {
+      "key": "Powered Stiffness",
+      "value": "驱动刚度"
+    },
+    {
+      "key": "Reverse Output",
+      "value": "反转输出"
+    },
+    {
+      "key": "Set As Main",
+      "value": "设为主座舱"
+    },
+    {
+      "key": "Tracer Spacing",
+      "value": "曳光弹间隔"
+    },
+    {
+      "key": "Up Offset",
+      "value": "上方偏移"
+    },
+    {
+      "key": "View Mode",
+      "value": "视角模式"
+    },
+    {
+      "key": "AlwaysOn",
+      "value": "始终开启"
+    },
+    {
+      "key": "Auto Assign Targets",
+      "value": "自动分配目标"
+    },
+    {
+      "key": "Designer Character",
+      "value": "设计器角色"
+    },
+    {
+      "key": "Exit Position",
+      "value": "离开位置"
+    },
+    {
+      "key": "Exit Rotation",
+      "value": "离开旋转"
+    },
+    {
+      "key": "FPV Tracking",
+      "value": "FPV 跟随"
+    },
+    {
+      "key": "Maintain Head Rotation",
+      "value": "保持头部旋转"
+    },
+    {
+      "key": "Reclination",
+      "value": "椅背倾角"
+    },
+    {
+      "key": "Snap Range",
+      "value": "回弹范围"
+    },
+    {
+      "key": "Left Elbow",
+      "value": "左肘"
+    },
+    {
+      "key": "Right Elbow",
+      "value": "右肘"
+    },
+    {
+      "key": "Left Foot",
+      "value": "左脚"
+    },
+    {
+      "key": "Right Foot",
+      "value": "右脚"
+    },
+    {
+      "key": "Left Hand",
+      "value": "左手"
+    },
+    {
+      "key": "Right Hand",
+      "value": "右手"
+    },
+    {
+      "key": "Left Knee",
+      "value": "左膝"
+    },
+    {
+      "key": "Right Knee",
+      "value": "右膝"
+    },
+    {
+      "key": "Left Elbow Target",
+      "value": "左肘目标"
+    },
+    {
+      "key": "Right Elbow Target",
+      "value": "右肘目标"
+    },
+    {
+      "key": "Hide Trim",
+      "value": "隐藏配平"
+    },
+    {
+      "key": "Hide Face",
+      "value": "隐藏表盘"
+    },
+    {
+      "key": "Hide Base",
+      "value": "隐藏底座"
+    },
+    {
+      "key": "Face Emission Day",
+      "value": "表盘白天自发光"
+    },
+    {
+      "key": "Face Emission Night",
+      "value": "表盘夜间自发光"
+    },
+    {
+      "key": "Face Input",
+      "value": "表盘输入"
+    },
+    {
+      "key": "Face Input Multiplier",
+      "value": "表盘输入倍率"
+    },
+    {
+      "key": "Face Zero",
+      "value": "表盘零位"
+    },
+    {
+      "key": "Gauge Face",
+      "value": "仪表盘面"
+    },
+    {
+      "key": "Indicator",
+      "value": "指示器"
+    },
+    {
+      "key": "Indicator Needle",
+      "value": "指针"
+    },
+    {
+      "key": "Indicator Zero",
+      "value": "指针零位"
+    },
+    {
+      "key": "Input Multiplier",
+      "value": "输入倍率"
+    },
+    {
+      "key": "Unit",
+      "value": "单位"
+    },
+    {
+      "key": "Curvature",
+      "value": "曲率"
+    },
+    {
+      "key": "Outline Width",
+      "value": "描边宽度"
+    },
+    {
+      "key": "Curve Direction",
+      "value": "弯曲方向"
+    },
+    {
+      "key": "Gradient",
+      "value": "渐变"
+    },
+    {
+      "key": "Horizontal Anchor",
+      "value": "水平锚点"
+    },
+    {
+      "key": "Vertical Anchor",
+      "value": "垂直锚点"
+    },
+    {
+      "key": "Pitch Input",
+      "value": "Pitch（俯仰）输入"
+    },
+    {
+      "key": "Roll Input",
+      "value": "Roll（滚转）输入"
+    },
+    {
+      "key": "Button 1",
+      "value": "按钮 1"
+    },
+    {
+      "key": "Button 2",
+      "value": "按钮 2"
     }
   ],
   "dynamicSuffixEntries": [
@@ -713,6 +1225,740 @@
       "sourcePrefix": "Gear Ratio: ",
       "valuePrefix": "第",
       "valueSuffix": "挡齿比"
+    }
+  ],
+  "contextEntries": [
+    {
+      "key": "Auto",
+      "value": "自动",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Fixed",
+      "value": "固定",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Flat",
+      "value": "扁平",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Pointy",
+      "value": "尖头",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "PointyLarge",
+      "value": "大号尖头",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "PointySpiral",
+      "value": "尖头螺旋",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Round",
+      "value": "圆头",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "RoundLarge",
+      "value": "大号圆头",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "RoundSpiral",
+      "value": "圆头螺旋",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Warbird",
+      "value": "战鸟",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Scimitar",
+      "value": "弯刀",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Civilian",
+      "value": "民用",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Drone",
+      "value": "无人机",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Military",
+      "value": "军用",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PropellerAssemblyData/"
+    },
+    {
+      "key": "Active Radar",
+      "value": "主动雷达",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Air-to-Air",
+      "value": "空对空",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Air-to-Ground",
+      "value": "空对地",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Anti-Radiation",
+      "value": "反辐射",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Infrared",
+      "value": "红外",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Jet",
+      "value": "喷气",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Laser",
+      "value": "激光",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Multi-Role",
+      "value": "多用途",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Semi-Active Radar",
+      "value": "半主动雷达",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Solid",
+      "value": "固体火箭",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Thrust Vector",
+      "value": "推力矢量",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Unguided",
+      "value": "无制导",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileData/"
+    },
+    {
+      "key": "Cannon",
+      "value": "火炮",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Basic",
+      "value": "实心弹",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Target",
+      "value": "目标",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Multi-Role",
+      "value": "多用途",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Air",
+      "value": "空中",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Type",
+      "value": "类型",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CounterMeasureDispenserData/"
+    },
+    {
+      "key": "All",
+      "value": "全部",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CounterMeasureDispenserData/"
+    },
+    {
+      "key": "None",
+      "value": "无",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CounterMeasureDispenserData/"
+    },
+    {
+      "key": "Chaff",
+      "value": "箔条弹",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CounterMeasureDispenserData/"
+    },
+    {
+      "key": "Flares",
+      "value": "热焰弹",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CounterMeasureDispenserData/"
+    },
+    {
+      "key": "Explosive",
+      "value": "爆炸弹",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Ground",
+      "value": "地面",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Slug",
+      "value": "尖头",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CannonData/"
+    },
+    {
+      "key": "Chase",
+      "value": "追随",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CameraVantageData/"
+    },
+    {
+      "key": "FlyBy",
+      "value": "掠过",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CameraVantageData/"
+    },
+    {
+      "key": "Orbit",
+      "value": "环绕",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_CameraVantageData/"
+    },
+    {
+      "key": "Open",
+      "value": "开放式",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_JDifferentialData/"
+    },
+    {
+      "key": "Range",
+      "value": "转动范围",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_JointRotatorData/"
+    },
+    {
+      "key": "Disable Base",
+      "value": "禁用基座",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_JointRotatorData/"
+    },
+    {
+      "key": "Steady",
+      "value": "常亮",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_BeaconLightData/"
+    },
+    {
+      "key": "V. Striped",
+      "value": "竖条纹",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ParachuteData/"
+    },
+    {
+      "key": "Range",
+      "value": "行程",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PistonData/"
+    },
+    {
+      "key": "Cycle",
+      "value": "循环",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PistonData/"
+    },
+    {
+      "key": "Push",
+      "value": "推出",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PistonData/"
+    },
+    {
+      "key": "Center",
+      "value": "居中",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_TextDecalData/"
+    },
+    {
+      "key": "All",
+      "value": "全部",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_MissileData/"
+    },
+    {
+      "key": "Enabled",
+      "value": "已启用",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_MissileData/"
+    },
+    {
+      "key": "Disabled",
+      "value": "已禁用",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_MissileData/"
+    },
+    {
+      "key": "Mirror",
+      "value": "镜像",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Small",
+      "value": "小型",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Symmetry",
+      "value": "对称",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Collar",
+      "value": "箍环",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Cone",
+      "value": "锥体",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Cropped",
+      "value": "截短",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Cropped Bevel",
+      "value": "截短斜面",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Cylinder",
+      "value": "圆柱",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Deployable Curved",
+      "value": "可展开弧形",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Deployable Slanted",
+      "value": "可展开斜置",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Fin Hinge",
+      "value": "尾翼铰链",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Fin Hinge Square",
+      "value": "方形尾翼铰链",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Hard Point",
+      "value": "挂点",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Knife Edge",
+      "value": "刀锋",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Large",
+      "value": "大型",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Pointed",
+      "value": "尖头",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Pointed Advanced",
+      "value": "高级尖头",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Pointed Chamfer",
+      "value": "尖头倒角",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Reverse Trapezoid",
+      "value": "反向梯形",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Rolleron",
+      "value": "滚转轮",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Screws",
+      "value": "螺钉",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Square",
+      "value": "方形",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Swept",
+      "value": "后掠",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Thin",
+      "value": "薄型",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Trapezoid",
+      "value": "梯形",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Wings",
+      "value": "机翼",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Triangle",
+      "value": "三角形",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_ProceduralMissileSubPartData/"
+    },
+    {
+      "key": "Altimeter",
+      "value": "高度表",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Altitude",
+      "value": "高度",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Attitude",
+      "value": "姿态",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Compass",
+      "value": "罗盘",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Error",
+      "value": "误差",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Face",
+      "value": "表盘",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Feet",
+      "value": "英尺",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Funky",
+      "value": "怪趣",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Generic",
+      "value": "通用",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Knots",
+      "value": "节",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "KPH",
+      "value": "公里/时",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "MPH",
+      "value": "英里/时",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "m/s",
+      "value": "米/秒",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Option 1",
+      "value": "选项 1",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Option 2",
+      "value": "选项 2",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Option 3",
+      "value": "选项 3",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Option 4",
+      "value": "选项 4",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Option 6",
+      "value": "选项 6",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Option 7",
+      "value": "选项 7",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Rotor RPM",
+      "value": "旋翼转速",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "RPM",
+      "value": "转速",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Speed 200",
+      "value": "速度 200",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Speed 400",
+      "value": "速度 400",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Speed 600",
+      "value": "速度 600",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "TC",
+      "value": "转弯协调仪",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Trim 1",
+      "value": "配平 1",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Trim 2",
+      "value": "配平 2",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Vert. Speed",
+      "value": "垂直速度",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Vertical-S",
+      "value": "垂直-S",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_GaugeData/"
+    },
+    {
+      "key": "Center",
+      "value": "居中",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Diagonal",
+      "value": "对角",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Horizontal",
+      "value": "水平",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Vertical",
+      "value": "垂直",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Middle",
+      "value": "中间",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Upper Left",
+      "value": "左上",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Upper Right",
+      "value": "右上",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Lower Left",
+      "value": "左下",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
+    },
+    {
+      "key": "Floor Mount",
+      "value": "地板安装",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PedalData/"
+    },
+    {
+      "key": "Gas",
+      "value": "油门",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PedalData/"
+    },
+    {
+      "key": "Clutch",
+      "value": "离合",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_PedalData/"
+    },
+    {
+      "key": "Text",
+      "value": "文本",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartProperties_LabelData/"
     }
   ]
 }

@@ -543,15 +543,15 @@
     },
     {
       "key": "Add a transmission so the car can shift gears.",
-      "value": "添加一个变速箱，让汽车可以换挡。"
+      "value": "添加一个变速器，让汽车可以换挡。"
     },
     {
       "key": "Click and drag the 'Transmission' part from the part list and add it to your craft at the indicated position.",
-      "value": "从零件列表中点击并拖动“变速箱”零件，将它添加到载具上的标示位置。"
+      "value": "从零件列表中点击并拖动“变速器”零件，将它添加到载具上的标示位置。"
     },
     {
       "key": "Reduce the number of gears on this transmission to make it smaller and lighter.",
-      "value": "减少这个变速箱的挡位数，让它更小、更轻。"
+      "value": "减少这个变速器的挡位数，让它更小、更轻。"
     },
     {
       "key": "Change the value of the 'Number of Gears' property to '3'.",

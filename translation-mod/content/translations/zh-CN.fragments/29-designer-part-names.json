@@ -1,4 +1,4 @@
-﻿{
+{
   "page": "29-designer-part-names",
   "entries": [
     {
@@ -420,7 +420,46 @@
     {
       "key": "Yoke",
       "value": "驾驶盘"
+    },
+    {
+      "key": "Propeller Assembly",
+      "value": "螺旋桨组件"
+    },
+    {
+      "key": "Propeller Assembly​",
+      "value": "螺旋桨组件"
+    },
+    {
+      "key": "Missile​",
+      "value": "导弹"
+    },
+    {
+      "key": "Fin Greeble​",
+      "value": "尾翼细节"
+    },
+    {
+      "key": "Missile Fins​",
+      "value": "导弹尾翼"
+    },
+    {
+      "key": "Missile Greeble​",
+      "value": "导弹细节"
+    },
+    {
+      "key": "Missile Jet Inlet​",
+      "value": "导弹喷气进气口"
+    },
+    {
+      "key": "Missile Wings​",
+      "value": "导弹机翼"
+    },
+    {
+      "key": "Fin Greeble",
+      "value": "尾翼细节"
+    },
+    {
+      "key": "Missile Greeble",
+      "value": "导弹细节"
     }
   ]
 }
-

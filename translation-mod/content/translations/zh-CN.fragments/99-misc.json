@@ -104,6 +104,10 @@
     {
       "key": "Wrap Mode",
       "value": "环绕模式"
+    },
+    {
+      "key": "Enabled",
+      "value": "已启用"
     }
   ]
 }

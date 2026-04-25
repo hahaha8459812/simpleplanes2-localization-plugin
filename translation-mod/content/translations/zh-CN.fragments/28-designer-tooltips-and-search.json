@@ -119,7 +119,7 @@
     },
     {
       "key": "Fin Details\nCosmetic details that don't affect the physics of fins, but can make it look more neato.",
-      "value": "尾翼细节\n不会影响尾翼物理表现的装饰性细节，但能让它看起来更精致。"
+      "value": "尾翼细节\n不会影响尾翼物理效果的装饰细节，但能让它看起来更带劲。"
     },
     {
       "key": "Glass Fuselage\nA procedural hollow fuselage section made of glass. Customize its shape, size, and thickness.",
@@ -219,7 +219,7 @@
     },
     {
       "key": "Transmission\nManages the engine's power with multiple gears. Adjust its gearing to create a trade-off between quick acceleration and high top speed. Has a built-in clutch.",
-      "value": "变速箱\n用多个挡位管理发动机动力。你可以通过齿比在加速性能和最高速度之间做取舍，内置离合器。"
+      "value": "变速器\n用多个挡位管理发动机动力。你可以通过齿比在加速性能和最高速度之间做取舍，内置离合器。"
     },
     {
       "key": "Vertical Stabilizer\nA smaller version of the procedural wing meant to go vertical to help you fly straight like an arrow.",
@@ -287,7 +287,7 @@
     },
     {
       "key": "Missile Details\nCosmetic details that don't affect the physics of the missile, but can make it look more neato.",
-      "value": "导弹细节\n不会影响导弹物理表现的装饰性细节，但能让它看起来更精致。"
+      "value": "导弹细节\n不会影响导弹物理效果的装饰细节，但能让它看起来更带劲。"
     },
     {
       "key": "Missile Jet Inlet\nInlets specially designed for missiles with jet engines.",
@@ -824,6 +824,202 @@
     {
       "key": "Enabled Powertrain View",
       "value": "已启用动力传动视图"
+    },
+    {
+      "key": "Changes the diameter of the propeller assembly",
+      "value": "调整螺旋桨组件的直径。"
+    },
+    {
+      "key": "In Fixed mode, this sets the constant blade angle. In Auto mode, this defines the maximum (coarse) pitch limit the governor can apply.",
+      "value": "在固定模式下，这会设置恒定桨叶角；在自动模式下，这会设置调速器可使用的最大粗桨距限制。"
+    },
+    {
+      "key": "Reverses the direction the propellers are facing as well.",
+      "value": "同时反转螺旋桨的朝向。"
+    },
+    {
+      "key": "The amount of twist in the blade at the root.",
+      "value": "桨叶根部的扭转角度。"
+    },
+    {
+      "key": "The number of propeller blades. More blades means more thrust given the same RPM, but also more drag and mass for the motor to spin.",
+      "value": "螺旋桨的桨叶数量。在相同转速下，桨叶越多推力越大，但也会增加阻力和电机需要带动的质量。"
+    },
+    {
+      "key": "The pitch of the blades can either be fixed, automatically maintain a constant RPM, or controlled via an input controller during flight.",
+      "value": "桨叶桨距可以固定，也可以自动维持恒定转速，或在飞行中通过输入控制器控制。"
+    },
+    {
+      "key": "The scale of the propeller hub/cone",
+      "value": "螺旋桨桨毂/锥体的缩放比例。"
+    },
+    {
+      "key": "The width (chord-length) of the propeller blades",
+      "value": "螺旋桨桨叶的宽度（弦长）。"
+    },
+    {
+      "key": "A ballpark estimate for the maximum speed of the missile",
+      "value": "导弹最高速度的粗略估计值。"
+    },
+    {
+      "key": "Changes the amount the missile lofts after launch.",
+      "value": "调整导弹发射后上抬弹道的程度。"
+    },
+    {
+      "key": "Changes the attach position along the length of the missile.",
+      "value": "调整挂载点在导弹长度方向上的位置。"
+    },
+    {
+      "key": "Changes the overall diameter of the missile.",
+      "value": "调整导弹的整体直径。"
+    },
+    {
+      "key": "Changes the overall size of the missile.",
+      "value": "调整导弹的整体尺寸。"
+    },
+    {
+      "key": "How explosive the missile is.",
+      "value": "导弹爆炸威力的大小。"
+    },
+    {
+      "key": "How long to wait after firing until the engine is ignited.",
+      "value": "发射后等待多久才点燃发动机。"
+    },
+    {
+      "key": "How long to wait after launch before the missile starts guiding. A short delay helps to ensure the missile safely clears your aircraft before turning.",
+      "value": "发射后等待多久才开始制导。较短的延迟有助于确保导弹在转向前安全离开你的载具。"
+    },
+    {
+      "key": "How quickly the missile can change its heading.",
+      "value": "导弹改变航向的速度。"
+    },
+    {
+      "key": "How quickly the missile reaches its top speed. Higher acceleration results in a higher achievable top speed.",
+      "value": "导弹达到最高速度的快慢。加速度越高，可达到的最高速度也越高。"
+    },
+    {
+      "key": "The missile's agility and maximum G-load capacity during maneuvers.",
+      "value": "导弹在机动时的敏捷性和最大过载能力。"
+    },
+    {
+      "key": "The mode the weapon is used with",
+      "value": "该武器使用的模式。"
+    },
+    {
+      "key": "The type of engine the missile uses",
+      "value": "导弹使用的发动机类型。"
+    },
+    {
+      "key": "The type of seeker the missile uses.",
+      "value": "导弹使用的导引头类型。"
+    },
+    {
+      "key": "Changes how long the engine burns.",
+      "value": "调整发动机燃烧持续时间。"
+    },
+    {
+      "key": "Changes how long the nose is, but longer doesn't necessarily mean it's lying.",
+      "value": "调整头锥长度，不过更长并不代表它在撒谎。"
+    },
+    {
+      "key": "Changes how many are duplicatd around the missile.",
+      "value": "调整围绕导弹复制的数量。"
+    },
+    {
+      "key": "Changes the angle used to offset around the missile.",
+      "value": "调整围绕导弹偏移时使用的角度。"
+    },
+    {
+      "key": "Changes the radius of the FOV circle (in degrees).",
+      "value": "调整视场圆的半径（以度为单位）。"
+    },
+    {
+      "key": "Changes the style.",
+      "value": "调整样式。"
+    },
+    {
+      "key": "Make it bigger / smaller.",
+      "value": "让它变大或变小。"
+    },
+    {
+      "key": "Make it longer / shorter",
+      "value": "让它变长或变短。"
+    },
+    {
+      "key": "Make it taller / shorter.",
+      "value": "让它变高或变矮。"
+    },
+    {
+      "key": "Make it thinner / thicker.",
+      "value": "让它变薄或变厚。"
+    },
+    {
+      "key": "Move it away / closer to the surface of the missile.",
+      "value": "让它远离或贴近导弹表面。"
+    },
+    {
+      "key": "When enabled, the rocket will attempt to guide itself to the current laser target.",
+      "value": "启用后，火箭弹会尝试自行制导到当前激光目标。"
+    },
+    {
+      "key": "Adjusts the responsiveness of the differential under acceleration. Higher values make the lock react more quickly to slip, while lower values feel smoother and less snappy.",
+      "value": "调整差速器在加速时的响应速度。数值越高，差速锁对打滑的反应越快；数值越低，表现越平顺。"
+    },
+    {
+      "key": "Adjusts the responsiveness of the differential under braking. Higher values make the lock react more quickly to slip, while lower values feel smoother and less snappy.",
+      "value": "调整差速器在制动或滑行时的响应速度。数值越高，差速锁对打滑的反应越快；数值越低，表现越平顺。"
+    },
+    {
+      "key": "Controls how much power is transferred to the wheel with more grip. Higher values provide more traction when accelerating but can make turning more difficult.",
+      "value": "控制有更多抓地力的车轮会分配到多少动力。数值越高，加速时牵引力越强，但转向可能更困难。"
+    },
+    {
+      "key": "Gear ratio of 2 would double the output torque and halve the RPM.",
+      "value": "齿比为 2 时，输出扭矩翻倍，转速减半。"
+    },
+    {
+      "key": "Gets the gear ratio for reverse",
+      "value": "设置倒挡齿比。"
+    },
+    {
+      "key": "Reverses the direction of the output shaft.",
+      "value": "反转输出轴方向。"
+    },
+    {
+      "key": "The horse power of the engine.",
+      "value": "发动机马力。"
+    },
+    {
+      "key": "The maximum RPM of the engine.",
+      "value": "发动机最高转速。"
+    },
+    {
+      "key": "The peak torque of the engine.",
+      "value": "发动机峰值扭矩。"
+    },
+    {
+      "key": "Links this MFD to a specific Targeting Pod. If None, the system auto-assigns the first one it can find.",
+      "value": "将此 MFD 关联到指定瞄准吊舱。如果选择“无”，系统会自动分配它能找到的第一个瞄准吊舱。"
+    },
+    {
+      "key": "No targeting pods available.",
+      "value": "没有可用的瞄准吊舱。"
+    },
+    {
+      "key": "Whether the seated Character First Person View camera will follow the head position as modified by the seat IK.",
+      "value": "坐姿角色的第一人称视角相机会跟随由座椅 IK 修改后的头部位置。"
+    },
+    {
+      "key": "The distance beyond which the limb will snap back to the rest position and forget what it was trying to grab.",
+      "value": "超过这个距离后，肢体会弹回默认姿态，并忘记原本尝试抓取的目标。"
+    },
+    {
+      "key": "Select a target for the Right Knee.",
+      "value": "选择右膝目标。"
+    },
+    {
+      "key": "The intensity of the filter when active.",
+      "value": "滤镜启用时的强度。"
     }
   ],
   "contextEntries": [
