@@ -20,7 +20,7 @@ jobs:
     runs-on: [self-hosted, Windows, X64]
     defaults:
       run:
-        shell: pwsh
+        shell: powershell
         working-directory: translation-mod
 
     steps:
