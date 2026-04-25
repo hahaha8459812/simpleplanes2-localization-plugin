@@ -2,12 +2,448 @@
   "page": "32-settings-dialog",
   "entries": [
     {
+      "key": "Adjusts the brightness of the game.",
+      "value": "调整游戏亮度。"
+    },
+    {
+      "key": "Adjusts the color contrast of the game.",
+      "value": "调整游戏画面的颜色对比度。"
+    },
+    {
+      "key": "Adjusts the color saturation of the game.",
+      "value": "调整游戏画面的颜色饱和度。"
+    },
+    {
+      "key": "Adjusts the density of the trees. Higher settings mean more trees being rendered on screen, which can reduce performance.\r\n\r\nNo Trees: No trees will be rendered.\r\n\r\nLow: Approximately 10% of the trees will be rendered.\r\n\r\nMedium: Approximately 50% of the trees will be rendered.\r\n\r\nHigh: All trees will be rendered.",
+      "value": "调整树木密度。设置越高，屏幕上渲染的树木越多，可能会降低性能。\r\n\r\n无树木：不渲染树木。\r\n\r\n低：大约渲染 10% 的树木。\r\n\r\n中：大约渲染 50% 的树木。\r\n\r\n高：渲染全部树木。"
+    },
+    {
+      "key": "Adjusts the quality and view distance of shadows. Shadow quality can have a performance impact on both CPU and GPU performance.\r\n\r\nOff: Shadows are disabled entirely. This has an obvious impact on visual quality, but it can improve performance on devices that struggle to reach playable framerates.\r\n\r\nLow: Shadows are lower quality and have a short view distance.\r\n\r\nMedium: Shadow quality and view distance tries to strike a decent balance between high and low quality.\r\n\r\nHigh: Shadows are higher quality and have a larger view distance than the lower qualities.\r\n\r\nVery High: Shadows are at their highest quality and the shadow view distance is dynamic, allowing for far greater shadow view distances when flying.",
+      "value": "调整阴影质量和可视距离。阴影质量会同时影响 CPU 和 GPU 性能。\r\n\r\n关闭：完全禁用阴影。画质会明显下降，但可提升低性能设备的帧率。\r\n\r\n低：阴影质量较低，可视距离较短。\r\n\r\n中：在阴影质量和可视距离之间取得较均衡的效果。\r\n\r\n高：阴影质量更高，可视距离比低档更远。\r\n\r\n极高：阴影质量最高，并使用动态阴影可视距离，飞行时可显示更远处的阴影。"
+    },
+    {
+      "key": "Adjusts the quality of the water. This can impact visual effects as well as some physics effects.\r\n\r\nLow: Similar to medium quality without a few effects such as river flows, dynamic waves, and caustics\r\n\r\nMedium: Water will be rendered with all its various visual and physical effects fully enabled.\r\n\r\nHigh: Water will be rendered with all its various visual and physical effects fully enabled with increased detail at further distances.",
+      "value": "调整水体质量。这会影响视觉效果，也可能影响部分物理效果。\r\n\r\n低：接近中等质量，但关闭河流流动、动态波浪、焦散等部分效果。\r\n\r\n中：完整启用水体的各种视觉和物理效果。\r\n\r\n高：完整启用水体的各种视觉和物理效果，并提升远距离细节。"
+    },
+    {
+      "key": "Adjusts the rendering distance for trees. A greater rendering distance means more trees being rendered on screen, which can reduce performance.",
+      "value": "调整树木渲染距离。距离越远，屏幕上渲染的树木越多，可能会降低性能。"
+    },
+    {
+      "key": "Adjusts the sensitivity of the first-person camera when outside the craft.",
+      "value": "调整在载具外第一人称相机的灵敏度。"
+    },
+    {
+      "key": "Adjusts the smoothing of the first-person camera when outside the craft.",
+      "value": "调整在载具外第一人称相机的平滑度。"
+    },
+    {
+      "key": "Adjusts the strength of the ambient occlusion (AO) effect. This effect darkens areas where surfaces are close together, like creases, holes, and intersections, to simulate how ambient light is blocked or occluded, making the scene appear more realistic.",
+      "value": "调整环境光遮蔽（AO）效果强度。该效果会让褶皱、孔洞、交界处等表面接近的区域变暗，用来模拟环境光被遮挡的效果，使场景更真实。"
+    },
+    {
+      "key": "Adjusts the strength of the bloom effect. This effect makes bright areas of the game appear to glow.",
+      "value": "调整泛光效果强度。该效果会让游戏中的明亮区域看起来带有光晕。"
+    },
+    {
+      "key": "Adjusts the visual quality of the clouds, sky, and fog. Higher settings are very GPU heavy. Lowering this setting can have big performance gains for GPU limited situations.\r\n\r\nLow: Flat 2D clouds will be used as part of the skybox instead of 3D volumetric clouds.\r\n\r\nMedium: Volumetric clouds will be used at a reduced quality level.\r\n\r\nHigh: High quality volumetric clouds will be used.",
+      "value": "调整云、天空和雾的视觉质量。高设置会显著增加 GPU 负担。在 GPU 受限时，降低此项可以大幅提升性能。\r\n\r\n低：使用天空盒中的平面 2D 云，而不是 3D 体积云。\r\n\r\n中：使用较低质量的体积云。\r\n\r\n高：使用高质量体积云。"
+    },
+    {
+      "key": "Adjusts the visual quality of the terrain's surface. Higher settings are very GPU heavy. Lowering this setting can have big performance gains for GPU limited situations.\r\n\r\nLow: The visual quality of the terrain surface will be significantly reduced.\r\n\r\nMedium: The visual quality of the terrain surface will be somewhat reduced.\r\n\r\nHigh: The visual quality of the terrain surface will be at its highest quality.",
+      "value": "调整地形表面的视觉质量。高设置会显著增加 GPU 负担。在 GPU 受限时，降低此项可以大幅提升性能。\r\n\r\n低：地形表面视觉质量会明显降低。\r\n\r\n中：地形表面视觉质量会有所降低。\r\n\r\n高：地形表面使用最高视觉质量。"
+    },
+    {
+      "key": "Ambient Occlusion",
+      "value": "环境光遮蔽"
+    },
+    {
+      "key": "Ambient Occlusion Intensity",
+      "value": "环境光遮蔽强度"
+    },
+    {
+      "key": "Anti-Aliasing",
+      "value": "抗锯齿"
+    },
+    {
+      "key": "Anti-aliasing helps smooth pixelated edges.\r\n\r\nNone: No anti-aliasing will be used.\r\n\r\nMSAA x2: MSAA 2x (Multi-Sample Anti-Aliasing) samples 2 points per pixel for high-quality edges, but with a higher performance cost.\r\n\r\nMSAA 4x: MSAA 4x (Multi-Sample Anti-Aliasing) samples 4 points per pixel for high-quality edges, but with a higher performance cost.\r\n\r\nMSAA 8x: MSAA 8x (Multi-Sample Anti-Aliasing) samples 8 points per pixel for high-quality edges, but with a higher performance cost.\r\n\r\nFXAA: FXAA (Fast Approximate Anti-Aliasing) quickly smooths edges with a slight blur, offering high performance but lower visual quality.\r\n\r\nSMAA: SMAA (Subpixel Morphological Anti-Aliasing) reduces jagged edges with minimal performance impact, providing a good balance between quality and performance.",
+      "value": "抗锯齿可让像素化边缘更平滑。\r\n\r\n无：不使用抗锯齿。\r\n\r\nMSAA x2：MSAA 2x（多重采样抗锯齿）每个像素采样 2 个点，边缘质量较高，但性能开销也更高。\r\n\r\nMSAA 4x：MSAA 4x 每个像素采样 4 个点，边缘质量较高，但性能开销也更高。\r\n\r\nMSAA 8x：MSAA 8x 每个像素采样 8 个点，边缘质量较高，但性能开销也更高。\r\n\r\nFXAA：FXAA（快速近似抗锯齿）会快速平滑边缘并带来轻微模糊，性能较好但画质较低。\r\n\r\nSMAA：SMAA（子像素形态抗锯齿）能以较低性能开销减少锯齿，在画质和性能之间较为均衡。"
+    },
+    {
+      "key": "Apply",
+      "value": "应用"
+    },
+    {
+      "key": "Audio",
+      "value": "音频"
+    },
+    {
+      "key": "Auto Recenter",
+      "value": "自动居中"
+    },
+    {
+      "key": "Automatically recenter the craft in the designer when the craft is saved.",
+      "value": "保存载具时，自动在设计器中将载具居中。"
+    },
+    {
+      "key": "Bloom Intensity",
+      "value": "泛光强度"
+    },
+    {
+      "key": "Brightness",
+      "value": "亮度"
+    },
+    {
+      "key": "Camera Smoothing FPV",
+      "value": "第一人称相机平滑度"
+    },
+    {
+      "key": "Camera Speed FPV",
+      "value": "第一人称相机速度"
+    },
+    {
+      "key": "Changes the volume of both sound and music.",
+      "value": "调整音效和音乐的整体音量。"
+    },
+    {
+      "key": "Changes the volume of the music.",
+      "value": "调整音乐音量。"
+    },
+    {
+      "key": "Changes the volume of the user interface.",
+      "value": "调整用户界面音量。"
+    },
+    {
+      "key": "Character FPV Tilt Sensitivity",
+      "value": "角色第一人称倾斜灵敏度"
+    },
+    {
       "key": "Close",
       "value": "关闭"
     },
     {
+      "key": "Close this window",
+      "value": "关闭此窗口"
+    },
+    {
+      "key": "Clouds",
+      "value": "云层"
+    },
+    {
+      "key": "Contrast",
+      "value": "对比度"
+    },
+    {
+      "key": "Craft",
+      "value": "载具"
+    },
+    {
+      "key": "Custom",
+      "value": "自定义"
+    },
+    {
+      "key": "Default",
+      "value": "默认"
+    },
+    {
+      "key": "Defines the frequency of the foam simulation on the water surface.\r\n\r\nOff: Water will not simulate foam.\r\n\r\nLow: Water will simulate foam at a lower frequency.\r\n\r\nMedium: Water will simulate foam at a moderate frequency.\r\n\r\nHigh: Water will simulate foam at a higher frequency.",
+      "value": "定义水面泡沫模拟频率。\r\n\r\n关闭：水体不模拟泡沫。\r\n\r\n低：以较低频率模拟泡沫。\r\n\r\n中：以中等频率模拟泡沫。\r\n\r\n高：以较高频率模拟泡沫。"
+    },
+    {
+      "key": "Designer",
+      "value": "设计器"
+    },
+    {
+      "key": "Designer Shadows",
+      "value": "设计器阴影"
+    },
+    {
+      "key": "Determines whether ambient occlusion (AO) is enabled. This effect darkens areas where surfaces are close together, like creases, holes, and intersections, to simulate how ambient light is blocked or occluded, making the scene appear more realistic. Disabling ambient occlusion can improve performance in GPU limited situations.",
+      "value": "决定是否启用环境光遮蔽（AO）。该效果会让褶皱、孔洞、交界处等表面接近的区域变暗，用来模拟环境光被遮挡的效果，使场景更真实。在 GPU 受限时，关闭环境光遮蔽可提升性能。"
+    },
+    {
+      "key": "Determines whether shadows are enabled in the designer. Disabling shadows can improve performance in the designer. Some players may also find it useful to disable shadows in the designer so that they don't obstruct the view when building craft.",
+      "value": "决定设计器中是否启用阴影。关闭阴影可提升设计器性能；部分玩家也可能希望关闭阴影，以免建造载具时遮挡视野。"
+    },
+    {
+      "key": "Determines whether trees cast shadows. Disabling shadows cast by trees can help improve performance on some devices.",
+      "value": "决定树木是否投射阴影。关闭树木阴影可在部分设备上提升性能。"
+    },
+    {
+      "key": "Disabling this will turn off all rivers and waves. Leaving it enabled is recommended. Consider disabling it for devices below minimum requirements that need to squeeze some extra performance out of the game.",
+      "value": "关闭此项会禁用所有河流和波浪。建议保持开启。若设备低于最低配置且需要尽量提高性能，可考虑关闭。"
+    },
+    {
+      "key": "Discard",
+      "value": "放弃"
+    },
+    {
+      "key": "Display",
+      "value": "显示"
+    },
+    {
+      "key": "Enables or disables support for toggling the mouse as joystick control scheme during flight. (Bound to right mouse click by default)",
+      "value": "启用或禁用飞行中切换“鼠标作为操纵杆”控制方案的功能。（默认绑定到鼠标右键）"
+    },
+    {
+      "key": "Environment",
+      "value": "环境"
+    },
+    {
+      "key": "Field of View",
+      "value": "视野"
+    },
+    {
+      "key": "Field of View Character FPV",
+      "value": "角色第一人称视野"
+    },
+    {
+      "key": "Flight",
+      "value": "飞行"
+    },
+    {
+      "key": "Foam Simulation Rate",
+      "value": "泡沫模拟频率"
+    },
+    {
+      "key": "Full Res",
+      "value": "全分辨率"
+    },
+    {
+      "key": "Fullscreen",
+      "value": "全屏"
+    },
+    {
+      "key": "Game",
+      "value": "游戏"
+    },
+    {
       "key": "General",
       "value": "常规"
+    },
+    {
+      "key": "Heat Distortion",
+      "value": "热扰动"
+    },
+    {
+      "key": "High",
+      "value": "高"
+    },
+    {
+      "key": "How sensitive the character camera will be to roll, higher values will make it more snappy.",
+      "value": "角色相机对滚转的灵敏程度。数值越高，响应越迅速。"
+    },
+    {
+      "key": "Imperial",
+      "value": "英制"
+    },
+    {
+      "key": "Increases or decreases the size of the user interface.",
+      "value": "增大或减小用户界面尺寸。"
+    },
+    {
+      "key": "Invert On-Screen Flight Controls",
+      "value": "反转屏幕飞行控制"
+    },
+    {
+      "key": "Low",
+      "value": "低"
+    },
+    {
+      "key": "Master Volume",
+      "value": "主音量"
+    },
+    {
+      "key": "Medium",
+      "value": "中"
+    },
+    {
+      "key": "Mouse As Joystick",
+      "value": "鼠标作为操纵杆"
+    },
+    {
+      "key": "Music Volume",
+      "value": "音乐音量"
+    },
+    {
+      "key": "No Trees",
+      "value": "无树木"
+    },
+    {
+      "key": "On-Screen Flight Controls",
+      "value": "屏幕飞行控制"
+    },
+    {
+      "key": "Overall Quality",
+      "value": "整体画质"
+    },
+    {
+      "key": "Post Processing",
+      "value": "后期处理"
+    },
+    {
+      "key": "Quality",
+      "value": "画质"
+    },
+    {
+      "key": "Realtime",
+      "value": "实时"
+    },
+    {
+      "key": "Reflections",
+      "value": "反射"
+    },
+    {
+      "key": "Refresh Rate",
+      "value": "刷新率"
+    },
+    {
+      "key": "Resolution",
+      "value": "分辨率"
+    },
+    {
+      "key": "Resolution Scale",
+      "value": "分辨率缩放"
+    },
+    {
+      "key": "Rivers and Waves",
+      "value": "河流与波浪"
+    },
+    {
+      "key": "Saturation",
+      "value": "饱和度"
+    },
+    {
+      "key": "Settings",
+      "value": "设置"
+    },
+    {
+      "key": "Shadow Quality",
+      "value": "阴影质量"
+    },
+    {
+      "key": "Shadows",
+      "value": "阴影"
+    },
+    {
+      "key": "Shore Waves",
+      "value": "岸边波浪"
+    },
+    {
+      "key": "SMAA",
+      "value": "SMAA"
+    },
+    {
+      "key": "Static",
+      "value": "静态"
+    },
+    {
+      "key": "Terrain",
+      "value": "地形"
+    },
+    {
+      "key": "The field of view used by most of the game cameras.",
+      "value": "大多数游戏相机使用的视野范围。"
+    },
+    {
+      "key": "The field of view used for the character in first-person.",
+      "value": "角色第一人称使用的视野范围。"
+    },
+    {
+      "key": "The resolution at which the game is rendered.",
+      "value": "游戏渲染使用的分辨率。"
+    },
+    {
+      "key": "The unit system used by the game.",
+      "value": "游戏使用的单位制。"
+    },
+    {
+      "key": "This setting changes the way reflections are handled on the craft surfaces.\r\n\r\nRealtime: Reflective craft parts will reflect the surrounding world in realtime. Enabling this option can result in extreme performance impacts.\r\n\r\nStatic: Reflective craft parts will use a vague static image to give the illusion of the parts reflecting their surroundings without actually doing so.",
+      "value": "此设置会改变载具表面反射的处理方式。\r\n\r\n实时：带反射的载具零件会实时反射周围世界。启用此项可能造成极高的性能开销。\r\n\r\n静态：带反射的载具零件会使用模糊的静态图像，制造出反射周围环境的视觉假象，但并不真正实时反射。"
+    },
+    {
+      "key": "This setting toggles on or off the heat distortion effects from parts like jet engines.",
+      "value": "切换喷气发动机等零件产生的热扰动效果。"
+    },
+    {
+      "key": "This value scales the rendered resolution of the game while the user interface still renders at the specified resolution. \r\n\r\nAt values lower than 1, the game will be rendered at a lower resolution than the game screen and then upscaled. This is a trade-off of reduced graphical quality for performance gains. \r\n\r\nAt values higher than 1, the game will be rendered at a higher resolution than the game screen and then downscaled. This is a trade-off of increased graphical quality (particularly a reduction in aliasing) at the cost of performance.",
+      "value": "缩放游戏的渲染分辨率，用户界面仍会按指定分辨率渲染。\r\n\r\n当数值低于 1 时，游戏会以低于屏幕的分辨率渲染，再放大到屏幕大小。这会牺牲画质以换取性能。\r\n\r\n当数值高于 1 时，游戏会以高于屏幕的分辨率渲染，再缩小到屏幕大小。这会提升画质，尤其能减少锯齿，但会增加性能开销。"
+    },
+    {
+      "key": "Toggles the option of rendering the game in fullscreen mode or windowed mode.",
+      "value": "切换游戏以全屏模式或窗口模式渲染。"
+    },
+    {
+      "key": "Toggles the waves along the shorelines. This has minimal impact on performance but some players may prefer less turbulent shorelines, either for physics-related or perhaps just visual reasons.",
+      "value": "切换岸线附近的波浪。此项对性能影响很小，但部分玩家可能出于物理表现或视觉偏好，希望岸边水面更平静。"
+    },
+    {
+      "key": "Tree Density",
+      "value": "树木密度"
+    },
+    {
+      "key": "Tree Shadows",
+      "value": "树木阴影"
+    },
+    {
+      "key": "Tree View Distance",
+      "value": "树木可视距离"
+    },
+    {
+      "key": "Unit System",
+      "value": "单位制"
+    },
+    {
+      "key": "User Interface Size",
+      "value": "用户界面尺寸"
+    },
+    {
+      "key": "User Interface Volume",
+      "value": "用户界面音量"
+    },
+    {
+      "key": "Uses V-Sync to lock the game's framerate to the monitors refresh rate to prevent screen tearing. Also improves battery life and reduces overheating on laptops and mobile devices.",
+      "value": "使用垂直同步将游戏帧率锁定到显示器刷新率，以防止画面撕裂。也可改善笔记本电脑和移动设备的续航并减少过热。"
+    },
+    {
+      "key": "Very High",
+      "value": "极高"
+    },
+    {
+      "key": "Very Low",
+      "value": "极低"
+    },
+    {
+      "key": "Water",
+      "value": "水体"
+    },
+    {
+      "key": "Water Quality",
+      "value": "水体质量"
+    },
+    {
+      "key": "Metric",
+      "value": "公制"
+    },
+    {
+      "key": "Nautical",
+      "value": "航海制"
+    },
+    {
+      "key": "Reload Required",
+      "value": "需要重新加载"
+    },
+    {
+      "key": "Some settings won't take effect until the flight scene is fully reloaded. To apply them, return to the main menu and re-enter the designer or flight scene.",
+      "value": "部分设置需要在飞行场景完全重新加载后才会生效。要应用这些设置，请返回主菜单，然后重新进入设计器或飞行场景。"
+    }
+  ],
+  "contextEntries": [
+    {
+      "key": "Controls",
+      "value": "控制",
+      "sceneName": "MainMenu",
+      "gameObjectPathContains": "/settings-dialog/"
     }
   ]
 }

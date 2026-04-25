@@ -1,4 +1,4 @@
-{
+﻿{
   "page": "29-designer-part-names",
   "entries": [
     {
@@ -80,6 +80,10 @@
     {
       "key": "Clutch Pedal",
       "value": "离合踏板"
+    },
+    {
+      "key": "Coilover",
+      "value": "弹簧避震器"
     },
     {
       "key": "Cylinder Grip",
@@ -419,3 +423,4 @@
     }
   ]
 }
+

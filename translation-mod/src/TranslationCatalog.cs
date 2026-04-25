@@ -31,6 +31,22 @@ namespace SimplePlanes2TranslationMod
             public string AnchoredPosition { get; set; }
         }
 
+        private sealed class DynamicSuffixEntry
+        {
+            public string SourceSuffix { get; set; }
+
+            public string ValueSuffix { get; set; }
+        }
+
+        private sealed class DynamicPrefixEntry
+        {
+            public string SourcePrefix { get; set; }
+
+            public string ValuePrefix { get; set; }
+
+            public string ValueSuffix { get; set; }
+        }
+
         private sealed class LookupCandidate
         {
             public string LookupText { get; set; }
@@ -44,20 +60,30 @@ namespace SimplePlanes2TranslationMod
 
         public static readonly TranslationCatalog Empty = new TranslationCatalog(
             new Dictionary<string, string>(StringComparer.Ordinal),
-            new List<ContextEntry>());
+            new List<ContextEntry>(),
+            new List<DynamicSuffixEntry>(),
+            new List<DynamicPrefixEntry>());
 
         private readonly List<ContextEntry> _contextEntries;
+        private readonly List<DynamicSuffixEntry> _dynamicSuffixEntries;
+        private readonly List<DynamicPrefixEntry> _dynamicPrefixEntries;
         private readonly Dictionary<string, string> _entries;
 
-        private TranslationCatalog(Dictionary<string, string> entries, List<ContextEntry> contextEntries)
+        private TranslationCatalog(
+            Dictionary<string, string> entries,
+            List<ContextEntry> contextEntries,
+            List<DynamicSuffixEntry> dynamicSuffixEntries,
+            List<DynamicPrefixEntry> dynamicPrefixEntries)
         {
             _entries = entries;
             _contextEntries = contextEntries;
+            _dynamicSuffixEntries = dynamicSuffixEntries;
+            _dynamicPrefixEntries = dynamicPrefixEntries;
         }
 
         public int Count
         {
-            get { return _entries.Count + _contextEntries.Count; }
+            get { return _entries.Count + _contextEntries.Count + _dynamicSuffixEntries.Count + _dynamicPrefixEntries.Count; }
         }
 
         public static TranslationCatalog Load(string path, ManualLogSource logger)
@@ -68,6 +94,8 @@ namespace SimplePlanes2TranslationMod
             JObject entriesObject;
             Dictionary<string, string> entries;
             List<ContextEntry> contextEntries;
+            List<DynamicSuffixEntry> dynamicSuffixEntries;
+            List<DynamicPrefixEntry> dynamicPrefixEntries;
 
             if (!File.Exists(path))
             {
@@ -112,7 +140,9 @@ namespace SimplePlanes2TranslationMod
             }
 
             contextEntries = LoadContextEntries(rootObject["contextEntries"]);
-            return new TranslationCatalog(entries, contextEntries);
+            dynamicSuffixEntries = LoadDynamicSuffixEntries(rootObject["dynamicSuffixEntries"]);
+            dynamicPrefixEntries = LoadDynamicPrefixEntries(rootObject["dynamicPrefixEntries"]);
+            return new TranslationCatalog(entries, contextEntries, dynamicSuffixEntries, dynamicPrefixEntries);
         }
 
         public bool TryTranslate(string source, out string translated)
@@ -131,6 +161,16 @@ namespace SimplePlanes2TranslationMod
             }
 
             if (TryTranslateFromDictionary(lookupCandidates, out translated))
+            {
+                return true;
+            }
+
+            if (TryTranslateFromDynamicSuffixEntries(lookupCandidates, out translated))
+            {
+                return true;
+            }
+
+            if (TryTranslateFromDynamicPrefixEntries(lookupCandidates, out translated))
             {
                 return true;
             }
@@ -189,6 +229,93 @@ namespace SimplePlanes2TranslationMod
             return contextEntries;
         }
 
+        private static List<DynamicSuffixEntry> LoadDynamicSuffixEntries(JToken dynamicSuffixEntriesToken)
+        {
+            JArray dynamicSuffixEntriesArray;
+            List<DynamicSuffixEntry> dynamicSuffixEntries;
+            int i;
+
+            dynamicSuffixEntriesArray = dynamicSuffixEntriesToken as JArray;
+            dynamicSuffixEntries = new List<DynamicSuffixEntry>();
+            if (dynamicSuffixEntriesArray == null)
+            {
+                return dynamicSuffixEntries;
+            }
+
+            for (i = 0; i < dynamicSuffixEntriesArray.Count; i++)
+            {
+                JObject dynamicSuffixEntryObject;
+                string sourceSuffix;
+                string valueSuffix;
+
+                dynamicSuffixEntryObject = dynamicSuffixEntriesArray[i] as JObject;
+                if (dynamicSuffixEntryObject == null)
+                {
+                    continue;
+                }
+
+                sourceSuffix = ReadString(dynamicSuffixEntryObject, "sourceSuffix");
+                valueSuffix = ReadString(dynamicSuffixEntryObject, "valueSuffix");
+                if (string.IsNullOrEmpty(sourceSuffix) || valueSuffix == null)
+                {
+                    continue;
+                }
+
+                dynamicSuffixEntries.Add(new DynamicSuffixEntry
+                {
+                    SourceSuffix = sourceSuffix,
+                    ValueSuffix = valueSuffix
+                });
+            }
+
+            return dynamicSuffixEntries;
+        }
+
+        private static List<DynamicPrefixEntry> LoadDynamicPrefixEntries(JToken dynamicPrefixEntriesToken)
+        {
+            JArray dynamicPrefixEntriesArray;
+            List<DynamicPrefixEntry> dynamicPrefixEntries;
+            int i;
+
+            dynamicPrefixEntriesArray = dynamicPrefixEntriesToken as JArray;
+            dynamicPrefixEntries = new List<DynamicPrefixEntry>();
+            if (dynamicPrefixEntriesArray == null)
+            {
+                return dynamicPrefixEntries;
+            }
+
+            for (i = 0; i < dynamicPrefixEntriesArray.Count; i++)
+            {
+                JObject dynamicPrefixEntryObject;
+                string sourcePrefix;
+                string valuePrefix;
+                string valueSuffix;
+
+                dynamicPrefixEntryObject = dynamicPrefixEntriesArray[i] as JObject;
+                if (dynamicPrefixEntryObject == null)
+                {
+                    continue;
+                }
+
+                sourcePrefix = ReadString(dynamicPrefixEntryObject, "sourcePrefix");
+                valuePrefix = ReadString(dynamicPrefixEntryObject, "valuePrefix");
+                valueSuffix = ReadString(dynamicPrefixEntryObject, "valueSuffix");
+                if (string.IsNullOrEmpty(sourcePrefix) || valuePrefix == null || valueSuffix == null)
+                {
+                    continue;
+                }
+
+                dynamicPrefixEntries.Add(new DynamicPrefixEntry
+                {
+                    SourcePrefix = sourcePrefix,
+                    ValuePrefix = valuePrefix,
+                    ValueSuffix = valueSuffix
+                });
+            }
+
+            return dynamicPrefixEntries;
+        }
+
         private bool TryTranslateFromContextEntries(List<LookupCandidate> lookupCandidates, TextCaptureContext context, out string translated)
         {
             int i;
@@ -245,6 +372,72 @@ namespace SimplePlanes2TranslationMod
 
                 translated = ApplyLookupCandidate(lookupCandidate, translated);
                 return true;
+            }
+
+            translated = null;
+            return false;
+        }
+
+        private bool TryTranslateFromDynamicSuffixEntries(List<LookupCandidate> lookupCandidates, out string translated)
+        {
+            int i;
+            int j;
+
+            for (i = 0; i < lookupCandidates.Count; i++)
+            {
+                LookupCandidate lookupCandidate;
+
+                lookupCandidate = lookupCandidates[i];
+                for (j = 0; j < _dynamicSuffixEntries.Count; j++)
+                {
+                    DynamicSuffixEntry dynamicSuffixEntry;
+                    string preservedPrefix;
+
+                    dynamicSuffixEntry = _dynamicSuffixEntries[j];
+                    if (!lookupCandidate.LookupText.EndsWith(dynamicSuffixEntry.SourceSuffix, StringComparison.Ordinal))
+                    {
+                        continue;
+                    }
+
+                    preservedPrefix = lookupCandidate.LookupText.Substring(
+                        0,
+                        lookupCandidate.LookupText.Length - dynamicSuffixEntry.SourceSuffix.Length);
+                    translated = ApplyLookupCandidate(lookupCandidate, preservedPrefix + dynamicSuffixEntry.ValueSuffix);
+                    return true;
+                }
+            }
+
+            translated = null;
+            return false;
+        }
+
+        private bool TryTranslateFromDynamicPrefixEntries(List<LookupCandidate> lookupCandidates, out string translated)
+        {
+            int i;
+            int j;
+
+            for (i = 0; i < lookupCandidates.Count; i++)
+            {
+                LookupCandidate lookupCandidate;
+
+                lookupCandidate = lookupCandidates[i];
+                for (j = 0; j < _dynamicPrefixEntries.Count; j++)
+                {
+                    DynamicPrefixEntry dynamicPrefixEntry;
+                    string preservedSuffix;
+
+                    dynamicPrefixEntry = _dynamicPrefixEntries[j];
+                    if (!lookupCandidate.LookupText.StartsWith(dynamicPrefixEntry.SourcePrefix, StringComparison.Ordinal))
+                    {
+                        continue;
+                    }
+
+                    preservedSuffix = lookupCandidate.LookupText.Substring(dynamicPrefixEntry.SourcePrefix.Length);
+                    translated = ApplyLookupCandidate(
+                        lookupCandidate,
+                        dynamicPrefixEntry.ValuePrefix + preservedSuffix + dynamicPrefixEntry.ValueSuffix);
+                    return true;
+                }
             }
 
             translated = null;

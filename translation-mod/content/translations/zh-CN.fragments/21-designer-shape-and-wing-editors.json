@@ -144,6 +144,30 @@
     {
       "key": "WING EDITOR",
       "value": "机翼编辑器"
+    },
+    {
+      "key": "Per Edge",
+      "value": "按边"
+    },
+    {
+      "key": "Smooth",
+      "value": "平滑"
+    },
+    {
+      "key": "Stretched",
+      "value": "拉伸"
+    },
+    {
+      "key": "Cutting",
+      "value": "切割"
+    },
+    {
+      "key": "Edges",
+      "value": "边缘"
+    },
+    {
+      "key": "Properties",
+      "value": "属性"
     }
   ]
 }

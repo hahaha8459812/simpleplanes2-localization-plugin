@@ -171,7 +171,7 @@
     },
     {
       "key": "VTOL",
-      "value": "垂直起降"
+      "value": "VTOL"
     },
     {
       "key": "Weapons",
@@ -179,7 +179,7 @@
     },
     {
       "key": "Wheels",
-      "value": "车轮"
+      "value": "轮组与起落架"
     },
     {
       "key": "Window",
@@ -188,6 +188,14 @@
     {
       "key": "Wings",
       "value": "机翼"
+    }
+  ],
+  "contextEntries": [
+    {
+      "key": "Misc",
+      "value": "舰载设备",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/PartHeader-Misc/"
     }
   ]
 }

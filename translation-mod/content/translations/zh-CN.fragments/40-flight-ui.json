@@ -1,0 +1,648 @@
+{
+  "page": "40-flight-ui",
+  "entries": [
+    {
+      "key": "GS",
+      "value": "地速"
+    },
+    {
+      "key": "IAS",
+      "value": "指示空速"
+    },
+    {
+      "key": "TAS",
+      "value": "真空速"
+    },
+    {
+      "key": "Scores are only available while using default settings.",
+      "value": "只有使用默认设置时才会记录成绩。"
+    },
+    {
+      "key": "ACTIVITY SETTINGS",
+      "value": "活动设置"
+    },
+    {
+      "key": "AI Air Traffic",
+      "value": "AI 空中交通"
+    },
+    {
+      "key": "AI Ground Traffic",
+      "value": "AI 地面交通"
+    },
+    {
+      "key": "AIRPLANES",
+      "value": "飞机"
+    },
+    {
+      "key": "Accelerate",
+      "value": "加速"
+    },
+    {
+      "key": "Activity settings are controlled by the host.",
+      "value": "活动设置由主机控制。"
+    },
+    {
+      "key": "CARS",
+      "value": "汽车"
+    },
+    {
+      "key": "Disabled During \n\n\nChallenge",
+      "value": "挑战中\n\n\n禁用"
+    },
+    {
+      "key": "Enter / Exit Craft",
+      "value": "进入/离开载具"
+    },
+    {
+      "key": "Environment settings are controlled by the host.",
+      "value": "环境设置由主机控制。"
+    },
+    {
+      "key": "Gamepads, joysticks, and HOTAS are all supported! You can view and customize controls in [Game Settings -> Controls]",
+      "value": "支持手柄、摇杆和 HOTAS！你可以在 [游戏设置 -> 控制] 中查看并自定义操作。"
+    },
+    {
+      "key": "Invite Friends",
+      "value": "邀请好友"
+    },
+    {
+      "key": "Max Part Count",
+      "value": "最大零件数"
+    },
+    {
+      "key": "New Text",
+      "value": "新文本"
+    },
+    {
+      "key": "PLAYER LIST",
+      "value": "玩家列表"
+    },
+    {
+      "key": "Peaceful Mode",
+      "value": "和平模式"
+    },
+    {
+      "key": "Player List",
+      "value": "玩家列表"
+    },
+    {
+      "key": "Press [Escape] to open the menu. There's a lot of stuff you can do in this game. Here are some key features, that's why they're at the top!",
+      "value": "按 [Escape] 打开菜单。这个游戏里能做的事情很多，下面是几个重要功能，所以它们放在最上面！"
+    },
+    {
+      "key": "Press [T] to toggle the Activation Panel. From there you can enable weapon systems by clicking on [AIR-TO-AIR] or [AIR-TO-GND]. Press [Spacebar] to fire guns and [Left Alt] to fire a missile after acquiring a lock on your target.",
+      "value": "按 [T] 切换激活面板。你可以在其中点击 [AIR-TO-AIR] 或 [AIR-TO-GND] 启用武器系统。锁定目标后，按 [Spacebar] 开火，按 [Left Alt] 发射导弹。"
+    },
+    {
+      "key": "Reverse",
+      "value": "倒车"
+    },
+    {
+      "key": "SERVER SETTINGS",
+      "value": "服务器设置"
+    },
+    {
+      "key": "Server Settings",
+      "value": "服务器设置"
+    },
+    {
+      "key": "SimplePlanes 2 Demo",
+      "value": "SimplePlanes 2 试玩版"
+    },
+    {
+      "key": "Targeting Pod Off",
+      "value": "瞄准吊舱关闭"
+    },
+    {
+      "key": "Tick Rate",
+      "value": "Tick 率"
+    },
+    {
+      "key": "Title Text",
+      "value": "标题文本"
+    },
+    {
+      "key": "Tooltip Text Goes Here",
+      "value": "提示文本显示在这里"
+    },
+    {
+      "key": "Warning: Approaching Restricted Airspace!",
+      "value": "警告：正在接近限制空域！"
+    },
+    {
+      "key": "Warning: IMMINENT DESTRUCTION",
+      "value": "警告：即将被摧毁"
+    },
+    {
+      "key": "Airspeed",
+      "value": "空速"
+    },
+    {
+      "key": "Assist Strength",
+      "value": "辅助强度"
+    },
+    {
+      "key": "Bank Angle",
+      "value": "坡度角"
+    },
+    {
+      "key": "Heading",
+      "value": "航向"
+    },
+    {
+      "key": "Allow players to copy your craft",
+      "value": "允许其他玩家复制你的载具"
+    },
+    {
+      "key": "Few Clouds",
+      "value": "少云"
+    },
+    {
+      "key": "Game Settings",
+      "value": "游戏设置"
+    },
+    {
+      "key": "Length of Day",
+      "value": "一天长度"
+    },
+    {
+      "key": "Max Cars",
+      "value": "最大车辆数"
+    },
+    {
+      "key": "SETTINGS",
+      "value": "设置"
+    },
+    {
+      "key": "Time of Day",
+      "value": "当前时间"
+    },
+    {
+      "key": "Weather",
+      "value": "天气"
+    },
+    {
+      "key": "Wind Settings",
+      "value": "风力设置"
+    },
+    {
+      "key": "AIR-TO-AIR",
+      "value": "空对空"
+    },
+    {
+      "key": "AIR-TO-GND",
+      "value": "空对地"
+    },
+    {
+      "key": "G\nE\nA\nR",
+      "value": "挡\n位"
+    },
+    {
+      "key": "Aggressive",
+      "value": "主动攻击"
+    },
+    {
+      "key": "Location",
+      "value": "位置"
+    },
+    {
+      "key": "Team",
+      "value": "队伍"
+    },
+    {
+      "key": "Download More Crafts!",
+      "value": "下载更多载具！"
+    },
+    {
+      "key": "Despawn All",
+      "value": "全部移除"
+    },
+    {
+      "key": "SPAWN AI AIRCRAFT",
+      "value": "生成 AI 飞机"
+    },
+    {
+      "key": "Spawn",
+      "value": "生成"
+    },
+    {
+      "key": "What to Spawn",
+      "value": "生成对象"
+    },
+    {
+      "key": "No air-to-ground weapons",
+      "value": "无空对地武器"
+    },
+    {
+      "key": "No air-to-air weapons",
+      "value": "无空对空武器"
+    },
+    {
+      "key": "Quick Start Guide",
+      "value": "快速入门指南"
+    },
+    {
+      "key": "Restart Craft",
+      "value": "重置载具"
+    },
+    {
+      "key": "Restart Craft Here",
+      "value": "在此处重置载具"
+    },
+    {
+      "key": "\"Thrill of a Lifetime\"",
+      "value": "“终生难忘的刺激”"
+    },
+    {
+      "key": "Load Craft",
+      "value": "加载载具"
+    },
+    {
+      "key": "AGL",
+      "value": "离地"
+    },
+    {
+      "key": "ASL",
+      "value": "海拔"
+    },
+    {
+      "key": "Neutral",
+      "value": "中立"
+    },
+    {
+      "key": "Modern Fighter",
+      "value": "现代战斗机"
+    },
+    {
+      "key": "CONTINUE",
+      "value": "继续"
+    },
+    {
+      "key": "Chat",
+      "value": "聊天"
+    },
+    {
+      "key": "Craft instructions",
+      "value": "载具说明"
+    },
+    {
+      "key": "Craft Instructions",
+      "value": "载具说明"
+    },
+    {
+      "key": "Dist",
+      "value": "距离"
+    },
+    {
+      "key": "Exit VR (ESC)",
+      "value": "退出 VR (ESC)"
+    },
+    {
+      "key": "Group 4 De-activated",
+      "value": "第 4 组已停用"
+    },
+    {
+      "key": "HIDE",
+      "value": "隐藏"
+    },
+    {
+      "key": "Hide",
+      "value": "隐藏"
+    },
+    {
+      "key": "Look at your hands to see the controls for flying. If you ever want to see them again, you can find the controls button in the pop-up menu under settings.\n\nYou can adjust your view by moving your hands close together and then holding the grab button on both controllers. Then move your hands to change your view.\n\nEnjoy your flight!\n",
+      "value": "看向你的双手即可查看飞行控制。如果之后还想再看一次，可以在弹出菜单的设置中找到控制按钮。\n\n你可以调整视角：先将双手靠近，然后同时按住两个控制器上的抓取按钮，再移动双手改变视角。\n\n祝你飞行愉快！\n"
+    },
+    {
+      "key": "OKAY",
+      "value": "好的"
+    },
+    {
+      "key": "START",
+      "value": "开始"
+    },
+    {
+      "key": "Show on Start",
+      "value": "启动时显示"
+    },
+    {
+      "key": "Tutorial Message",
+      "value": "教程消息"
+    },
+    {
+      "key": "Tutorial Name",
+      "value": "教程名称"
+    },
+    {
+      "key": "Tutorials",
+      "value": "教程"
+    },
+    {
+      "key": "Enemy",
+      "value": "敌方"
+    },
+    {
+      "key": "Ally",
+      "value": "友方"
+    },
+    {
+      "key": "Refueling Tanker",
+      "value": "加油机"
+    },
+    {
+      "key": "Classic Fighter",
+      "value": "经典战斗机"
+    },
+    {
+      "key": "Upright Craft",
+      "value": "扶正载具"
+    },
+    {
+      "key": "Teleport Craft Here",
+      "value": "将载具传送到此处"
+    },
+    {
+      "key": "\"Speed for Speed\"",
+      "value": "“以速换速”"
+    },
+    {
+      "key": "Car Races",
+      "value": "汽车竞速"
+    },
+    {
+      "key": "Challenges",
+      "value": "挑战"
+    },
+    {
+      "key": "Combat",
+      "value": "战斗"
+    },
+    {
+      "key": "Air Races",
+      "value": "飞行竞速"
+    },
+    {
+      "key": "On Rails",
+      "value": "沿轨飞行"
+    },
+    {
+      "key": "The Bannock Run",
+      "value": "班诺克飞驰"
+    },
+    {
+      "key": "Window Breaker",
+      "value": "破窗者"
+    },
+    {
+      "key": "Laps",
+      "value": "圈数"
+    },
+    {
+      "key": "Autopilot disabled. ",
+      "value": "自动驾驶已关闭。"
+    },
+    {
+      "key": "Autopilot enabled. Wing Leveling Mode",
+      "value": "自动驾驶已启用：机翼水平模式"
+    },
+    {
+      "key": "Show/hide flight gizmos for wings, propellers, etc",
+      "value": "显示/隐藏机翼、螺旋桨等飞行辅助显示"
+    },
+    {
+      "key": "Open menu",
+      "value": "打开菜单"
+    },
+    {
+      "key": "Change your current craft",
+      "value": "更换当前载具"
+    },
+    {
+      "key": "Better grab something agile, this race will have you scratching the cliffs of the complex terrain around the Bannock peninsula.",
+      "value": "最好选一台灵活的载具，这场比赛会让你贴着班诺克半岛复杂地形中的峭壁飞驰。"
+    },
+    {
+      "key": "Show the craft instructions",
+      "value": "显示载具说明"
+    },
+    {
+      "key": "Show / hide instrument panel",
+      "value": "显示/隐藏仪表面板"
+    },
+    {
+      "key": "Reloads your craft at your current position.\nShortcut: <b>Ctrl + R</b>",
+      "value": "在当前位置重新加载载具。\n快捷键：<b>Ctrl + R</b>"
+    },
+    {
+      "key": "Load the craft selected above",
+      "value": "加载上方选中的载具"
+    },
+    {
+      "key": "Enter / Exit Aircraft\nShortcut: <b>N</b>",
+      "value": "进入/离开飞机\n快捷键：<b>N</b>"
+    },
+    {
+      "key": "Restart Your Craft",
+      "value": "重置你的载具"
+    },
+    {
+      "key": "Customize Character",
+      "value": "自定义角色"
+    },
+    {
+      "key": "Select tags used to filter the list of craft",
+      "value": "选择用于筛选载具列表的标签"
+    },
+    {
+      "key": "Spawn an AI aircraft",
+      "value": "生成一架 AI 飞机"
+    },
+    {
+      "key": "Start an activity by yourself or with friends",
+      "value": "独自或与好友开始活动"
+    },
+    {
+      "key": "Reloads your craft at your starting position.\nShortcut: <b>Ctrl + Shift + R</b>",
+      "value": "在起始位置重新加载载具。\n快捷键：<b>Ctrl + Shift + R</b>"
+    },
+    {
+      "key": "Repositions and uprights your craft at your current position.\nShortcut: <b>Ctrl + F</b>",
+      "value": "在当前位置重新摆正并扶正载具。\n快捷键：<b>Ctrl + F</b>"
+    },
+    {
+      "key": "Select a new location",
+      "value": "选择新的位置"
+    },
+    {
+      "key": "Open the game settings.",
+      "value": "打开游戏设置。"
+    },
+    {
+      "key": "Chad got some stocks on a window manufacturing company, let's aid the market cracking some windows around Vetusta by zooming between its buildings.",
+      "value": "Chad 买了些窗户制造公司的股票。让我们在 Vetusta 的楼宇之间高速穿梭，顺手帮市场砸开几扇窗吧。"
+    },
+    {
+      "key": "Download a craft from SimplePlanes.com",
+      "value": "从 SimplePlanes.com 下载载具"
+    },
+    {
+      "key": "This craft file was hand edited by its author to make use of features that are not directly supported in the game. Many advanced players use XML-modding to work around limitations in the game to enable really cool functionality that would otherwise not be possible. It is perfectly safe to pilot, but modifying this craft yourself may reset their special properties or cause unexpected behavior.\n\n",
+      "value": "该载具文件由作者手动编辑，以使用游戏内并未直接支持的功能。许多高级玩家会通过 XML 修改绕过游戏限制，实现原本无法做到的酷炫功能。驾驶它是安全的，但如果你自行修改该载具，可能会重置这些特殊属性或导致意外行为。\n\n"
+    },
+    {
+      "key": "Normal speed",
+      "value": "正常速度"
+    },
+    {
+      "key": "Show/hide the Wind Settings panel.",
+      "value": "显示/隐藏风力设置面板。"
+    },
+    {
+      "key": "Change view\nShortcut: <b>C</b>",
+      "value": "切换视角\n快捷键：<b>C</b>"
+    },
+    {
+      "key": "A fast race with smooth turns chasing the rails at Bannock, with an exciting end.",
+      "value": "一场沿着班诺克铁轨飞驰的高速比赛，弯道流畅，结尾刺激。"
+    },
+    {
+      "key": "Select Next Target\nShortcut: <b>Tab, ]</b>",
+      "value": "选择下一个目标\n快捷键：<b>Tab, ]</b>"
+    },
+    {
+      "key": "Exits the flight scene back to the main menu.",
+      "value": "退出飞行场景并返回主菜单。"
+    },
+    {
+      "key": "Save the currently loaded craft",
+      "value": "保存当前载入的载具"
+    },
+    {
+      "key": "Slow motion",
+      "value": "慢动作"
+    },
+    {
+      "key": "Enters the craft designer scene.",
+      "value": "进入载具设计器场景。"
+    },
+    {
+      "key": "Fast forward",
+      "value": "快进"
+    },
+    {
+      "key": "Show Activation Panel\nShortcut: <b>T, Right Shift</b>",
+      "value": "显示激活面板\n快捷键：<b>T, Right Shift</b>"
+    },
+    {
+      "key": "Show Instrument Panel\nShortcut: <b>T, Right Shift</b>",
+      "value": "显示仪表面板\n快捷键：<b>T, Right Shift</b>"
+    },
+    {
+      "key": "This craft is XML-modded.",
+      "value": "该载具使用了 XML 修改。"
+    },
+    {
+      "key": "Soundtrack created with love by Fat Bard",
+      "value": "原声音乐由 Fat Bard 用心创作"
+    },
+    {
+      "key": "Current throttle\nShortcut: <b>Left Shift, Left Control</b>",
+      "value": "当前油门\n快捷键：<b>Left Shift, Left Control</b>"
+    },
+    {
+      "key": "Scattered Clouds",
+      "value": "疏云"
+    },
+    {
+      "key": "Broken Clouds",
+      "value": "多云"
+    },
+    {
+      "key": "Overcast",
+      "value": "阴天"
+    },
+    {
+      "key": "Stormy",
+      "value": "风暴"
+    },
+    {
+      "key": "Light Fog",
+      "value": "薄雾"
+    },
+    {
+      "key": "Heavy Fog",
+      "value": "浓雾"
+    },
+    {
+      "key": "Forever",
+      "value": "永久"
+    },
+    {
+      "key": "Show when an aircraft is loaded, if it has instructions.",
+      "value": "如果载具带有说明，则在载入时显示。"
+    },
+    {
+      "key": "This craft file was hand edited by its author to make use of features that are not directly supported in the game. Many advanced players use XML-modding to work around limitations in the game to enable really cool functionality that would otherwise not be possible. It is perfectly safe to pilot, but modifying this craft yourself may reset their special properties or cause unexpected behavior.\\n\\n",
+      "value": "该载具文件由作者手动编辑，以使用游戏内并未直接支持的功能。许多高级玩家会通过 XML 修改绕过游戏限制，实现原本无法做到的酷炫功能。驾驶它是安全的，但如果你自行修改该载具，可能会重置这些特殊属性或导致意外行为。"
+    },
+    {
+      "key": "SELECT LOCATION",
+      "value": "选择位置"
+    },
+    {
+      "key": "Select Location",
+      "value": "选择位置"
+    },
+    {
+      "key": "Add Current Location",
+      "value": "添加当前位置"
+    }
+  ],
+  "dynamicSuffixEntries": [
+    {
+      "sourceSuffix": "hr ago",
+      "valueSuffix": "小时前"
+    },
+    {
+      "sourceSuffix": "min ago",
+      "valueSuffix": "分钟前"
+    },
+    {
+      "sourceSuffix": " minutes",
+      "valueSuffix": " 分钟"
+    }
+  ],
+  "dynamicPrefixEntries": [
+    {
+      "sourcePrefix": "Wind Speed: ",
+      "valuePrefix": "风速：",
+      "valueSuffix": ""
+    },
+    {
+      "sourcePrefix": "Your Best Score: ",
+      "valuePrefix": "你的最佳成绩：",
+      "valueSuffix": ""
+    },
+    {
+      "sourcePrefix": "Part damaged: ",
+      "valuePrefix": "零件受损：",
+      "valueSuffix": ""
+    }
+  ],
+  "contextEntries": [
+    {
+      "key": "Clear",
+      "value": "晴朗",
+      "sceneName": "Terrain",
+      "gameObjectPathContains": "/flyout-settings/",
+      "parentName": "Button(Clone)"
+    },
+    {
+      "key": "BUILD",
+      "value": "建造",
+      "sceneName": "Terrain",
+      "gameObjectPathContains": "/FlightUIRoot/Empty(Clone)/flyout-menu/",
+      "parentName": "Button(Clone)"
+    }
+  ]
+}

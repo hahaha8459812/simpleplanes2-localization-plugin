@@ -64,6 +64,550 @@
     {
       "key": "Upload Craft",
       "value": "上传作品"
+    },
+    {
+      "key": "Welcome to the SimplePlanes 2 Designer! Let's start with some camera basics.",
+      "value": "欢迎来到 SimplePlanes 2 设计器！我们先从基础镜头操作开始。"
+    },
+    {
+      "key": "You can rotate the view around by clicking and dragging. Go ahead and try, just try not to click on any parts.",
+      "value": "按住鼠标左键并拖动即可旋转视角。试试看，不过尽量别点到任何零件。"
+    },
+    {
+      "key": "Click the indicated button to open the tool list.",
+      "value": "点击标出的按钮，打开工具列表。"
+    },
+    {
+      "key": "This shows your active tool. Click it to see more tools.",
+      "value": "这里显示当前正在使用的工具。点击它可以查看更多工具。"
+    },
+    {
+      "key": "Select the View Tool.",
+      "value": "选择查看工具。"
+    },
+    {
+      "key": "Click the indicated button to activate the view tool.",
+      "value": "点击标出的按钮，启用查看工具。"
+    },
+    {
+      "key": "The View Tool - move around and inspect your craft without accidentally grabbing anything.",
+      "value": "查看工具：用于移动视角并检查载具，不会误抓取任何零件。"
+    },
+    {
+      "key": "Look at the flashing button at the top right. This shows the list of parts you can add to your craft.",
+      "value": "看右上角正在闪烁的按钮。这里会显示可添加到载具上的零件列表。"
+    },
+    {
+      "key": "Some buttons only appear when a part is selected. Click the indicated part to continue.",
+      "value": "有些按钮只有选中零件后才会出现。点击标出的零件继续。"
+    },
+    {
+      "key": "Select the indicated part to continue.",
+      "value": "选择标出的零件继续。"
+    },
+    {
+      "key": "This button opens Part Properties for the selected part. SP2 parts are highly customizable and this is where you dig in.",
+      "value": "这个按钮会打开所选零件的属性。SP2 的零件可自定义程度很高，深入调整都在这里。"
+    },
+    {
+      "key": "This button enables/disables symmetry, which automatically mirrors your work to the other side of the craft. It's really nice and a big time saver.",
+      "value": "这个按钮用于开启或关闭对称。开启后，你的操作会自动镜像到载具另一侧，非常好用，也很省时间。"
+    },
+    {
+      "key": "Select the Move Tool.",
+      "value": "选择移动工具。"
+    },
+    {
+      "key": "Click the indicated button to activate the move part tool.",
+      "value": "点击标出的按钮，启用移动零件工具。"
+    },
+    {
+      "key": "The Move Tool - your most-used tool by a mile. Click and drag parts to reposition and connect them to your craft.",
+      "value": "移动工具：这是你最常用的工具。点击并拖动零件，即可重新定位并连接到载具上。"
+    },
+    {
+      "key": "Select the Rotate Tool.",
+      "value": "选择旋转工具。"
+    },
+    {
+      "key": "Click the indicated button to activate the rotate tool.",
+      "value": "点击标出的按钮，启用旋转工具。"
+    },
+    {
+      "key": "The Rotate Tool - for precise part rotation without breaking part connections.",
+      "value": "旋转工具：用于精确旋转零件，且不会断开零件连接。"
+    },
+    {
+      "key": "Select the Translate Tool.",
+      "value": "选择平移工具。"
+    },
+    {
+      "key": "Click the indicated button to activate the translate tool.",
+      "value": "点击标出的按钮，启用平移工具。"
+    },
+    {
+      "key": "The Translate Tool - moves a part without disturbing its part connections. Handy for fine adjustments.",
+      "value": "平移工具：在不影响零件连接的情况下移动零件，适合做细微调整。"
+    },
+    {
+      "key": "This button opens the paint panel where you can customize the colors and textures of your craft.",
+      "value": "这个按钮会打开喷涂面板，你可以在这里自定义载具的颜色和纹理。"
+    },
+    {
+      "key": "This button opens the Search Parts panel where you can easily find parts in your craft and toggle their visibility.",
+      "value": "这个按钮会打开搜索零件面板，你可以快速查找载具上的零件，并切换它们的可见性。"
+    },
+    {
+      "key": "Pro tip: You can right-click and drag a part to clone it. It's a big time saver!",
+      "value": "小技巧：按住右键拖动零件可以克隆它，非常省时间！"
+    },
+    {
+      "key": "That's it for the designer basics! We recommend trying the Build Your First Plane tutorial next.",
+      "value": "设计器基础教程到这里就结束了！接下来建议尝试“制作你的第一架飞机”教程。"
+    },
+    {
+      "key": "Next",
+      "value": "下一步"
+    },
+    {
+      "key": "Skip this step",
+      "value": "跳过此步骤"
+    },
+    {
+      "key": "0% complete.",
+      "value": "完成度 0%。"
+    },
+    {
+      "key": "The designer has many buttons. Don't worry, we'll just hit the highlights.",
+      "value": "设计器里有很多按钮。别担心，我们只介绍重点功能。"
+    },
+    {
+      "key": "Click here to\\nde-select part",
+      "value": "点击此处\\n取消选择零件"
+    },
+    {
+      "key": "That's it, you got it! Keep rotating.",
+      "value": "对，就是这样！继续旋转。"
+    },
+    {
+      "key": "Let's start with the body of the aircraft, also known as its fuselage.",
+      "value": "我们先从飞机的主体开始，也就是机身。"
+    },
+    {
+      "key": "Click the 'Add Parts' button to open the parts list.",
+      "value": "点击“添加零件”按钮，打开零件列表。"
+    },
+    {
+      "key": "Select the 'Structure' category in the part list flyout on the left.",
+      "value": "在左侧零件列表弹出面板中选择“结构件”分类。"
+    },
+    {
+      "key": "Click and drag the 'Fuselage' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“机身”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Now drag and drop this part on to the craft at the indicated position.",
+      "value": "现在把这个零件拖放到载具上的标示位置。"
+    },
+    {
+      "key": "Click the 'Part Properties' button to open the part property options for this part.",
+      "value": "点击“零件属性”按钮，打开该零件的属性选项。"
+    },
+    {
+      "key": "Change the value of the 'Height' property to '1.1'.",
+      "value": "将“高度”属性的值改为“1.1”。"
+    },
+    {
+      "key": "Add another fuselage using the 'Add Section' button.",
+      "value": "使用“添加截面”按钮再添加一段机身。"
+    },
+    {
+      "key": "Click the 'Add Section' button to add a new section to the end of this fuselage",
+      "value": "点击“添加截面”按钮，在这段机身末端添加一个新截面。"
+    },
+    {
+      "key": "Stretch out the length.",
+      "value": "把长度拉长。"
+    },
+    {
+      "key": "Adjust the length of the fuselage to match the indicated shape by clicking and dragging the blue arrow at the front of the fuselage.",
+      "value": "点击并拖动机身前端的蓝色箭头，调整机身长度，使其匹配标示形状。"
+    },
+    {
+      "key": "Squeeze the sides in just slightly.",
+      "value": "把两侧稍微收窄一点。"
+    },
+    {
+      "key": "Adjust the front width to match the indicated shape by clicking and dragging the red arrow at the front of the fuselage.",
+      "value": "点击并拖动机身前端的红色箭头，调整前端宽度，使其匹配标示形状。"
+    },
+    {
+      "key": "Now for the nose. Add a section up front.",
+      "value": "接下来做机鼻。在前方添加一个截面。"
+    },
+    {
+      "key": "Add one last section for the tip of the nose.",
+      "value": "再添加最后一个截面，用来做机鼻尖端。"
+    },
+    {
+      "key": "Stubby noses are in this season. Shorten it up.",
+      "value": "短粗机鼻现在很流行。把它缩短一点。"
+    },
+    {
+      "key": "Adjust the length of the fuselage to match the indicated shape by clicking and dragging the blue arrow at the back of the fuselage.",
+      "value": "点击并拖动机身后端的蓝色箭头，调整机身长度，使其匹配标示形状。"
+    },
+    {
+      "key": "Taper the width down. We want it sleek, not chunky.",
+      "value": "把宽度收窄。我们想要流线型，而不是一坨方块。"
+    },
+    {
+      "key": "Adjust the back width to match the indicated shape by clicking and dragging the red arrow at the back of the fuselage.",
+      "value": "点击并拖动机身后端的红色箭头，调整后端宽度，使其匹配标示形状。"
+    },
+    {
+      "key": "Slope the top down.",
+      "value": "把顶部压低成斜面。"
+    },
+    {
+      "key": "Adjust the back height to match the indicated shape by clicking and dragging the green arrow at the back of the fuselage.",
+      "value": "点击并拖动机身后端的绿色箭头，调整后端高度，使其匹配标示形状。"
+    },
+    {
+      "key": "Stretch it out. Even virtual pilots appreciate decent legroom.",
+      "value": "把它拉长一点。就算是虚拟飞行员，也会喜欢宽敞腿部空间。"
+    },
+    {
+      "key": "Add a seat for our pilot, Major Chad.",
+      "value": "给我们的飞行员查德少校加一把座椅。"
+    },
+    {
+      "key": "Click the back button in the part list header to go back to the part categories, then select the 'Interiors' category.",
+      "value": "点击零件列表标题栏中的返回按钮回到零件分类，然后选择“内饰”分类。"
+    },
+    {
+      "key": "Select the 'Interiors' category in the part list flyout on the left.",
+      "value": "在左侧零件列表弹出面板中选择“内饰”分类。"
+    },
+    {
+      "key": "Click and drag the 'Basic Seat' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“基础座椅”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "We need somewhere to stash the pilot. Carve out a hole for the cockpit.",
+      "value": "我们需要给飞行员留个位置。切出一个座舱开口。"
+    },
+    {
+      "key": "Click the back button in the part list header to go back to the part categories, then select the 'Structure' category.",
+      "value": "点击零件列表标题栏中的返回按钮回到零件分类，然后选择“结构件”分类。"
+    },
+    {
+      "key": "Click and drag the 'Bay' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“舱体”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Cutting is another way to modify fuselage parts, allowing for unique shapes.",
+      "value": "切割是修改机身零件的另一种方式，可以做出独特的形状。"
+    },
+    {
+      "key": "Select the 'Cutting' tab to modify the cutting properties of the fuselage.",
+      "value": "选择“切割”选项卡，修改机身的切割属性。"
+    },
+    {
+      "key": "Change the Bottom cutting parameter to 50% using the indicated slider.",
+      "value": "使用标出的滑块，将“底部”切割参数改为 50%。"
+    },
+    {
+      "key": "Hollow out the nose section so we can show off our engine to the world.",
+      "value": "把机鼻截面掏空，好让全世界都看见我们的发动机。"
+    },
+    {
+      "key": "Select the indicated fuselage part.",
+      "value": "选择标出的机身零件。"
+    },
+    {
+      "key": "Change the value of the 'Hollow' property to 'Yes'.",
+      "value": "将“空心”属性的值改为“是”。"
+    },
+    {
+      "key": "Widen the gap. Major Chad has broad shoulders.",
+      "value": "把开口加宽一点。查德少校肩膀很宽。"
+    },
+    {
+      "key": "Change the value of the 'Width' property to '0.7'.",
+      "value": "将“宽度”属性的值改为“0.7”。"
+    },
+    {
+      "key": "Slap some wings on this tube so it can actually fly.",
+      "value": "给这根管子装上机翼，这样它才真的能飞。"
+    },
+    {
+      "key": "Click the back button in the part list header to go back to the part categories, then select the 'Wings' category.",
+      "value": "点击零件列表标题栏中的返回按钮回到零件分类，然后选择“机翼”分类。"
+    },
+    {
+      "key": "Select the 'Wings' category in the part list flyout on the left.",
+      "value": "在左侧零件列表弹出面板中选择“机翼”分类。"
+    },
+    {
+      "key": "Click and drag the 'Primary Wing' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“主翼”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Open the wing shape tool. This can be done by double clicking the part or it can be accessed via its part properties.",
+      "value": "打开机翼形状工具。你可以双击零件打开，也可以通过零件属性进入。"
+    },
+    {
+      "key": "Use the arrows to adjust the wing's shape to match that of the indicated shape.",
+      "value": "使用箭头调整机翼形状，使它匹配标示形状。"
+    },
+    {
+      "key": "Make the wings huge so it has plenty of lift.",
+      "value": "把机翼做大一点，这样升力才够。"
+    },
+    {
+      "key": "Change the value of the 'Fuel' property to '15%'.",
+      "value": "将“燃油”属性的值改为“15%”。"
+    },
+    {
+      "key": "Fuel typically goes in the wings. Let's add some now so we don't forget. But not too much, fuel is heavy!",
+      "value": "燃油通常放在机翼里。现在先加一点，免得忘了。不过别加太多，燃油很重！"
+    },
+    {
+      "key": "Add the horizontal stabilizer. These allow the aircraft to pitch up and down.",
+      "value": "添加水平安定面。它能让飞机进行俯仰控制。"
+    },
+    {
+      "key": "Click and drag the 'Horizontal Stabilizer' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“水平安定面”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Add a vertical stabilizer so we don't spin out like a frisbee.",
+      "value": "添加垂直安定面，免得我们像飞盘一样打转。"
+    },
+    {
+      "key": "Click and drag the 'Vertical Stabilizer' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“垂直安定面”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "We don't want this part mirrored. Click the symmetry button to turn it off. Shortcut: 'Ctrl + X'",
+      "value": "这个零件不需要镜像。点击对称按钮将其关闭。快捷键：“Ctrl + X”"
+    },
+    {
+      "key": "We want this part mirrored. Click the symmetry button to turn it on. Shortcut: 'Ctrl + X'",
+      "value": "这个零件需要镜像。点击对称按钮将其开启。快捷键：“Ctrl + X”"
+    },
+    {
+      "key": "Click empty space to deselect your part so we can toggle symmetry.",
+      "value": "点击空白处取消选择零件，这样我们就能切换对称。"
+    },
+    {
+      "key": "Now let's bolt on a propeller engine.",
+      "value": "现在装上一台螺旋桨发动机。"
+    },
+    {
+      "key": "Click the back button in the part list header to go back to the part categories, then select the 'Aircraft Propulsion' category.",
+      "value": "点击零件列表标题栏中的返回按钮回到零件分类，然后选择“航空发动机”分类。"
+    },
+    {
+      "key": "Select the 'Aircraft Propulsion' category in the part list flyout on the left.",
+      "value": "在左侧零件列表弹出面板中选择“航空发动机”分类。"
+    },
+    {
+      "key": "Click and drag the 'Small Prop' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“小型螺旋桨发动机”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Let's make this engine a little more powerful.",
+      "value": "我们把这台发动机调得更有力一点。"
+    },
+    {
+      "key": "Change the value of the 'Cylinders' property to '6'.",
+      "value": "将“气缸数”属性的值改为“6”。"
+    },
+    {
+      "key": "Add the landing gear here.",
+      "value": "在这里添加起落架。"
+    },
+    {
+      "key": "Click the back button in the part list header to go back to the part categories, then select the 'Wheels' category.",
+      "value": "点击零件列表标题栏中的返回按钮回到零件分类，然后选择“轮组与起落架”分类。"
+    },
+    {
+      "key": "Select the 'Wheels' category in the part list flyout on the left.",
+      "value": "在左侧零件列表弹出面板中选择“轮组与起落架”分类。"
+    },
+    {
+      "key": "Click and drag the 'Wing Gear' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“机翼起落架”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Add a tiny wheel in the back to keep the tail out of the dirt.",
+      "value": "在后面加一个小轮子，免得机尾蹭到地上。"
+    },
+    {
+      "key": "Click and drag the 'Fixed Gear' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“固定起落架”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Enable turning on the rear wheel to make it a little easier to get around on the runway.",
+      "value": "开启后轮转向，让它在跑道上移动时更容易操控。"
+    },
+    {
+      "key": "Change the value of the 'Turnable' property to 'Yes'.",
+      "value": "将“可转向”属性的值改为“是”。"
+    },
+    {
+      "key": "Our hole cutting parts may be in our way for this step. Let's disable their outlines for now. First, click the indicated button to open the view panel.",
+      "value": "这一阶段，切割开口的零件可能会挡住视线。我们先把它们的轮廓关掉。首先点击标出的按钮打开视图面板。"
+    },
+    {
+      "key": "Disable the hole cutting outlines by clicking the indicated button. You can also use the '/' key.",
+      "value": "点击标出的按钮关闭开口切割轮廓。也可以按“/”键。"
+    },
+    {
+      "key": "Select the main section of the fuselage by clicking the 'Backwards' button. Alternatively, you can click on the middle of the part directly.",
+      "value": "点击“向后”按钮选择机身主截面。你也可以直接点击零件中部。"
+    },
+    {
+      "key": "Select the main section of the fuselage by clicking the 'Forwards' button. Alternatively, you can click on the middle of the part directly.",
+      "value": "点击“向前”按钮选择机身主截面。你也可以直接点击零件中部。"
+    },
+    {
+      "key": "Select the front of the fuselage by clicking the 'Forwards' button. Alternatively, you can click on the front of the part directly.",
+      "value": "点击“向前”按钮选择机身前端。你也可以直接点击零件前端。"
+    },
+    {
+      "key": "Select the part to be modified.",
+      "value": "选择要修改的零件。"
+    },
+    {
+      "key": "Shorten up this new tail section.",
+      "value": "把这个新的尾部截面缩短一点。"
+    },
+    {
+      "key": "Squish the height down on the back face.",
+      "value": "把后端面的高度压低。"
+    },
+    {
+      "key": "Pull it out just a tad.",
+      "value": "把它稍微拉出来一点。"
+    },
+    {
+      "key": "Congrats! You built an airplane! You can take it for a test flight by clicking the Play button in the bottom right.",
+      "value": "恭喜！你造出了一架飞机！点击右下角的播放按钮，就可以试飞了。"
+    },
+    {
+      "key": "Open the fuselage shape tool. This can be done by double clicking the part or it can be accessed via its part properties.",
+      "value": "打开机身形状工具。你可以双击零件打开，也可以通过零件属性进入。"
+    },
+    {
+      "key": "Select the back of the fuselage by clicking the 'Backwards' button. Alternatively, you can click on the back of the part directly.",
+      "value": "点击“向后”按钮选择机身后端。你也可以直接点击零件后端。"
+    },
+    {
+      "key": "We have a beautiful car body, but right now it's just a very expensive sled. We have some work to do.",
+      "value": "车身很漂亮，但现在它只是一台很昂贵的雪橇。还有不少工作要做。"
+    },
+    {
+      "key": "We need to enable powertrain view for this step. First, click the indicated button to open the view panel.",
+      "value": "这一步需要启用动力传动视图。首先点击标示按钮打开视图面板。"
+    },
+    {
+      "key": "Enable powertrain view by clicking the indicated button.",
+      "value": "点击标示按钮启用动力传动视图。"
+    },
+    {
+      "key": "Click the back button in the part list header to go back to the part categories, then select the 'Engines' category.",
+      "value": "点击零件列表标题栏中的返回按钮回到零件分类，然后选择“发动机”分类。"
+    },
+    {
+      "key": "Select the 'Engines' category in the part list flyout on the left.",
+      "value": "在左侧零件列表弹出面板中选择“发动机”分类。"
+    },
+    {
+      "key": "Now a drive shaft to carry all that torque from the engine.",
+      "value": "现在需要一根传动轴，把发动机的全部扭矩传出去。"
+    },
+    {
+      "key": "Click and drag the 'Drive Shaft' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“传动轴”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Now connect the other end of the drive shaft to the wheel.",
+      "value": "现在把传动轴的另一端连接到车轮上。"
+    },
+    {
+      "key": "Drag the end of the drive shaft to where the arrow is indicating.",
+      "value": "将传动轴末端拖到箭头标示的位置。"
+    },
+    {
+      "key": "Add a transmission so the car can shift gears.",
+      "value": "添加一个变速箱，让汽车可以换挡。"
+    },
+    {
+      "key": "Click and drag the 'Transmission' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“变速箱”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Reduce the number of gears on this transmission to make it smaller and lighter.",
+      "value": "减少这个变速箱的挡位数，让它更小、更轻。"
+    },
+    {
+      "key": "Change the value of the 'Number of Gears' property to '3'.",
+      "value": "将“挡位数”属性的值改为“3”。"
+    },
+    {
+      "key": "Add a differential here. It splits the power coming from the main drive shaft so it can reach multiple wheels at once.",
+      "value": "在这里添加一个差速器。它会分配来自主传动轴的动力，让动力可以同时传到多个车轮。"
+    },
+    {
+      "key": "Click and drag the 'Differential' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“差速器”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Add another drive shaft here to carry the engine power from the differential to the rear wheel.",
+      "value": "在这里再添加一根传动轴，把动力从差速器传到后轮。"
+    },
+    {
+      "key": "Now add a wheel. Nothing fancy, a Street Wheel will do just fine here.",
+      "value": "现在添加一个车轮。不需要太花哨，公路车轮就很合适。"
+    },
+    {
+      "key": "Click and drag the 'Street Wheel' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“公路车轮”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Another Street Wheel here.",
+      "value": "这里再放一个公路车轮。"
+    },
+    {
+      "key": "Slap a wishbone suspension on the front.",
+      "value": "给前部装上一个双叉臂悬挂。"
+    },
+    {
+      "key": "Click and drag the 'Double Wishbone' part from the part list and add it to your craft at the indicated position.",
+      "value": "从零件列表中点击并拖动“双叉臂悬挂”零件，将它添加到载具上的标示位置。"
+    },
+    {
+      "key": "Increase the turning angle. Unless your daily commute is a perfectly straight line, you're going to want to steer.",
+      "value": "增大转向角。除非你的通勤路线是一条完美的直线，否则你肯定需要转向。"
+    },
+    {
+      "key": "Change the value of the 'Turning Angle' property to '20'.",
+      "value": "将“转向角”属性的值改为“20”。"
+    },
+    {
+      "key": "Typically cars have four wheels, so let's do the same at the back too.",
+      "value": "汽车通常有四个轮子，所以后面也照样装上。"
+    },
+    {
+      "key": "Select the indicated part.",
+      "value": "选择标示的零件。"
+    },
+    {
+      "key": "Congrats! You built a functional car. Click the Play button in the bottom right to take it for a spin!",
+      "value": "恭喜！你造出了一辆能开的汽车。点击右下角的开始按钮，开出去兜一圈吧！"
     }
   ],
   "contextEntries": [

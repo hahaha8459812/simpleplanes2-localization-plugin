@@ -251,7 +251,7 @@
     },
     {
       "key": "Transmission",
-      "value": "传动系统"
+      "value": "变速箱"
     },
     {
       "key": "Transparency",
@@ -272,6 +272,447 @@
     {
       "key": "Wing",
       "value": "机翼"
+    },
+    {
+      "key": "Activation Group",
+      "value": "激活组"
+    },
+    {
+      "key": "Aileron",
+      "value": "Aileron（副翼）"
+    },
+    {
+      "key": "Brake",
+      "value": "Brake（刹车）"
+    },
+    {
+      "key": "Brake Torque",
+      "value": "制动扭矩"
+    },
+    {
+      "key": "Buoyancy",
+      "value": "浮力"
+    },
+    {
+      "key": "Corner Radius",
+      "value": "圆角半径"
+    },
+    {
+      "key": "Cylinders",
+      "value": "气缸数"
+    },
+    {
+      "key": "Damper",
+      "value": "阻尼"
+    },
+    {
+      "key": "Dead Weight",
+      "value": "死重"
+    },
+    {
+      "key": "Depth",
+      "value": "深度"
+    },
+    {
+      "key": "Edit Fuselage Shape",
+      "value": "编辑机身形状"
+    },
+    {
+      "key": "Edit Shape",
+      "value": "编辑形状"
+    },
+    {
+      "key": "Engine Performance",
+      "value": "发动机性能"
+    },
+    {
+      "key": "Engine Tuning",
+      "value": "发动机调校"
+    },
+    {
+      "key": "Flip Airfoil",
+      "value": "翻转翼型"
+    },
+    {
+      "key": "Flipped",
+      "value": "已翻转"
+    },
+    {
+      "key": "Flaps",
+      "value": "Flaps（襟翼）"
+    },
+    {
+      "key": "Forced Induction",
+      "value": "强制进气"
+    },
+    {
+      "key": "Fuel",
+      "value": "燃油"
+    },
+    {
+      "key": "Glass",
+      "value": "玻璃"
+    },
+    {
+      "key": "Hollow",
+      "value": "空心"
+    },
+    {
+      "key": "Horse Power",
+      "value": "马力"
+    },
+    {
+      "key": "Input",
+      "value": "输入"
+    },
+    {
+      "key": "Invert",
+      "value": "反转"
+    },
+    {
+      "key": "Max RPM",
+      "value": "最高转速"
+    },
+    {
+      "key": "No",
+      "value": "否"
+    },
+    {
+      "key": "No Parts Selected",
+      "value": "未选择零件"
+    },
+    {
+      "key": "None",
+      "value": "无"
+    },
+    {
+      "key": "Opacity",
+      "value": "不透明度"
+    },
+    {
+      "key": "Pitch",
+      "value": "Pitch（俯仰）"
+    },
+    {
+      "key": "Peak Torque",
+      "value": "峰值扭矩"
+    },
+    {
+      "key": "Roll",
+      "value": "Roll（滚转）"
+    },
+    {
+      "key": "Rows",
+      "value": "排数"
+    },
+    {
+      "key": "Single Part",
+      "value": "单个零件"
+    },
+    {
+      "key": "Size",
+      "value": "尺寸"
+    },
+    {
+      "key": "Supercharger",
+      "value": "机械增压器"
+    },
+    {
+      "key": "Suspension Strength",
+      "value": "悬挂强度"
+    },
+    {
+      "key": "Target",
+      "value": "目标"
+    },
+    {
+      "key": "Targeted Parts",
+      "value": "目标零件"
+    },
+    {
+      "key": "Throttle",
+      "value": "Throttle（油门）"
+    },
+    {
+      "key": "Trim",
+      "value": "Trim（配平）"
+    },
+    {
+      "key": "Turn Sensitivity",
+      "value": "转向灵敏度"
+    },
+    {
+      "key": "Turnable",
+      "value": "可转向"
+    },
+    {
+      "key": "Yaw",
+      "value": "Yaw（偏航）"
+    },
+    {
+      "key": "Yes",
+      "value": "是"
+    },
+    {
+      "key": "Automatic",
+      "value": "自动"
+    },
+    {
+      "key": "Axis",
+      "value": "轴"
+    },
+    {
+      "key": "Boot A",
+      "value": "防尘套 A"
+    },
+    {
+      "key": "Boot B",
+      "value": "防尘套 B"
+    },
+    {
+      "key": "Control\nScheme",
+      "value": "控制\n方案"
+    },
+    {
+      "key": "Duals",
+      "value": "双轮"
+    },
+    {
+      "key": "Experimental",
+      "value": "实验性"
+    },
+    {
+      "key": "Extension",
+      "value": "伸出长度"
+    },
+    {
+      "key": "Final Gear Ratio",
+      "value": "最终传动比"
+    },
+    {
+      "key": "Forward Traction",
+      "value": "纵向抓地力"
+    },
+    {
+      "key": "Friction Circle Power",
+      "value": "摩擦圆功率"
+    },
+    {
+      "key": "Friction Circle Strength",
+      "value": "摩擦圆强度"
+    },
+    {
+      "key": "Friction Force Point",
+      "value": "摩擦力作用点"
+    },
+    {
+      "key": "Friction Preset",
+      "value": "摩擦预设"
+    },
+    {
+      "key": "Gear Profile",
+      "value": "挡位配置"
+    },
+    {
+      "key": "Gear Ratio: R",
+      "value": "倒挡齿比"
+    },
+    {
+      "key": "Gears",
+      "value": "挡位"
+    },
+    {
+      "key": "Haptics",
+      "value": "触觉反馈"
+    },
+    {
+      "key": "Left Hand Target",
+      "value": "左手目标"
+    },
+    {
+      "key": "Magic Engine",
+      "value": "魔法发动机"
+    },
+    {
+      "key": "Manual Shift",
+      "value": "手动换挡"
+    },
+    {
+      "key": "Max Value",
+      "value": "最大值"
+    },
+    {
+      "key": "Min Value",
+      "value": "最小值"
+    },
+    {
+      "key": "Movement Axis",
+      "value": "移动轴"
+    },
+    {
+      "key": "Multiplier",
+      "value": "倍率"
+    },
+    {
+      "key": "Number of Gears",
+      "value": "挡位数"
+    },
+    {
+      "key": "On",
+      "value": "开启"
+    },
+    {
+      "key": "Priority",
+      "value": "优先级"
+    },
+    {
+      "key": "Radius",
+      "value": "半径"
+    },
+    {
+      "key": "Reverse Direction",
+      "value": "反向旋转"
+    },
+    {
+      "key": "Ride Height",
+      "value": "车身高度"
+    },
+    {
+      "key": "Right Hand Target",
+      "value": "右手目标"
+    },
+    {
+      "key": "Rim Offset",
+      "value": "轮辋偏移"
+    },
+    {
+      "key": "Rim Style",
+      "value": "轮辋样式"
+    },
+    {
+      "key": "Rotation Axis",
+      "value": "旋转轴"
+    },
+    {
+      "key": "Rotation Max",
+      "value": "最大旋转"
+    },
+    {
+      "key": "Shock Position",
+      "value": "避震器位置"
+    },
+    {
+      "key": "Shifting",
+      "value": "换挡"
+    },
+    {
+      "key": "Sideways Traction",
+      "value": "侧向抓地力"
+    },
+    {
+      "key": "Stiffness",
+      "value": "刚度"
+    },
+    {
+      "key": "Suspension Travel",
+      "value": "悬挂行程"
+    },
+    {
+      "key": "Tire Diameter",
+      "value": "轮胎直径"
+    },
+    {
+      "key": "Tire Style",
+      "value": "轮胎样式"
+    },
+    {
+      "key": "Tooltip",
+      "value": "提示文本"
+    },
+    {
+      "key": "Traction",
+      "value": "抓地力"
+    },
+    {
+      "key": "Tread",
+      "value": "胎面"
+    },
+    {
+      "key": "Trigger",
+      "value": "触发器"
+    },
+    {
+      "key": "Turn",
+      "value": "Turn（转向）"
+    },
+    {
+      "key": "Turning Angle",
+      "value": "转向角"
+    },
+    {
+      "key": "Turning Angle Dampening",
+      "value": "转向角阻尼"
+    },
+    {
+      "key": "Racing",
+      "value": "赛车"
+    },
+    {
+      "key": "Shift Up RPM",
+      "value": "升挡转速"
+    },
+    {
+      "key": "Shift Down RPM",
+      "value": "降挡转速"
+    },
+    {
+      "key": "Full Angle",
+      "value": "最大角度"
+    },
+    {
+      "key": "Left Foot Target",
+      "value": "左脚目标"
+    },
+    {
+      "key": "Manual",
+      "value": "手动"
+    },
+    {
+      "key": "Offroad",
+      "value": "越野"
+    },
+    {
+      "key": "Right Foot Target",
+      "value": "右脚目标"
+    },
+    {
+      "key": "Street",
+      "value": "公路"
+    },
+    {
+      "key": "Zero Angle",
+      "value": "零位角度"
+    }
+  ],
+  "dynamicSuffixEntries": [
+    {
+      "sourceSuffix": "% Favor Torque",
+      "valueSuffix": "% 倾向扭矩"
+    },
+    {
+      "sourceSuffix": "% Balanced",
+      "valueSuffix": "% 平衡"
+    },
+    {
+      "sourceSuffix": "% Favor RPM",
+      "valueSuffix": "% 倾向转速"
+    }
+  ],
+  "dynamicPrefixEntries": [
+    {
+      "sourcePrefix": "Gear Ratio: ",
+      "valuePrefix": "第",
+      "valueSuffix": "挡齿比"
     }
   ]
 }

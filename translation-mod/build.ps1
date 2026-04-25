@@ -189,9 +189,15 @@ function Merge-TranslationFragments {
     $entryRows = New-Object 'System.Collections.Generic.List[object]'
     $contextRuleKeys = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
     $contextRows = New-Object 'System.Collections.Generic.List[object]'
+    $dynamicSuffixRuleKeys = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
+    $dynamicSuffixRows = New-Object 'System.Collections.Generic.List[object]'
+    $dynamicPrefixRuleKeys = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::Ordinal)
+    $dynamicPrefixRows = New-Object 'System.Collections.Generic.List[object]'
     $builder = New-Object System.Text.StringBuilder
     $isFirstEntry = $true
     $isFirstContextEntry = $true
+    $isFirstDynamicSuffixEntry = $true
+    $isFirstDynamicPrefixEntry = $true
 
     if (!(Test-Path $SourceRoot)) {
         return
@@ -274,6 +280,62 @@ function Merge-TranslationFragments {
                 componentType = $componentType
                 siblingIndex = $siblingIndex
                 anchoredPosition = $anchoredPosition
+            }) | Out-Null
+        }
+
+        $dynamicSuffixEntries = @()
+        if ($fragment.dynamicSuffixEntries) {
+            $dynamicSuffixEntries = @($fragment.dynamicSuffixEntries)
+        }
+
+        foreach ($dynamicSuffixEntry in $dynamicSuffixEntries) {
+            $sourceSuffix = [string]$dynamicSuffixEntry.sourceSuffix
+            $valueSuffix = [string]$dynamicSuffixEntry.valueSuffix
+
+            if ([string]::IsNullOrEmpty($sourceSuffix)) {
+                continue
+            }
+
+            if ($valueSuffix -eq $null) {
+                continue
+            }
+
+            if (!$dynamicSuffixRuleKeys.Add($sourceSuffix)) {
+                throw "Duplicate dynamic suffix translation rule '${sourceSuffix}' found in fragment '${($fragmentFile.Name)}'."
+            }
+
+            $dynamicSuffixRows.Add([PSCustomObject]@{
+                sourceSuffix = $sourceSuffix
+                valueSuffix = $valueSuffix
+            }) | Out-Null
+        }
+
+        $dynamicPrefixEntries = @()
+        if ($fragment.dynamicPrefixEntries) {
+            $dynamicPrefixEntries = @($fragment.dynamicPrefixEntries)
+        }
+
+        foreach ($dynamicPrefixEntry in $dynamicPrefixEntries) {
+            $sourcePrefix = [string]$dynamicPrefixEntry.sourcePrefix
+            $valuePrefix = [string]$dynamicPrefixEntry.valuePrefix
+            $valueSuffix = [string]$dynamicPrefixEntry.valueSuffix
+
+            if ([string]::IsNullOrEmpty($sourcePrefix)) {
+                continue
+            }
+
+            if ($valuePrefix -eq $null -or $valueSuffix -eq $null) {
+                continue
+            }
+
+            if (!$dynamicPrefixRuleKeys.Add($sourcePrefix)) {
+                throw "Duplicate dynamic prefix translation rule '${sourcePrefix}' found in fragment '${($fragmentFile.Name)}'."
+            }
+
+            $dynamicPrefixRows.Add([PSCustomObject]@{
+                sourcePrefix = $sourcePrefix
+                valuePrefix = $valuePrefix
+                valueSuffix = $valueSuffix
             }) | Out-Null
         }
     }
@@ -362,6 +424,44 @@ function Merge-TranslationFragments {
 
         [void]$builder.Append('}')
         $isFirstContextEntry = $false
+    }
+
+    [void]$builder.AppendLine()
+    [void]$builder.AppendLine("  ],")
+    [void]$builder.AppendLine('  "dynamicSuffixEntries": [')
+
+    foreach ($row in $dynamicSuffixRows) {
+        if (!$isFirstDynamicSuffixEntry) {
+            [void]$builder.AppendLine(",")
+        }
+
+        [void]$builder.Append('    {')
+        [void]$builder.Append('"sourceSuffix": "')
+        [void]$builder.Append([System.Web.HttpUtility]::JavaScriptStringEncode([string]$row.sourceSuffix))
+        [void]$builder.Append('", "valueSuffix": "')
+        [void]$builder.Append([System.Web.HttpUtility]::JavaScriptStringEncode([string]$row.valueSuffix))
+        [void]$builder.Append('"}')
+        $isFirstDynamicSuffixEntry = $false
+    }
+
+    [void]$builder.AppendLine()
+    [void]$builder.AppendLine("  ],")
+    [void]$builder.AppendLine('  "dynamicPrefixEntries": [')
+
+    foreach ($row in $dynamicPrefixRows) {
+        if (!$isFirstDynamicPrefixEntry) {
+            [void]$builder.AppendLine(",")
+        }
+
+        [void]$builder.Append('    {')
+        [void]$builder.Append('"sourcePrefix": "')
+        [void]$builder.Append([System.Web.HttpUtility]::JavaScriptStringEncode([string]$row.sourcePrefix))
+        [void]$builder.Append('", "valuePrefix": "')
+        [void]$builder.Append([System.Web.HttpUtility]::JavaScriptStringEncode([string]$row.valuePrefix))
+        [void]$builder.Append('", "valueSuffix": "')
+        [void]$builder.Append([System.Web.HttpUtility]::JavaScriptStringEncode([string]$row.valueSuffix))
+        [void]$builder.Append('"}')
+        $isFirstDynamicPrefixEntry = $false
     }
 
     [void]$builder.AppendLine()

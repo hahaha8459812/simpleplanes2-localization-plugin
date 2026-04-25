@@ -68,6 +68,62 @@
     {
       "key": "Zero Rotations",
       "value": "归零旋转"
+    },
+    {
+      "key": "Mirroring enabled for part 'Fuselage (Id: 9)' and 12 other parts.\nAutomatically linked 2 existing sets of mirrored parts.",
+      "value": "已为零件“机身 (Id: 9)”和另外 12 个零件启用镜像。\n已自动关联 2 组现有镜像零件。"
+    },
+    {
+      "key": "Choose the coordinate space for rotation: local\n(part's orientation) or world.",
+      "value": "选择旋转使用的坐标空间：局部\n（零件自身方向）或世界。"
+    },
+    {
+      "key": "Choose the coordinate space for rotation: local (part's orientation) or world.",
+      "value": "选择旋转使用的坐标空间：局部（零件自身方向）或世界。"
+    },
+    {
+      "key": "Choose whether to rotate the selected part\nindividually or along with all connected parts.",
+      "value": "选择只旋转所选零件，\n还是连同所有相连零件一起旋转。"
+    },
+    {
+      "key": "Choose whether to rotate the selected part individually or along with all connected parts.",
+      "value": "选择只旋转所选零件，还是连同所有相连零件一起旋转。"
+    },
+    {
+      "key": "Connected",
+      "value": "连带"
+    },
+    {
+      "key": "Individual",
+      "value": "所选零件"
+    },
+    {
+      "key": "World",
+      "value": "世界"
+    },
+    {
+      "key": "Local",
+      "value": "局部"
+    },
+    {
+      "key": "Selected",
+      "value": "所选零件"
+    },
+    {
+      "key": "Choose the coordinate space for movement: local\n(part's orientation) or world.",
+      "value": "选择移动使用的坐标空间：局部\n（零件自身方向）或世界。"
+    },
+    {
+      "key": "Choose the coordinate space for movement: local (part's orientation) or world.",
+      "value": "选择移动使用的坐标空间：局部（零件自身方向）或世界。"
+    },
+    {
+      "key": "Choose whether to move the selected part\nindividually or along with all connected parts.",
+      "value": "选择只移动所选零件，\n还是连同所有相连零件一起移动。"
+    },
+    {
+      "key": "Choose whether to move the selected part individually or along with all connected parts.",
+      "value": "选择只移动所选零件，还是连同所有相连零件一起移动。"
     }
   ]
 }

@@ -4,6 +4,227 @@
     {
       "key": "EXIT",
       "value": "退出"
+    },
+    {
+      "key": "Exit the game",
+      "value": "退出游戏"
+    },
+    {
+      "key": "Open the settings menu",
+      "value": "打开设置菜单"
+    },
+    {
+      "key": "View the current news",
+      "value": "查看当前新闻"
+    },
+    {
+      "key": "FLY SOLO",
+      "value": "单人飞行"
+    },
+    {
+      "key": "CREATE SERVER",
+      "value": "创建服务器"
+    },
+    {
+      "key": "JOIN SERVER",
+      "value": "加入服务器"
+    },
+    {
+      "key": "HOW DO YOU WANT TO FLY TODAY?",
+      "value": "今天想怎么飞？"
+    },
+    {
+      "key": "Find a public server and meet some new pilots.",
+      "value": "寻找公开服务器，结识新的飞行员。"
+    },
+    {
+      "key": "Host your own adventure! Invite friends or go public.",
+      "value": "主持你自己的冒险！邀请好友，或开放给所有人。"
+    },
+    {
+      "key": "Go off the grid and enjoy some peaceful flying.",
+      "value": "离线飞行，享受安静惬意的天空。"
+    },
+    {
+      "key": "Report",
+      "value": "举报"
+    },
+    {
+      "key": "Join Server",
+      "value": "加入服务器"
+    },
+    {
+      "key": "Create Server",
+      "value": "创建服务器"
+    },
+    {
+      "key": "Refreshing server list...",
+      "value": "正在刷新服务器列表..."
+    },
+    {
+      "key": "Ping",
+      "value": "延迟"
+    },
+    {
+      "key": "Max Parts",
+      "value": "最大零件数"
+    },
+    {
+      "key": "Players",
+      "value": "玩家"
+    },
+    {
+      "key": "Regional",
+      "value": "区域"
+    },
+    {
+      "key": "Server Browser",
+      "value": "服务器浏览器"
+    },
+    {
+      "key": "Changes how far and wide to search for servers",
+      "value": "调整服务器搜索范围。"
+    },
+    {
+      "key": "World Wide",
+      "value": "全球"
+    },
+    {
+      "key": "Max Players",
+      "value": "最大玩家数"
+    },
+    {
+      "key": "Password",
+      "value": "密码"
+    },
+    {
+      "key": "Server Visibility",
+      "value": "服务器可见性"
+    },
+    {
+      "key": "Server Name",
+      "value": "服务器名称"
+    },
+    {
+      "key": "Friends Only",
+      "value": "仅好友"
+    },
+    {
+      "key": "Private",
+      "value": "私人"
+    },
+    {
+      "key": "NEWS",
+      "value": "新闻"
+    },
+    {
+      "key": "Credits",
+      "value": "制作人员"
+    },
+    {
+      "key": "CREDITS",
+      "value": "制作人员"
+    },
+    {
+      "key": "CORE TEAM",
+      "value": "核心团队"
+    },
+    {
+      "key": "CONTRIBUTORS",
+      "value": "贡献者"
+    },
+    {
+      "key": "OG PLAYTESTERS",
+      "value": "初代测试玩家"
+    },
+    {
+      "key": "Programmer",
+      "value": "程序员"
+    },
+    {
+      "key": "Lead 3D Artist",
+      "value": "首席 3D 美术"
+    },
+    {
+      "key": "Tech Artist",
+      "value": "技术美术"
+    },
+    {
+      "key": "Texture Artist",
+      "value": "材质美术"
+    },
+    {
+      "key": "Environment Artist",
+      "value": "环境美术"
+    },
+    {
+      "key": "Character Artist",
+      "value": "角色美术"
+    },
+    {
+      "key": "Community Manager",
+      "value": "社区经理"
+    },
+    {
+      "key": "Stock Craft Liaison",
+      "value": "内置载具联络"
+    },
+    {
+      "key": "Soundtrack",
+      "value": "原声音乐"
+    },
+    {
+      "key": "Trailers",
+      "value": "预告片"
+    },
+    {
+      "key": "Huge thank you to our original playtesters!",
+      "value": "特别感谢我们的初代测试玩家！"
+    },
+    {
+      "key": "Welcome to the SimplePlanes 2 Demo!",
+      "value": "欢迎游玩 SimplePlanes 2 试玩版！"
+    },
+    {
+      "key": "Thanks for playing our game!",
+      "value": "感谢你游玩我们的游戏！"
+    },
+    {
+      "key": "We're a small team of indie developers who have poured our hearts into SimplePlanes 2 over the past three years.",
+      "value": "我们是一支小型独立开发团队，过去三年一直倾注心血制作 SimplePlanes 2。"
+    },
+    {
+      "key": "Fly safe, have fun, and thanks for being part of this journey with us.",
+      "value": "安全飞行，玩得开心，也感谢你与我们同行。"
+    },
+    {
+      "key": "Find a bug?",
+      "value": "发现 Bug？"
+    },
+    {
+      "key": "Wishlist SP2!",
+      "value": "将 SP2 加入愿望单！"
+    },
+    {
+      "key": "Join our Discord!",
+      "value": "加入我们的 Discord！"
+    },
+    {
+      "key": "Refreshes the server list",
+      "value": "刷新服务器列表"
+    },
+    {
+      "key": "When enabled, players cannot damage each other. This setting can be toggled on or off at any time while in flight in Server Settings.",
+      "value": "启用后，玩家之间无法互相造成伤害。飞行中可随时在“服务器设置”里开启或关闭此项。"
+    }
+  ],
+  "contextEntries": [
+    {
+      "key": "Public",
+      "value": "公开",
+      "sceneName": "MainMenu",
+      "gameObjectPathContains": "/Dialog//VerticalLayout(Clone)/Row(Clone)/Container/Empty(Clone)/Button(Clone)",
+      "parentName": "Button(Clone)"
     }
   ]
 }

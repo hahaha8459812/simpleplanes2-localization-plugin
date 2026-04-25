@@ -72,6 +72,10 @@
     {
       "key": "Subassembly",
       "value": "子组件"
+    },
+    {
+      "key": "CRAFT FILTERS",
+      "value": "载具筛选器"
     }
   ]
 }

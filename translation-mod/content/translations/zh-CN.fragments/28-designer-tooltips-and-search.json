@@ -115,7 +115,7 @@
     },
     {
       "key": "Coilover\nShocks are useful when you want to soften impact with terra firma.",
-      "value": "绞牙避震器\n想要缓冲着陆或撞击地面时，避震器很有用。"
+      "value": "弹簧避震器\n想要缓冲着陆或撞击地面时，避震器很有用。"
     },
     {
       "key": "Fin Details\nCosmetic details that don't affect the physics of fins, but can make it look more neato.",
@@ -143,7 +143,7 @@
     },
     {
       "key": "Steering Wheel\nA classic steering wheel for ground vehicles. Connect its input to 'Roll' for conventional steering.",
-      "value": "方向盘\n适用于地面载具的经典方向盘。将其输入绑定到“Roll”即可实现常规转向。"
+      "value": "方向盘\n适用于地面载具的经典方向盘。将其输入绑定到“Roll（滚转）”即可实现常规转向。"
     },
     {
       "key": "Refuel Probe\nA part for taking fuel from a fuel tanker. Any part can take fuel from a refuel drogue, but this part will tell the drogue where the probe is, so the assist mode will work.",
@@ -640,6 +640,228 @@
     {
       "key": "ProceduralMissileSubPartData",
       "value": "程序化导弹子部件"
+    },
+    {
+      "key": "Blueprints\nLoad and manage background blueprints for reference.",
+      "value": "蓝图\n加载并管理用作参考的背景蓝图。"
+    },
+    {
+      "key": "Center View on Part\nFocus the camera on the currently selected part.",
+      "value": "将视角居中到零件\n将镜头聚焦到当前选中的零件。"
+    },
+    {
+      "key": "Cycle hidden parts view mode\nShortcut: <b>Ctrl + H</b>",
+      "value": "切换隐藏零件显示模式\n快捷键：<b>Ctrl + H</b>"
+    },
+    {
+      "key": "Front View\nAlign the camera to view the craft from the front.",
+      "value": "前视\n将镜头切换到载具前方。"
+    },
+    {
+      "key": "Invert hidden parts\nShortcut: <b>Shift + H</b>",
+      "value": "反转隐藏零件\n快捷键：<b>Shift + H</b>"
+    },
+    {
+      "key": "Launch Flight\nTake your current craft design for a flight.",
+      "value": "起飞\n驾驶当前设计的载具进行试飞。"
+    },
+    {
+      "key": "Move Part Tool\nSelect, move, and attach parts to build your craft.\nShortcut: <b>1</b>",
+      "value": "移动零件工具\n选择、移动并连接零件，用来建造你的载具。\n快捷键：<b>1</b>"
+    },
+    {
+      "key": "Part Connections\nView and manage how this part connects to others.",
+      "value": "零件连接\n查看并管理该零件与其他零件的连接方式。"
+    },
+    {
+      "key": "Part Properties\nOpens the Part Properties menu for the selected part. Many parts have settings that can be customized.\nShortcut: <b>Y</b>",
+      "value": "零件属性\n打开所选零件的属性菜单。许多零件都有可自定义的设置。\n快捷键：<b>Y</b>"
+    },
+    {
+      "key": "Preview the selected paint when hovering over parts in your craft",
+      "value": "鼠标悬停在载具零件上时，预览当前选中的涂装。"
+    },
+    {
+      "key": "Rotate Part 90° around X-axis\nShortcut: <b>W</b>",
+      "value": "绕 X 轴旋转零件 90°\n快捷键：<b>W</b>"
+    },
+    {
+      "key": "Rotate Part 90° around Y-axis\nShortcut: <b>D</b>",
+      "value": "绕 Y 轴旋转零件 90°\n快捷键：<b>D</b>"
+    },
+    {
+      "key": "Rotate Part 90° around Z-axis\nShortcut: <b>E</b>",
+      "value": "绕 Z 轴旋转零件 90°\n快捷键：<b>E</b>"
+    },
+    {
+      "key": "Rotate Tool\nPrecisely rotate parts using gizmos without altering part connections.\nShortcut: <b>2</b>",
+      "value": "旋转工具\n使用变换控件精确旋转零件，且不会改变零件连接关系。\n快捷键：<b>2</b>"
+    },
+    {
+      "key": "Search Parts\nFind parts by name or ID, and manage their visibility.\nShortcut: <b>Space</b>",
+      "value": "搜索零件\n按名称或 ID 查找零件，并管理它们的可见性。\n快捷键：<b>Space</b>"
+    },
+    {
+      "key": "Selected Part Options\nAccess actions and adjustments specific to the selected part.",
+      "value": "所选零件选项\n访问当前所选零件专属的操作和调整项。"
+    },
+    {
+      "key": "Show all hidden parts\nShortcut: <b>Ctrl + Shift + H</b>",
+      "value": "显示所有隐藏零件\n快捷键：<b>Ctrl + Shift + H</b>"
+    },
+    {
+      "key": "Side View\nAlign the camera to view the craft from the side.",
+      "value": "侧视\n将镜头切换到载具侧面。"
+    },
+    {
+      "key": "The trim level of the part to paint. Normally this should just be left to Auto.",
+      "value": "要喷涂的配色层级。通常保持自动即可。"
+    },
+    {
+      "key": "Toggle Cutting Outlines\nShow or hide outlines around cutting parts.\nShortcut: <b>/</b>",
+      "value": "切换切割轮廓\n显示或隐藏切割零件周围的轮廓。\n快捷键：<b>/</b>"
+    },
+    {
+      "key": "Toggle Decal Outlines\nShow or hide outlines around decal parts.\nShortcut: <b>\\</b>",
+      "value": "切换贴花轮廓\n显示或隐藏贴花零件周围的轮廓。\n快捷键：<b>\\</b>"
+    },
+    {
+      "key": "Toggle Orthographic/Perspective View\nSwitch between orthographic (no perspective) and perspective projection.",
+      "value": "切换正交/透视视图\n在正交视图（无透视）和透视投影视图之间切换。"
+    },
+    {
+      "key": "Toggle Powertrain View",
+      "value": "切换传动系统视图"
+    },
+    {
+      "key": "Toggle X-ray View",
+      "value": "切换 X 光视图"
+    },
+    {
+      "key": "Toggle symmetry for the selected part and its connected parts.\nHold Shift to only affect the selected part and not its connected parts.\nShortcut: <b>X</b>",
+      "value": "切换所选零件及其相连零件的对称。\n按住 Shift 时只影响所选零件，不影响相连零件。\n快捷键：<b>X</b>"
+    },
+    {
+      "key": "Top View\nAlign the camera to view the craft from directly above.",
+      "value": "俯视\n将镜头切换到载具上方。"
+    },
+    {
+      "key": "Transform Part\nPrecisely adjust the position and rotation of the selected part.",
+      "value": "变换零件\n精确调整所选零件的位置和旋转。"
+    },
+    {
+      "key": "Translate Tool\nPrecisely move parts using gizmos without altering part connections.\nShortcut: <b>3</b>",
+      "value": "平移工具\n使用变换控件精确移动零件，且不会改变零件连接关系。\n快捷键：<b>3</b>"
+    },
+    {
+      "key": "Variable Outputs\nView and manage the output variables for this part.",
+      "value": "变量输出\n查看并管理该零件的输出变量。"
+    },
+    {
+      "key": "View Menu\nOpens a menu with various options for changing the current view of the craft.",
+      "value": "视图菜单\n打开一个菜单，其中包含用于切换当前载具视图的各类选项。"
+    },
+    {
+      "key": "View Tool\nView the craft without accidentally grabbing and moving parts.\nShortcut: <b>4</b>",
+      "value": "查看工具\n查看载具时不会误抓取或移动零件。\n快捷键：<b>4</b>"
+    },
+    {
+      "key": "Toggle the initial symmetry setting for new parts when they are added to the craft.\nShortcut: <b>Ctrl + X</b>",
+      "value": "切换新零件的默认对称设置。\n影响之后添加到载具上的新零件。\n快捷键：<b>Ctrl + X</b>"
+    },
+    {
+      "key": "Toggle the initial symmetry setting for new parts when they are added to the craft.\nShortcut: Ctrl + X",
+      "value": "切换新零件的默认对称设置。\n影响之后添加到载具上的新零件。\n快捷键：Ctrl + X"
+    },
+    {
+      "key": "Toggle the initial symmetry setting for new parts\nwhen they are added to the craft.\nShortcut: <b>Ctrl + X</b>",
+      "value": "切换新零件的默认对称设置\n影响之后添加到载具上的新零件。\n快捷键：<b>Ctrl + X</b>"
+    },
+    {
+      "key": "Toggle the initial symmetry setting for new parts\nwhen they are added to the craft.\nShortcut: Ctrl + X",
+      "value": "切换新零件的默认对称设置\n影响之后添加到载具上的新零件。\n快捷键：Ctrl + X"
+    },
+    {
+      "key": "I think I'm seeing double.",
+      "value": "我好像看重影了。"
+    },
+    {
+      "key": "Multiplier for all gears. Higher values = More Acceleration. Lower values = Higher Top Speed.",
+      "value": "所有挡位的倍率。数值越高，加速越强；数值越低，最高速度越高。"
+    },
+    {
+      "key": "Purely cosmetic. It doesn't affect traction but it does affect how you feel about your tires.",
+      "value": "纯外观设置。不影响抓地力，但会影响你看待自己轮胎的心情。"
+    },
+    {
+      "key": "Racing has the best traction on roads, Offroad has the best traction off the roads, and Street is somewhere in between.",
+      "value": "赛车胎在铺装路面抓地力最好，越野胎在非铺装路面抓地力最好，公路胎介于两者之间。"
+    },
+    {
+      "key": "Reverse the direction the wheel should spin when powered.",
+      "value": "反转车轮受动力驱动时应旋转的方向。"
+    },
+    {
+      "key": "Selects the tire friction model for paved surfaces. 'Arcade' provides stable, forgiving grip, while 'Racing' offers more realistic handling. Note: This setting does not affect off-road handling.",
+      "value": "选择铺装路面的轮胎摩擦模型。“街机”提供稳定且宽容的抓地力，“赛车”提供更真实的操控。注意：此设置不影响越野操控。"
+    },
+    {
+      "key": "Show the CV boot",
+      "value": "显示等速万向节防尘套"
+    },
+    {
+      "key": "Symmetry Enabled\nAny changes made to these properties will be copied to the mirrored part.",
+      "value": "已启用镜像\n对这些属性的任何修改都会复制到镜像零件。"
+    },
+    {
+      "key": "The name of this part.",
+      "value": "此零件的名称。"
+    },
+    {
+      "key": "Used when automatically assigning IK targets, lower numbers are higher priority.",
+      "value": "自动分配 IK 目标时使用，数字越小优先级越高。"
+    },
+    {
+      "key": "Enabled Powertrain View",
+      "value": "已启用动力传动视图"
+    }
+  ],
+  "contextEntries": [
+    {
+      "key": "Top",
+      "value": "俯视",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/flyout-blueprints/"
+    },
+    {
+      "key": "Bottom",
+      "value": "仰视",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/flyout-blueprints/"
+    },
+    {
+      "key": "Left",
+      "value": "左视",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/flyout-blueprints/"
+    },
+    {
+      "key": "Right",
+      "value": "右视",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/flyout-blueprints/"
+    },
+    {
+      "key": "Front",
+      "value": "前视",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/flyout-blueprints/"
+    },
+    {
+      "key": "Back",
+      "value": "后视",
+      "sceneName": "Designer",
+      "gameObjectPathContains": "/flyout-blueprints/"
     }
   ]
 }
