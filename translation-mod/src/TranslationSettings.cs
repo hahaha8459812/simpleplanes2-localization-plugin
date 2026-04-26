@@ -22,6 +22,10 @@ namespace SimplePlanes2TranslationMod
 
         public float SceneScanIntervalSeconds { get; set; }
 
+        public float IdleSceneScanIntervalSeconds { get; set; }
+
+        public float InteractiveSceneScanDurationSeconds { get; set; }
+
         public bool ApplyBoldStyleToTranslatedText { get; set; }
 
         public bool VerboseLogging { get; set; }
@@ -38,6 +42,8 @@ namespace SimplePlanes2TranslationMod
                 CapturedTextsFileName = "captured-texts.json",
                 CaptureFlushIntervalSeconds = 10.0f,
                 SceneScanIntervalSeconds = 0.1f,
+                IdleSceneScanIntervalSeconds = 1.0f,
+                InteractiveSceneScanDurationSeconds = 1.0f,
                 ApplyBoldStyleToTranslatedText = false,
                 VerboseLogging = false
             };

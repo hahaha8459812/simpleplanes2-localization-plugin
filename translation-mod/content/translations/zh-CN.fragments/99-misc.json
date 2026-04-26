@@ -108,6 +108,10 @@
     {
       "key": "Enabled",
       "value": "已启用"
+    },
+    {
+      "key": "Enter input expression.",
+      "value": "请输入输入表达式。"
     }
   ]
 }

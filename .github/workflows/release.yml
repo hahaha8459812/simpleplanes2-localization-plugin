@@ -64,6 +64,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ inputs.release_tag || github.ref_name }}
+          body_path: translation-mod/RELEASE_NOTES.md
           files: |
             translation-mod/release/SimplePlanes2TranslationMod-Dev.zip
             translation-mod/release/SimplePlanes2TranslationMod-Release.zip

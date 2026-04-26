@@ -19,10 +19,14 @@ namespace SimplePlanes2TranslationMod
     {
         public const string PluginGuid = "com.codex.simpleplanes2.translation";
         public const string PluginName = "SimplePlanes 2 Translation Mod";
-        public const string PluginVersion = "0.1.1";
+        public const string PluginVersion = "0.1.2";
 
-        private const string ManualReloadHotkeyName = "F6";
-        private const string ToggleTranslationHotkeyName = "F10";
+        private const string ManualReloadHotkeyName = "F2";
+        private const string ToggleTranslationHotkeyName = "F1";
+        private const float MinimumSceneScanIntervalSeconds = 0.1f;
+        private const float DefaultIdleSceneScanIntervalSeconds = 1.0f;
+        private const float DefaultInteractiveSceneScanDurationSeconds = 1.0f;
+        private const float MouseReleaseSceneScanDelaySeconds = 0.1f;
 
         private static readonly HashSet<string> MissingTexts = new HashSet<string>(StringComparer.Ordinal);
         private static readonly object MissingTextsLock = new object();
@@ -42,12 +46,15 @@ namespace SimplePlanes2TranslationMod
         private TranslationCatalog _catalog = TranslationCatalog.Empty;
         private TextCaptureStore _captureStore;
         private readonly Dictionary<int, TrackedTextState> _trackedTexts = new Dictionary<int, TrackedTextState>();
+        private readonly Dictionary<int, string> _lastSceneScanTexts = new Dictionary<int, string>();
         private TranslationSettings _settings = TranslationSettings.CreateDefault();
         private bool _isTranslationTemporarilyDisabled;
         private bool _hasLoggedBundledFontFallbackInjection;
         private TMP_FontAsset _preferredChineseFontAsset;
         private float _nextCaptureFlushTime;
         private float _nextSceneScanTime;
+        private float _interactiveSceneScanUntilTime;
+        private float _delayedMouseReleaseSceneScanTime = -1.0f;
         private string _capturedTextsPath = string.Empty;
         private string _missingTextsPath = string.Empty;
         private string _pluginRootPath = string.Empty;
@@ -106,15 +113,18 @@ namespace SimplePlanes2TranslationMod
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F6))
+            if (Input.GetKeyDown(KeyCode.F2))
             {
                 ReloadTranslations();
             }
 
-            if (Input.GetKeyDown(KeyCode.F10))
+            if (Input.GetKeyDown(KeyCode.F1))
             {
                 ToggleTranslation();
             }
+
+            RefreshInteractiveSceneScanWindow();
+            ScheduleMouseReleaseSceneScan();
 
             if (ShouldCaptureTexts() && Time.unscaledTime >= _nextCaptureFlushTime)
             {
@@ -127,13 +137,18 @@ namespace SimplePlanes2TranslationMod
                 return;
             }
 
+            if (TryRunDelayedMouseReleaseSceneScan())
+            {
+                return;
+            }
+
             if (Time.unscaledTime < _nextSceneScanTime)
             {
                 return;
             }
 
-            _nextSceneScanTime = Time.unscaledTime + Mathf.Max(0.1f, _settings.SceneScanIntervalSeconds);
-            ApplySceneTranslations("Periodic Scan");
+            _nextSceneScanTime = Time.unscaledTime + GetCurrentSceneScanIntervalSeconds();
+            ApplySceneTranslations(IsInteractiveSceneScanActive() ? "Interactive Scan" : "Idle Scan");
         }
 
         internal string Translate(string source, TextCaptureContext context)
@@ -178,6 +193,11 @@ namespace SimplePlanes2TranslationMod
                     continue;
                 }
 
+                if (!ShouldProcessSceneText(textWidget.TextMeshPro, originalText))
+                {
+                    continue;
+                }
+
                 captureContext = CreateCaptureContext(textWidget.TextMeshPro, "SceneScan.TextWidget");
                 ObserveText(originalText, captureContext);
 
@@ -195,6 +215,7 @@ namespace SimplePlanes2TranslationMod
                 RememberOriginalText(textWidget.TextMeshPro, originalText);
                 textWidget.SetText(translatedText, true);
                 ApplyTranslatedTextStyle(textWidget.TextMeshPro, translatedText);
+                RememberSceneScanText(textWidget.TextMeshPro, translatedText);
                 changedCount++;
             }
 
@@ -232,6 +253,11 @@ namespace SimplePlanes2TranslationMod
                     continue;
                 }
 
+                if (!ShouldProcessSceneText(tmpText, originalText))
+                {
+                    continue;
+                }
+
                 captureContext = CreateCaptureContext(tmpText, "SceneScan.TMP");
                 ObserveText(originalText, captureContext);
 
@@ -249,6 +275,7 @@ namespace SimplePlanes2TranslationMod
                 RememberOriginalText(tmpText, originalText);
                 tmpText.text = translatedText;
                 ApplyTranslatedTextStyle(tmpText, translatedText);
+                RememberSceneScanText(tmpText, translatedText);
                 changedCount++;
             }
 
@@ -256,6 +283,121 @@ namespace SimplePlanes2TranslationMod
             {
                 Logger.LogInfo(string.Format("Applied {0} translations during {1}.", changedCount, reason));
             }
+        }
+
+        private void ScheduleMouseReleaseSceneScan()
+        {
+            if (!Input.GetMouseButtonUp(0) && !Input.GetMouseButtonUp(1))
+            {
+                return;
+            }
+
+            _delayedMouseReleaseSceneScanTime = Time.unscaledTime + MouseReleaseSceneScanDelaySeconds;
+            RequestInteractiveSceneScan();
+        }
+
+        private bool TryRunDelayedMouseReleaseSceneScan()
+        {
+            if (_delayedMouseReleaseSceneScanTime < 0.0f)
+            {
+                return false;
+            }
+
+            if (Time.unscaledTime < _delayedMouseReleaseSceneScanTime)
+            {
+                return false;
+            }
+
+            _delayedMouseReleaseSceneScanTime = -1.0f;
+            _nextSceneScanTime = Time.unscaledTime + GetCurrentSceneScanIntervalSeconds();
+            ApplySceneTranslations("Mouse Release Scan");
+            return true;
+        }
+
+        private void RefreshInteractiveSceneScanWindow()
+        {
+            if (!HasUserInterfaceActivity())
+            {
+                return;
+            }
+
+            RequestInteractiveSceneScan();
+        }
+
+        private static bool HasUserInterfaceActivity()
+        {
+            return Input.anyKeyDown ||
+                   Input.GetMouseButtonDown(0) ||
+                   Input.GetMouseButtonDown(1) ||
+                   Input.GetMouseButtonDown(2) ||
+                   Input.mouseScrollDelta.sqrMagnitude > 0.0f;
+        }
+
+        private void RequestInteractiveSceneScan()
+        {
+            float activeUntilTime;
+
+            activeUntilTime = Time.unscaledTime + GetInteractiveSceneScanDurationSeconds();
+            if (activeUntilTime > _interactiveSceneScanUntilTime)
+            {
+                _interactiveSceneScanUntilTime = activeUntilTime;
+            }
+
+            if (_nextSceneScanTime > Time.unscaledTime)
+            {
+                _nextSceneScanTime = Time.unscaledTime;
+            }
+        }
+
+        private bool IsInteractiveSceneScanActive()
+        {
+            return Time.unscaledTime < _interactiveSceneScanUntilTime;
+        }
+
+        private float GetCurrentSceneScanIntervalSeconds()
+        {
+            if (IsInteractiveSceneScanActive())
+            {
+                return Mathf.Max(MinimumSceneScanIntervalSeconds, _settings.SceneScanIntervalSeconds);
+            }
+
+            return Mathf.Max(DefaultIdleSceneScanIntervalSeconds, _settings.IdleSceneScanIntervalSeconds);
+        }
+
+        private float GetInteractiveSceneScanDurationSeconds()
+        {
+            return Mathf.Max(DefaultInteractiveSceneScanDurationSeconds, _settings.InteractiveSceneScanDurationSeconds);
+        }
+
+        private bool ShouldProcessSceneText(TMP_Text textComponent, string displayedText)
+        {
+            int instanceId;
+            string lastScannedText;
+
+            if (textComponent == null)
+            {
+                return false;
+            }
+
+            instanceId = textComponent.GetInstanceID();
+            if (_lastSceneScanTexts.TryGetValue(instanceId, out lastScannedText) &&
+                string.Equals(lastScannedText, displayedText, StringComparison.Ordinal))
+            {
+                return false;
+            }
+
+            _lastSceneScanTexts[instanceId] = displayedText;
+            return true;
+        }
+
+        private void RememberSceneScanText(TMP_Text textComponent, string displayedText)
+        {
+            if (textComponent == null)
+            {
+                return;
+            }
+
+            _lastSceneScanTexts[textComponent.GetInstanceID()] = displayedText ?? string.Empty;
         }
 
         private void LoadCatalog()
@@ -286,6 +428,8 @@ namespace SimplePlanes2TranslationMod
         private void OnSceneLoaded(Scene scene, LoadSceneMode loadMode)
         {
             InjectBundledChineseFontFallbacks();
+            _lastSceneScanTexts.Clear();
+            RequestInteractiveSceneScan();
             ApplySceneTranslations("Scene Loaded: " + scene.name);
         }
 
@@ -325,7 +469,9 @@ namespace SimplePlanes2TranslationMod
             LoadBundledChineseFont();
             MissingTexts.Clear();
             _trackedTexts.Clear();
+            _lastSceneScanTexts.Clear();
             _isTranslationTemporarilyDisabled = false;
+            RequestInteractiveSceneScan();
             ApplySceneTranslations("Manual Reload (" + ManualReloadHotkeyName + ")");
             Logger.LogInfo(string.Format("Reloaded translations from '{0}'.", _translationsPath));
         }
@@ -928,6 +1074,7 @@ namespace SimplePlanes2TranslationMod
                 }
 
                 Instance.ApplyTranslatedTextStyle(__instance.TextMeshPro, __instance.TextMeshPro != null ? __instance.TextMeshPro.text : string.Empty);
+                Instance.RememberSceneScanText(__instance.TextMeshPro, __instance.TextMeshPro != null ? __instance.TextMeshPro.text : string.Empty);
             }
         }
     }

@@ -460,6 +460,42 @@
     {
       "key": "Missile Greeble",
       "value": "导弹细节"
+    },
+    {
+      "key": "Button​",
+      "value": "按钮"
+    },
+    {
+      "key": "Car Pedal​",
+      "value": "汽车踏板"
+    },
+    {
+      "key": "Cylinder Grip​",
+      "value": "圆柱握把"
+    },
+    {
+      "key": "Fighter Throttle​",
+      "value": "战斗机油门杆"
+    },
+    {
+      "key": "Joystick Base​",
+      "value": "操纵杆基座"
+    },
+    {
+      "key": "Joystick Top​",
+      "value": "操纵杆顶部"
+    },
+    {
+      "key": "Joystick Top 2​",
+      "value": "操纵杆顶部 2"
+    },
+    {
+      "key": "Simple Throttle​",
+      "value": "简易油门杆"
+    },
+    {
+      "key": "Yoke​",
+      "value": "驾驶盘"
     }
   ]
 }

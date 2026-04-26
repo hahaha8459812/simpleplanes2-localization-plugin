@@ -168,8 +168,8 @@ function New-Package {
     Copy-Item -Path (Join-Path $projectRoot "content\translations\*.json") -Destination $packageTranslationDir -Force
     Copy-Item -Path (Join-Path $fontArtifactsDir "*") -Destination $packageFontDir -Force
     Copy-Item -Path (Join-Path $projectRoot "install.ps1") -Destination (Join-Path $packageRoot "install.ps1") -Force
-    Copy-Item -Path (Join-Path $projectRoot "README.md") -Destination (Join-Path $packageRoot "README.md") -Force
-    Copy-Item -Path (Join-Path $projectRoot "README.en.md") -Destination (Join-Path $packageRoot "README.en.md") -Force
+    Copy-Item -Path (Join-Path $workspaceRoot "README.md") -Destination (Join-Path $packageRoot "README.md") -Force
+    Copy-Item -Path (Join-Path $workspaceRoot "README.en.md") -Destination (Join-Path $packageRoot "README.en.md") -Force
     Copy-Item -Path (Join-Path $projectRoot "CHANGELOG.md") -Destination (Join-Path $packageRoot "CHANGELOG.md") -Force
     Copy-DirectoryContents -Source (Join-Path $projectRoot "docs") -Destination (Join-Path $packageRoot "docs")
 

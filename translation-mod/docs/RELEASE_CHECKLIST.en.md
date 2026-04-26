@@ -29,8 +29,8 @@ Expected output:
 4. You may also run `install.ps1` to verify the fallback installer path.
 5. Start the game and open the main menu and designer.
 6. Confirm Chinese text does not render as boxes.
-7. Confirm `F6` reloads translations.
-8. Confirm `F10` toggles localization.
+7. Confirm `F2` reloads translations.
+8. Confirm `F1` toggles localization.
 9. Check the part list, tooltips, upload page, and settings page for obvious untranslated text.
 
 ## Dev Package Test

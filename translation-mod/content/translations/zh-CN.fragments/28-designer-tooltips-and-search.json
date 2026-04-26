@@ -1020,6 +1020,34 @@
     {
       "key": "The intensity of the filter when active.",
       "value": "滤镜启用时的强度。"
+    },
+    {
+      "key": "Allows the engine to push air forward to slow down the craft.",
+      "value": "允许发动机向前推送气流，从而让作品减速。"
+    },
+    {
+      "key": "Changes the overall size of the engine.",
+      "value": "调整发动机的整体尺寸。"
+    },
+    {
+      "key": "Increasing compression can increase fuel efficiency (and thrust up to a point), but also increases the length and weight of the core.",
+      "value": "提高压缩比可以提升燃油效率，并在一定范围内增加推力，但也会增加核心机长度和重量。"
+    },
+    {
+      "key": "Sets the maximum temperature of the combustion chamber. Higher temperatures generate significantly more thrust, but will burn through fuel much faster and increase mass for the extra nickel plating.",
+      "value": "设置燃烧室最高温度。更高温度会显著增加推力，但燃油消耗也会快得多，并且会因额外镍镀层而增加质量。"
+    },
+    {
+      "key": "The amount of air that bypasses the core. This can greatly increase fuel efficiency. All the cool engineers are doing it these days.",
+      "value": "绕过核心机的空气量。它可以大幅提升燃油效率，如今厉害的工程师都这么干。"
+    },
+    {
+      "key": "The amount of fuel used by this engine at full throttle.",
+      "value": "该发动机全油门时的燃油消耗量。"
+    },
+    {
+      "key": "The estimated static thrust of this engine at sea level. If an afterburner is present, then both dry and wet thrust are displayed.",
+      "value": "该发动机在海平面静止状态下的估算推力。如果带加力燃烧室，会同时显示军推和加力推力。"
     }
   ],
   "contextEntries": [
