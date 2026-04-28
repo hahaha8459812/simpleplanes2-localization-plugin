@@ -7,6 +7,16 @@
   "CapturedTextsFileName": "captured-texts.json",
   "CaptureFlushIntervalSeconds": 10.0,
   "SceneScanIntervalSeconds": 0.1,
+  "IdleSceneScanIntervalSeconds": 1.0,
+  "InteractiveSceneScanDurationSeconds": 1.0,
   "ApplyBoldStyleToTranslatedText": false,
-  "VerboseLogging": false
+  "VerboseLogging": false,
+  "EnableHotkeys": true,
+  "ManualReloadHotkeyName": "F2",
+  "ToggleTranslationHotkeyName": "F1",
+  "ShowFloatingPanel": true,
+  "FloatingPanelExpanded": false,
+  "FloatingPanelSettingsExpanded": false,
+  "FloatingPanelX": 18.0,
+  "FloatingPanelY": 120.0
 }

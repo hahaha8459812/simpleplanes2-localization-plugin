@@ -30,6 +30,22 @@ namespace SimplePlanes2TranslationMod
 
         public bool VerboseLogging { get; set; }
 
+        public bool EnableHotkeys { get; set; }
+
+        public string ManualReloadHotkeyName { get; set; }
+
+        public string ToggleTranslationHotkeyName { get; set; }
+
+        public bool ShowFloatingPanel { get; set; }
+
+        public bool FloatingPanelExpanded { get; set; }
+
+        public bool FloatingPanelSettingsExpanded { get; set; }
+
+        public float FloatingPanelX { get; set; }
+
+        public float FloatingPanelY { get; set; }
+
         public static TranslationSettings CreateDefault()
         {
             return new TranslationSettings
@@ -45,7 +61,15 @@ namespace SimplePlanes2TranslationMod
                 IdleSceneScanIntervalSeconds = 1.0f,
                 InteractiveSceneScanDurationSeconds = 1.0f,
                 ApplyBoldStyleToTranslatedText = false,
-                VerboseLogging = false
+                VerboseLogging = false,
+                EnableHotkeys = true,
+                ManualReloadHotkeyName = "F2",
+                ToggleTranslationHotkeyName = "F1",
+                ShowFloatingPanel = true,
+                FloatingPanelExpanded = false,
+                FloatingPanelSettingsExpanded = false,
+                FloatingPanelX = 18.0f,
+                FloatingPanelY = 120.0f
             };
         }
 
@@ -73,7 +97,133 @@ namespace SimplePlanes2TranslationMod
 
             json = File.ReadAllText(path, System.Text.Encoding.UTF8);
             settings = JsonConvert.DeserializeObject<TranslationSettings>(json);
-            return settings ?? CreateDefault();
+            settings = settings ?? CreateDefault();
+            ApplyMissingBooleanDefaults(settings, json);
+            ApplyMissingFloatDefaults(settings, json);
+            settings.Normalize();
+            return settings;
+        }
+
+        public void Save(string path)
+        {
+            string directoryPath;
+            string json;
+
+            Normalize();
+            directoryPath = Path.GetDirectoryName(path);
+            if (!string.IsNullOrEmpty(directoryPath) && !Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            json = JsonConvert.SerializeObject(this, Formatting.Indented);
+            File.WriteAllText(path, json, System.Text.Encoding.UTF8);
+        }
+
+        public void Normalize()
+        {
+            TranslationSettings defaultSettings = CreateDefault();
+
+            if (string.IsNullOrWhiteSpace(Mode))
+            {
+                Mode = defaultSettings.Mode;
+            }
+
+            if (string.IsNullOrWhiteSpace(Language))
+            {
+                Language = defaultSettings.Language;
+            }
+
+            if (string.IsNullOrWhiteSpace(CapturedTextsFileName))
+            {
+                CapturedTextsFileName = defaultSettings.CapturedTextsFileName;
+            }
+
+            if (CaptureFlushIntervalSeconds <= 0.0f)
+            {
+                CaptureFlushIntervalSeconds = defaultSettings.CaptureFlushIntervalSeconds;
+            }
+
+            if (SceneScanIntervalSeconds <= 0.0f)
+            {
+                SceneScanIntervalSeconds = defaultSettings.SceneScanIntervalSeconds;
+            }
+
+            if (IdleSceneScanIntervalSeconds <= 0.0f)
+            {
+                IdleSceneScanIntervalSeconds = defaultSettings.IdleSceneScanIntervalSeconds;
+            }
+
+            if (InteractiveSceneScanDurationSeconds <= 0.0f)
+            {
+                InteractiveSceneScanDurationSeconds = defaultSettings.InteractiveSceneScanDurationSeconds;
+            }
+
+            if (string.IsNullOrWhiteSpace(ManualReloadHotkeyName))
+            {
+                ManualReloadHotkeyName = defaultSettings.ManualReloadHotkeyName;
+            }
+
+            if (string.IsNullOrWhiteSpace(ToggleTranslationHotkeyName))
+            {
+                ToggleTranslationHotkeyName = defaultSettings.ToggleTranslationHotkeyName;
+            }
+
+            if (float.IsNaN(FloatingPanelX) || float.IsInfinity(FloatingPanelX) || FloatingPanelX < 0.0f)
+            {
+                FloatingPanelX = defaultSettings.FloatingPanelX;
+            }
+
+            if (float.IsNaN(FloatingPanelY) || float.IsInfinity(FloatingPanelY) || FloatingPanelY < 0.0f)
+            {
+                FloatingPanelY = defaultSettings.FloatingPanelY;
+            }
+        }
+
+        private static void ApplyMissingBooleanDefaults(TranslationSettings settings, string json)
+        {
+            TranslationSettings defaultSettings = CreateDefault();
+
+            if (!ContainsJsonProperty(json, "EnableHotkeys"))
+            {
+                settings.EnableHotkeys = defaultSettings.EnableHotkeys;
+            }
+
+            if (!ContainsJsonProperty(json, "ShowFloatingPanel"))
+            {
+                settings.ShowFloatingPanel = defaultSettings.ShowFloatingPanel;
+            }
+
+            if (!ContainsJsonProperty(json, "FloatingPanelExpanded"))
+            {
+                settings.FloatingPanelExpanded = defaultSettings.FloatingPanelExpanded;
+            }
+
+            if (!ContainsJsonProperty(json, "FloatingPanelSettingsExpanded"))
+            {
+                settings.FloatingPanelSettingsExpanded = defaultSettings.FloatingPanelSettingsExpanded;
+            }
+        }
+
+        private static void ApplyMissingFloatDefaults(TranslationSettings settings, string json)
+        {
+            TranslationSettings defaultSettings = CreateDefault();
+
+            if (!ContainsJsonProperty(json, "FloatingPanelX"))
+            {
+                settings.FloatingPanelX = defaultSettings.FloatingPanelX;
+            }
+
+            if (!ContainsJsonProperty(json, "FloatingPanelY"))
+            {
+                settings.FloatingPanelY = defaultSettings.FloatingPanelY;
+            }
+        }
+
+        private static bool ContainsJsonProperty(string json, string propertyName)
+        {
+            return !string.IsNullOrEmpty(json) &&
+                   json.IndexOf("\"" + propertyName + "\"", System.StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
         public bool IsCollectMode()

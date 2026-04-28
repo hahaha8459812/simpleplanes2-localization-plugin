@@ -79,7 +79,7 @@
     },
     {
       "key": "Rise",
-      "value": "垂直高度"
+      "value": "垂直偏移"
     },
     {
       "key": "Rounded",
@@ -91,7 +91,7 @@
     },
     {
       "key": "Run",
-      "value": "水平距离"
+      "value": "水平偏移"
     },
     {
       "key": "Scale",
@@ -144,6 +144,10 @@
     {
       "key": "WING EDITOR",
       "value": "机翼编辑器"
+    },
+    {
+      "key": "Per Corner",
+      "value": "按角点"
     },
     {
       "key": "Per Edge",

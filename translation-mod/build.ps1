@@ -505,6 +505,7 @@ $references = @(
     (Join-Path $managedDir "Newtonsoft.Json.dll"),
     (Join-Path $managedDir "UnityEngine.dll"),
     (Join-Path $managedDir "UnityEngine.CoreModule.dll"),
+    (Join-Path $managedDir "UnityEngine.IMGUIModule.dll"),
     (Join-Path $managedDir "UnityEngine.InputLegacyModule.dll"),
     (Join-Path $managedDir "UnityEngine.UI.dll"),
     (Join-Path $managedDir "UnityEngine.TextCoreTextEngineModule.dll"),

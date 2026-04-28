@@ -19,14 +19,17 @@ namespace SimplePlanes2TranslationMod
     {
         public const string PluginGuid = "com.codex.simpleplanes2.translation";
         public const string PluginName = "SimplePlanes 2 Translation Mod";
-        public const string PluginVersion = "0.1.2";
+        public const string PluginVersion = "0.1.3";
 
-        private const string ManualReloadHotkeyName = "F2";
-        private const string ToggleTranslationHotkeyName = "F1";
+        private const string DefaultManualReloadHotkeyName = "F2";
+        private const string DefaultToggleTranslationHotkeyName = "F1";
         private const float MinimumSceneScanIntervalSeconds = 0.1f;
         private const float DefaultIdleSceneScanIntervalSeconds = 1.0f;
         private const float DefaultInteractiveSceneScanDurationSeconds = 1.0f;
         private const float MouseReleaseSceneScanDelaySeconds = 0.1f;
+        private const int FloatingPanelWindowId = 270422;
+        private const float CollapsedFloatingPanelWidth = 86.0f;
+        private const float CollapsedFloatingPanelHeight = 30.0f;
 
         private static readonly HashSet<string> MissingTexts = new HashSet<string>(StringComparer.Ordinal);
         private static readonly object MissingTextsLock = new object();
@@ -55,6 +58,16 @@ namespace SimplePlanes2TranslationMod
         private float _nextSceneScanTime;
         private float _interactiveSceneScanUntilTime;
         private float _delayedMouseReleaseSceneScanTime = -1.0f;
+        private Rect _floatingPanelRect = new Rect(18.0f, 120.0f, 260.0f, 210.0f);
+        private Font _floatingPanelFont;
+        private bool _hasTriedFloatingPanelFontLoad;
+        private bool _hasLoggedFloatingPanelFontWarning;
+        private bool _hasUnsavedFloatingPanelPosition;
+        private KeyCode _manualReloadHotkey = KeyCode.F2;
+        private KeyCode _toggleTranslationHotkey = KeyCode.F1;
+        private string _manualReloadHotkeyInput = DefaultManualReloadHotkeyName;
+        private string _toggleTranslationHotkeyInput = DefaultToggleTranslationHotkeyName;
+        private string _floatingPanelStatus = string.Empty;
         private string _capturedTextsPath = string.Empty;
         private string _missingTextsPath = string.Empty;
         private string _pluginRootPath = string.Empty;
@@ -113,12 +126,14 @@ namespace SimplePlanes2TranslationMod
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F2))
+            SaveFloatingPanelPositionAfterDrag();
+
+            if (_settings.EnableHotkeys && Input.GetKeyDown(_manualReloadHotkey))
             {
                 ReloadTranslations();
             }
 
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (_settings.EnableHotkeys && Input.GetKeyDown(_toggleTranslationHotkey))
             {
                 ToggleTranslation();
             }
@@ -149,6 +164,321 @@ namespace SimplePlanes2TranslationMod
 
             _nextSceneScanTime = Time.unscaledTime + GetCurrentSceneScanIntervalSeconds();
             ApplySceneTranslations(IsInteractiveSceneScanActive() ? "Interactive Scan" : "Idle Scan");
+        }
+
+        private void OnGUI()
+        {
+            if (_settings == null || !_settings.ShowFloatingPanel)
+            {
+                return;
+            }
+
+            ApplyFloatingPanelFont();
+
+            if (!_settings.FloatingPanelExpanded)
+            {
+                DrawCollapsedFloatingPanel();
+                ConsumeFloatingPanelMouseEvent();
+                return;
+            }
+
+            _floatingPanelRect.width = 268.0f;
+            _floatingPanelRect.height = _settings.FloatingPanelSettingsExpanded ? 260.0f : 150.0f;
+            RememberFloatingPanelPosition(
+                GUI.Window(FloatingPanelWindowId, _floatingPanelRect, DrawFloatingPanelWindow, "SP2 汉化"));
+            ConsumeFloatingPanelMouseEvent();
+        }
+
+        private void ApplyFloatingPanelFont()
+        {
+            string[] fontNames;
+
+            if (_floatingPanelFont != null)
+            {
+                GUI.skin.font = _floatingPanelFont;
+                return;
+            }
+
+            if (_hasTriedFloatingPanelFontLoad)
+            {
+                return;
+            }
+
+            _hasTriedFloatingPanelFontLoad = true;
+            fontNames = new[]
+            {
+                "Microsoft YaHei UI",
+                "Microsoft YaHei",
+                "SimHei",
+                "Arial Unicode MS"
+            };
+
+            try
+            {
+                _floatingPanelFont = Font.CreateDynamicFontFromOSFont(fontNames, 14);
+                if (_floatingPanelFont != null)
+                {
+                    GUI.skin.font = _floatingPanelFont;
+                }
+            }
+            catch (Exception exception)
+            {
+                if (!_hasLoggedFloatingPanelFontWarning)
+                {
+                    _hasLoggedFloatingPanelFontWarning = true;
+                    Logger.LogWarning(string.Format("Failed to load Chinese font for floating panel: {0}", exception.Message));
+                }
+            }
+        }
+
+        private void DrawCollapsedFloatingPanel()
+        {
+            if (GUI.Button(GetFloatingPanelScreenRect(), "SP2 汉化"))
+            {
+                _settings.FloatingPanelExpanded = true;
+                SaveSettingsSilently();
+            }
+        }
+
+        private void ConsumeFloatingPanelMouseEvent()
+        {
+            Event currentEvent;
+
+            currentEvent = Event.current;
+            if (currentEvent == null || !IsMouseEventOverFloatingPanel(currentEvent))
+            {
+                return;
+            }
+
+            currentEvent.Use();
+        }
+
+        private bool IsMouseEventOverFloatingPanel(Event currentEvent)
+        {
+            if (currentEvent.type != EventType.MouseDown &&
+                currentEvent.type != EventType.MouseUp &&
+                currentEvent.type != EventType.MouseDrag &&
+                currentEvent.type != EventType.ScrollWheel)
+            {
+                return false;
+            }
+
+            return GetFloatingPanelScreenRect().Contains(currentEvent.mousePosition);
+        }
+
+        private Rect GetFloatingPanelScreenRect()
+        {
+            if (_settings == null || !_settings.FloatingPanelExpanded)
+            {
+                return new Rect(
+                    _floatingPanelRect.x,
+                    _floatingPanelRect.y,
+                    CollapsedFloatingPanelWidth,
+                    CollapsedFloatingPanelHeight);
+            }
+
+            return _floatingPanelRect;
+        }
+
+        private void RememberFloatingPanelPosition(Rect floatingPanelRect)
+        {
+            if (Math.Abs(_floatingPanelRect.x - floatingPanelRect.x) < 0.5f &&
+                Math.Abs(_floatingPanelRect.y - floatingPanelRect.y) < 0.5f)
+            {
+                _floatingPanelRect = floatingPanelRect;
+                return;
+            }
+
+            _floatingPanelRect = floatingPanelRect;
+            _hasUnsavedFloatingPanelPosition = true;
+        }
+
+        private void SaveFloatingPanelPositionAfterDrag()
+        {
+            if (!_hasUnsavedFloatingPanelPosition || Input.GetMouseButton(0))
+            {
+                return;
+            }
+
+            _hasUnsavedFloatingPanelPosition = false;
+            SaveSettingsSilently();
+        }
+
+        private void CopyFloatingPanelPositionToSettings()
+        {
+            if (_settings == null)
+            {
+                return;
+            }
+
+            _settings.FloatingPanelX = Mathf.Max(0.0f, _floatingPanelRect.x);
+            _settings.FloatingPanelY = Mathf.Max(0.0f, _floatingPanelRect.y);
+        }
+
+        private void CopyFloatingPanelPositionFromSettings()
+        {
+            if (_settings == null)
+            {
+                return;
+            }
+
+            _floatingPanelRect.x = Mathf.Max(0.0f, _settings.FloatingPanelX);
+            _floatingPanelRect.y = Mathf.Max(0.0f, _settings.FloatingPanelY);
+        }
+
+        private void DrawFloatingPanelWindow(int windowId)
+        {
+            GUILayout.BeginVertical();
+            GUILayout.Label(_isTranslationTemporarilyDisabled ? "汉化：关闭" : "汉化：开启");
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("重载", GUILayout.Width(72.0f)))
+            {
+                ReloadTranslations();
+                _floatingPanelStatus = "已重载";
+            }
+
+            if (GUILayout.Button(_isTranslationTemporarilyDisabled ? "开启" : "关闭", GUILayout.Width(72.0f)))
+            {
+                ToggleTranslation();
+                _floatingPanelStatus = _isTranslationTemporarilyDisabled ? "已关闭" : "已开启";
+            }
+
+            if (GUILayout.Button("设置", GUILayout.Width(82.0f)))
+            {
+                _settings.FloatingPanelSettingsExpanded = !_settings.FloatingPanelSettingsExpanded;
+                SaveSettingsSilently();
+            }
+            GUILayout.EndHorizontal();
+
+            if (_settings.FloatingPanelSettingsExpanded)
+            {
+                DrawFloatingPanelSettings();
+            }
+
+            if (!string.IsNullOrEmpty(_floatingPanelStatus))
+            {
+                GUILayout.Label(_floatingPanelStatus);
+            }
+
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("收起", GUILayout.Width(72.0f)))
+            {
+                _settings.FloatingPanelExpanded = false;
+                SaveSettingsSilently();
+            }
+            GUILayout.EndHorizontal();
+
+            GUILayout.EndVertical();
+            GUI.DragWindow(new Rect(0.0f, 0.0f, 10000.0f, 24.0f));
+        }
+
+        private void DrawFloatingPanelSettings()
+        {
+            bool enableHotkeys;
+
+            GUILayout.Space(6.0f);
+            enableHotkeys = GUILayout.Toggle(_settings.EnableHotkeys, "启用快捷键");
+            if (enableHotkeys != _settings.EnableHotkeys)
+            {
+                _settings.EnableHotkeys = enableHotkeys;
+            }
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("重载键", GUILayout.Width(78.0f));
+            _manualReloadHotkeyInput = GUILayout.TextField(_manualReloadHotkeyInput, GUILayout.Width(120.0f));
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("开关键", GUILayout.Width(78.0f));
+            _toggleTranslationHotkeyInput = GUILayout.TextField(_toggleTranslationHotkeyInput, GUILayout.Width(120.0f));
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("保存", GUILayout.Width(72.0f)))
+            {
+                SaveFloatingPanelSettings();
+            }
+
+            if (GUILayout.Button("默认", GUILayout.Width(82.0f)))
+            {
+                _manualReloadHotkeyInput = DefaultManualReloadHotkeyName;
+                _toggleTranslationHotkeyInput = DefaultToggleTranslationHotkeyName;
+                _settings.EnableHotkeys = true;
+                SaveFloatingPanelSettings();
+            }
+            GUILayout.EndHorizontal();
+        }
+
+        private void SaveFloatingPanelSettings()
+        {
+            KeyCode manualReloadHotkey;
+            KeyCode toggleTranslationHotkey;
+
+            if (!TryParseHotkey(_manualReloadHotkeyInput, out manualReloadHotkey))
+            {
+                _floatingPanelStatus = "重载键无效";
+                return;
+            }
+
+            if (!TryParseHotkey(_toggleTranslationHotkeyInput, out toggleTranslationHotkey))
+            {
+                _floatingPanelStatus = "开关键无效";
+                return;
+            }
+
+            _settings.ManualReloadHotkeyName = manualReloadHotkey.ToString();
+            _settings.ToggleTranslationHotkeyName = toggleTranslationHotkey.ToString();
+            SaveSettingsSilently();
+            _floatingPanelStatus = "设置已保存";
+        }
+
+        private void SaveSettingsSilently()
+        {
+            try
+            {
+                CopyFloatingPanelPositionToSettings();
+                _settings.Save(_settingsPath);
+                RefreshHotkeySettings();
+            }
+            catch (Exception exception)
+            {
+                _floatingPanelStatus = "保存失败";
+                Logger.LogWarning(string.Format("Failed to save translation settings: {0}", exception));
+            }
+        }
+
+        private void RefreshHotkeySettings()
+        {
+            _settings.Normalize();
+            _manualReloadHotkey = ParseHotkey(_settings.ManualReloadHotkeyName, KeyCode.F2);
+            _toggleTranslationHotkey = ParseHotkey(_settings.ToggleTranslationHotkeyName, KeyCode.F1);
+            _manualReloadHotkeyInput = _manualReloadHotkey.ToString();
+            _toggleTranslationHotkeyInput = _toggleTranslationHotkey.ToString();
+        }
+
+        private static KeyCode ParseHotkey(string hotkeyName, KeyCode fallback)
+        {
+            KeyCode keyCode;
+
+            if (TryParseHotkey(hotkeyName, out keyCode))
+            {
+                return keyCode;
+            }
+
+            return fallback;
+        }
+
+        private static bool TryParseHotkey(string hotkeyName, out KeyCode keyCode)
+        {
+            if (string.IsNullOrWhiteSpace(hotkeyName))
+            {
+                keyCode = KeyCode.None;
+                return false;
+            }
+
+            return Enum.TryParse(hotkeyName.Trim(), true, out keyCode) && keyCode != KeyCode.None;
         }
 
         internal string Translate(string source, TextCaptureContext context)
@@ -423,6 +753,8 @@ namespace SimplePlanes2TranslationMod
         private void LoadSettings()
         {
             _settings = TranslationSettings.LoadOrCreate(_settingsPath, Logger);
+            RefreshHotkeySettings();
+            CopyFloatingPanelPositionFromSettings();
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode loadMode)
@@ -472,7 +804,7 @@ namespace SimplePlanes2TranslationMod
             _lastSceneScanTexts.Clear();
             _isTranslationTemporarilyDisabled = false;
             RequestInteractiveSceneScan();
-            ApplySceneTranslations("Manual Reload (" + ManualReloadHotkeyName + ")");
+            ApplySceneTranslations("Manual Reload (" + _settings.ManualReloadHotkeyName + ")");
             Logger.LogInfo(string.Format("Reloaded translations from '{0}'.", _translationsPath));
         }
 
@@ -610,12 +942,15 @@ namespace SimplePlanes2TranslationMod
             if (_isTranslationTemporarilyDisabled)
             {
                 RestoreTrackedTexts();
-                Logger.LogInfo(string.Format("Translation disabled ({0}).", ToggleTranslationHotkeyName));
+                _lastSceneScanTexts.Clear();
+                Logger.LogInfo(string.Format("Translation disabled ({0}).", _settings.ToggleTranslationHotkeyName));
                 return;
             }
 
-            ApplySceneTranslations("Toggle Translation (" + ToggleTranslationHotkeyName + ")");
-            Logger.LogInfo(string.Format("Translation enabled ({0}).", ToggleTranslationHotkeyName));
+            _lastSceneScanTexts.Clear();
+            RequestInteractiveSceneScan();
+            ApplySceneTranslations("Toggle Translation (" + _settings.ToggleTranslationHotkeyName + ")");
+            Logger.LogInfo(string.Format("Translation enabled ({0}).", _settings.ToggleTranslationHotkeyName));
         }
 
         private void RestoreTrackedTexts()
