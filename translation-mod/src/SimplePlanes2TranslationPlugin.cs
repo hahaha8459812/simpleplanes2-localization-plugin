@@ -19,7 +19,7 @@ namespace SimplePlanes2TranslationMod
     {
         public const string PluginGuid = "com.codex.simpleplanes2.translation";
         public const string PluginName = "SimplePlanes 2 Translation Mod";
-        public const string PluginVersion = "0.1.3";
+        public const string PluginVersion = "0.1.4";
 
         private const string DefaultManualReloadHotkeyName = "F2";
         private const string DefaultToggleTranslationHotkeyName = "F1";

@@ -436,6 +436,814 @@
     {
       "key": "Some settings won't take effect until the flight scene is fully reloaded. To apply them, return to the main menu and re-enter the designer or flight scene.",
       "value": "部分设置需要在飞行场景完全重新加载后才会生效。要应用这些设置，请返回主菜单，然后重新进入设计器或飞行场景。"
+    },
+    {
+      "key": "CONTROL SETTINGS",
+      "value": "控制设置"
+    },
+    {
+      "key": "Search Actions",
+      "value": "搜索操作"
+    },
+    {
+      "key": "Bind Input",
+      "value": "绑定输入"
+    },
+    {
+      "key": "Add Controller",
+      "value": "添加控制器"
+    },
+    {
+      "key": "Remove Controller",
+      "value": "移除控制器"
+    },
+    {
+      "key": "Calibrate",
+      "value": "校准"
+    },
+    {
+      "key": "Calibrate Mouse as Joystick",
+      "value": "校准鼠标操纵杆"
+    },
+    {
+      "key": "Restore Defaults",
+      "value": "恢复默认"
+    },
+    {
+      "key": "Toggle Dev Console",
+      "value": "开关开发者控制台"
+    },
+    {
+      "key": "Add",
+      "value": "添加"
+    },
+    {
+      "key": "Replace",
+      "value": "替换"
+    },
+    {
+      "key": "Activation Groups",
+      "value": "激活组"
+    },
+    {
+      "key": "Activate 1",
+      "value": "激活组 1"
+    },
+    {
+      "key": "Activate 2",
+      "value": "激活组 2"
+    },
+    {
+      "key": "Activate 3",
+      "value": "激活组 3"
+    },
+    {
+      "key": "Activate 4",
+      "value": "激活组 4"
+    },
+    {
+      "key": "Activate 5",
+      "value": "激活组 5"
+    },
+    {
+      "key": "Activate 6",
+      "value": "激活组 6"
+    },
+    {
+      "key": "Activate 7",
+      "value": "激活组 7"
+    },
+    {
+      "key": "Activate 8",
+      "value": "激活组 8"
+    },
+    {
+      "key": "Brake Increase",
+      "value": "增加刹车"
+    },
+    {
+      "key": "Brake Decrease",
+      "value": "减小刹车"
+    },
+    {
+      "key": "Developer Console",
+      "value": "开发者控制台"
+    },
+    {
+      "key": "Keyboard",
+      "value": "键盘"
+    },
+    {
+      "key": "Mouse",
+      "value": "鼠标"
+    },
+    {
+      "key": "Mouse Sensitivity",
+      "value": "鼠标灵敏度"
+    },
+    {
+      "key": "Mouse Wheel",
+      "value": "鼠标滚轮"
+    },
+    {
+      "key": "Right Mouse Button",
+      "value": "鼠标右键"
+    },
+    {
+      "key": "Back Quote",
+      "value": "反引号"
+    },
+    {
+      "key": "Backspace",
+      "value": "退格"
+    },
+    {
+      "key": "Enter",
+      "value": "回车"
+    },
+    {
+      "key": "Delete",
+      "value": "删除键"
+    },
+    {
+      "key": "Space",
+      "value": "空格"
+    },
+    {
+      "key": "Left Alt",
+      "value": "左 Alt"
+    },
+    {
+      "key": "Left Control",
+      "value": "左 Ctrl"
+    },
+    {
+      "key": "Left Shift",
+      "value": "左 Shift"
+    },
+    {
+      "key": "Right Shift",
+      "value": "右 Shift"
+    },
+    {
+      "key": "Camera Look",
+      "value": "相机视角控制"
+    },
+    {
+      "key": "Activate Camera Look",
+      "value": "启用相机视角控制"
+    },
+    {
+      "key": "Camera Recenter",
+      "value": "相机回正"
+    },
+    {
+      "key": "Custom Camera 1",
+      "value": "自定义相机 1"
+    },
+    {
+      "key": "Custom Camera 2",
+      "value": "自定义相机 2"
+    },
+    {
+      "key": "Custom Camera 3",
+      "value": "自定义相机 3"
+    },
+    {
+      "key": "Custom Camera 4",
+      "value": "自定义相机 4"
+    },
+    {
+      "key": "Chase View",
+      "value": "追踪视角"
+    },
+    {
+      "key": "Cockpit View",
+      "value": "座舱视角"
+    },
+    {
+      "key": "Flyby View",
+      "value": "掠过视角"
+    },
+    {
+      "key": "Orbit View",
+      "value": "环绕视角"
+    },
+    {
+      "key": "Next View",
+      "value": "下一个视角"
+    },
+    {
+      "key": "Previous View",
+      "value": "上一个视角"
+    },
+    {
+      "key": "Look Back",
+      "value": "向后看"
+    },
+    {
+      "key": "Look Back (Left)",
+      "value": "向后看（左）"
+    },
+    {
+      "key": "Look Back (Right)",
+      "value": "向后看（右）"
+    },
+    {
+      "key": "Look Left",
+      "value": "向左看"
+    },
+    {
+      "key": "Look Right",
+      "value": "向右看"
+    },
+    {
+      "key": "Look Up",
+      "value": "向上看"
+    },
+    {
+      "key": "Look Down",
+      "value": "向下看"
+    },
+    {
+      "key": "Look Left/Right",
+      "value": "左右查看"
+    },
+    {
+      "key": "Look Up/Down",
+      "value": "上下查看"
+    },
+    {
+      "key": "Zoom",
+      "value": "缩放"
+    },
+    {
+      "key": "Zoom In",
+      "value": "放大"
+    },
+    {
+      "key": "Zoom Out",
+      "value": "缩小"
+    },
+    {
+      "key": "Zoom In / Out",
+      "value": "放大 / 缩小"
+    },
+    {
+      "key": "Zoom Targeting Pod",
+      "value": "缩放瞄准吊舱"
+    },
+    {
+      "key": "Move Forward",
+      "value": "向前移动"
+    },
+    {
+      "key": "Move Backward",
+      "value": "向后移动"
+    },
+    {
+      "key": "Move Left",
+      "value": "向左移动"
+    },
+    {
+      "key": "Move Right",
+      "value": "向右移动"
+    },
+    {
+      "key": "Move Sideways",
+      "value": "横向移动"
+    },
+    {
+      "key": "Move Forward / Backward",
+      "value": "前后移动"
+    },
+    {
+      "key": "Jump",
+      "value": "跳跃"
+    },
+    {
+      "key": "Crouch",
+      "value": "蹲伏"
+    },
+    {
+      "key": "Dance",
+      "value": "跳舞"
+    },
+    {
+      "key": "Interact",
+      "value": "互动"
+    },
+    {
+      "key": "Enter/Exit Craft",
+      "value": "进入 / 离开载具"
+    },
+    {
+      "key": "Throttle Up",
+      "value": "增大油门"
+    },
+    {
+      "key": "Throttle Down",
+      "value": "减小油门"
+    },
+    {
+      "key": "Max Throttle",
+      "value": "最大油门"
+    },
+    {
+      "key": "Zero Throttle",
+      "value": "零油门"
+    },
+    {
+      "key": "Pitch Back",
+      "value": "抬头"
+    },
+    {
+      "key": "Pitch Forward",
+      "value": "低头"
+    },
+    {
+      "key": "Roll Left",
+      "value": "向左滚转"
+    },
+    {
+      "key": "Roll Right",
+      "value": "向右滚转"
+    },
+    {
+      "key": "Yaw Left",
+      "value": "向左偏航"
+    },
+    {
+      "key": "Yaw Right",
+      "value": "向右偏航"
+    },
+    {
+      "key": "VTOL Up",
+      "value": "VTOL 向上"
+    },
+    {
+      "key": "VTOL Down",
+      "value": "VTOL 向下"
+    },
+    {
+      "key": "Trim Up",
+      "value": "向上配平"
+    },
+    {
+      "key": "Trim Down",
+      "value": "向下配平"
+    },
+    {
+      "key": "Reset Trim",
+      "value": "重置配平"
+    },
+    {
+      "key": "Flaps Up",
+      "value": "收上襟翼"
+    },
+    {
+      "key": "Flaps Down",
+      "value": "放下襟翼"
+    },
+    {
+      "key": "Flaps Reset",
+      "value": "重置襟翼"
+    },
+    {
+      "key": "Toggle Parking Brake",
+      "value": "开关驻车制动"
+    },
+    {
+      "key": "Fire Guns",
+      "value": "开火炮"
+    },
+    {
+      "key": "Fire Weapons",
+      "value": "武器开火"
+    },
+    {
+      "key": "Next Weapon",
+      "value": "下一个武器"
+    },
+    {
+      "key": "Previous Weapon",
+      "value": "上一个武器"
+    },
+    {
+      "key": "Launch Countermeasures",
+      "value": "发射干扰物"
+    },
+    {
+      "key": "Next Target",
+      "value": "下一个目标"
+    },
+    {
+      "key": "Previous Target",
+      "value": "上一个目标"
+    },
+    {
+      "key": "Cycle Targeting Mode",
+      "value": "切换瞄准模式"
+    },
+    {
+      "key": "Slew Targeting Pod Left / Right",
+      "value": "瞄准吊舱左右转动"
+    },
+    {
+      "key": "Slew Targeting Pod Up / Down",
+      "value": "瞄准吊舱上下转动"
+    },
+    {
+      "key": "Slew Left",
+      "value": "向左转动"
+    },
+    {
+      "key": "Slew RIght",
+      "value": "向右转动"
+    },
+    {
+      "key": "Slew Up",
+      "value": "向上转动"
+    },
+    {
+      "key": "Slew Down",
+      "value": "向下转动"
+    },
+    {
+      "key": "Toggle Autopilot",
+      "value": "开关自动驾驶"
+    },
+    {
+      "key": "Toggle Fast Forward",
+      "value": "开关快进"
+    },
+    {
+      "key": "Toggle Slow Motion",
+      "value": "开关慢动作"
+    },
+    {
+      "key": "Toggle Wind Settings",
+      "value": "开关风力设置"
+    },
+    {
+      "key": "Toggle Mouse Joystick",
+      "value": "开关鼠标操纵杆"
+    },
+    {
+      "key": "Toggle Mouse Look",
+      "value": "开关鼠标视角控制"
+    },
+    {
+      "key": "Toggle Menu",
+      "value": "开关菜单"
+    },
+    {
+      "key": "Pause",
+      "value": "暂停"
+    },
+    {
+      "key": "Restart",
+      "value": "重新开始"
+    },
+    {
+      "key": "Restart Here",
+      "value": "从此处重新开始"
+    },
+    {
+      "key": "Self Destruct",
+      "value": "自毁"
+    },
+    {
+      "key": "Reposition / Upright Craft",
+      "value": "重置载具位置 / 扶正"
+    },
+    {
+      "key": "Screenshot Mode",
+      "value": "截图模式"
+    },
+    {
+      "key": "Select View Tool",
+      "value": "选择视图工具"
+    },
+    {
+      "key": "Select Move Tool",
+      "value": "选择移动工具"
+    },
+    {
+      "key": "Select Rotate Tool",
+      "value": "选择旋转工具"
+    },
+    {
+      "key": "Select Translate Tool",
+      "value": "选择平移工具"
+    },
+    {
+      "key": "Select and Focus Part",
+      "value": "选择并聚焦零件"
+    },
+    {
+      "key": "Delete Selected Part",
+      "value": "删除所选零件"
+    },
+    {
+      "key": "Reattach Selected Part",
+      "value": "重新连接所选零件"
+    },
+    {
+      "key": "Part Positioning",
+      "value": "零件定位"
+    },
+    {
+      "key": "Part Rotation",
+      "value": "零件旋转"
+    },
+    {
+      "key": "Part Symmetry",
+      "value": "零件对称"
+    },
+    {
+      "key": "Manipulate Part Positive",
+      "value": "正向调整零件"
+    },
+    {
+      "key": "Manipulate Part Negative",
+      "value": "反向调整零件"
+    },
+    {
+      "key": "Manipulate Part Next Mode",
+      "value": "零件调整下一模式"
+    },
+    {
+      "key": "Manipulate Part Previous Mode",
+      "value": "零件调整上一模式"
+    },
+    {
+      "key": "Move/Rotate Up",
+      "value": "向上移动/旋转"
+    },
+    {
+      "key": "Move/Rotate Down",
+      "value": "向下移动/旋转"
+    },
+    {
+      "key": "Move/Rotate Left",
+      "value": "向左移动/旋转"
+    },
+    {
+      "key": "Move/Rotate Right",
+      "value": "向右移动/旋转"
+    },
+    {
+      "key": "Rotate Up",
+      "value": "向上旋转"
+    },
+    {
+      "key": "Rotate Down",
+      "value": "向下旋转"
+    },
+    {
+      "key": "Rotate Left",
+      "value": "向左旋转"
+    },
+    {
+      "key": "Rotate Right",
+      "value": "向右旋转"
+    },
+    {
+      "key": "Rotate Up/Down",
+      "value": "上下旋转"
+    },
+    {
+      "key": "Rotate Left/Right",
+      "value": "左右旋转"
+    },
+    {
+      "key": "Translate Up",
+      "value": "向上平移"
+    },
+    {
+      "key": "Translate Down",
+      "value": "向下平移"
+    },
+    {
+      "key": "Translate Left",
+      "value": "向左平移"
+    },
+    {
+      "key": "Translate Right",
+      "value": "向右平移"
+    },
+    {
+      "key": "Translate In",
+      "value": "向内平移"
+    },
+    {
+      "key": "Translate Out",
+      "value": "向外平移"
+    },
+    {
+      "key": "Translate Up/Down",
+      "value": "上下平移"
+    },
+    {
+      "key": "Translate Left/Right",
+      "value": "左右平移"
+    },
+    {
+      "key": "Translate In/Out",
+      "value": "内外平移"
+    },
+    {
+      "key": "Rotate Part X+",
+      "value": "零件绕 X+ 旋转"
+    },
+    {
+      "key": "Rotate Part X-",
+      "value": "零件绕 X- 旋转"
+    },
+    {
+      "key": "Rotate Part Y+",
+      "value": "零件绕 Y+ 旋转"
+    },
+    {
+      "key": "Rotate Part Y-",
+      "value": "零件绕 Y- 旋转"
+    },
+    {
+      "key": "Rotate Part Z+",
+      "value": "零件绕 Z+ 旋转"
+    },
+    {
+      "key": "Rotate Part Z-",
+      "value": "零件绕 Z- 旋转"
+    },
+    {
+      "key": "Nudge Part X+",
+      "value": "微调零件 X+"
+    },
+    {
+      "key": "Nudge Part X-",
+      "value": "微调零件 X-"
+    },
+    {
+      "key": "Nudge Part Y+",
+      "value": "微调零件 Y+"
+    },
+    {
+      "key": "Nudge Part Y-",
+      "value": "微调零件 Y-"
+    },
+    {
+      "key": "Nudge Part Z+",
+      "value": "微调零件 Z+"
+    },
+    {
+      "key": "Nudge Part Z-",
+      "value": "微调零件 Z-"
+    },
+    {
+      "key": "Undo",
+      "value": "撤销"
+    },
+    {
+      "key": "Redo",
+      "value": "重做"
+    },
+    {
+      "key": "Save Aircraft",
+      "value": "保存载具"
+    },
+    {
+      "key": "Load Aircraft From ClipBoard URL",
+      "value": "从剪贴板 URL 加载载具"
+    },
+    {
+      "key": "Open pop-up menu for more options",
+      "value": "打开更多选项弹出菜单"
+    },
+    {
+      "key": "Toggle Blueprints Panel",
+      "value": "开关蓝图面板"
+    },
+    {
+      "key": "Toggle CoM/CoL/CoT",
+      "value": "开关重心/升力中心/推力中心"
+    },
+    {
+      "key": "Toggle Cutting Visibility",
+      "value": "开关剖切可视性"
+    },
+    {
+      "key": "Toggle Decal Visibility",
+      "value": "开关贴花可视性"
+    },
+    {
+      "key": "Toggle Ghost View",
+      "value": "开关幽灵视图"
+    },
+    {
+      "key": "Toggle New Part Initial Symmetry",
+      "value": "开关新零件初始对称"
+    },
+    {
+      "key": "Toggle Orthographic View",
+      "value": "开关正交视图"
+    },
+    {
+      "key": "Toggle Paint Panel",
+      "value": "开关涂装面板"
+    },
+    {
+      "key": "Toggle Panel",
+      "value": "开关面板"
+    },
+    {
+      "key": "Toggle Part Properties Panel",
+      "value": "开关零件属性面板"
+    },
+    {
+      "key": "Toggle Part Symmetry (Mutiple Parts)",
+      "value": "开关零件对称（多个零件）"
+    },
+    {
+      "key": "Toggle Part Symmetry (Single Part)",
+      "value": "开关零件对称（单个零件）"
+    },
+    {
+      "key": "Toggle Search Parts Panel",
+      "value": "开关搜索零件面板"
+    },
+    {
+      "key": "Toggle Symmetry Panel",
+      "value": "开关对称面板"
+    },
+    {
+      "key": "Toggle Transform Part Panel",
+      "value": "开关零件变换面板"
+    },
+    {
+      "key": "Clear Concealed Parts List",
+      "value": "清空隐藏零件列表"
+    },
+    {
+      "key": "Conceal Part",
+      "value": "隐藏零件"
+    },
+    {
+      "key": "Invert Concealed Parts",
+      "value": "反选隐藏零件"
+    },
+    {
+      "key": "Cycle Concealment Type",
+      "value": "切换隐藏类型"
+    },
+    {
+      "key": "Unlinked Symmetry (Mutiple Parts)",
+      "value": "取消关联对称（多个零件）"
+    },
+    {
+      "key": "Unlinked Symmetry (Single Part)",
+      "value": "取消关联对称（单个零件）"
+    },
+    {
+      "key": "Single / Connected Part Modifier Key\\n  (Select / Clone / Transform / Symmetry)",
+      "value": "单个 / 连接零件修饰键\\n  （选择 / 克隆 / 变换 / 对称）"
+    },
+    {
+      "key": "Miscellaneous",
+      "value": "杂项"
+    },
+    {
+      "key": "Other",
+      "value": "其他"
+    },
+    {
+      "key": "Character",
+      "value": "角色"
+    },
+    {
+      "key": "Vehicle",
+      "value": "载具"
+    },
+    {
+      "key": "Dead Zone",
+      "value": "死区"
+    },
+    {
+      "key": "Range",
+      "value": "范围"
+    },
+    {
+      "key": "Switch Mode",
+      "value": "切换模式"
+    },
+    {
+      "key": "First center or zero all sticks and axes, then press any button or wait for the timer to finish.",
+      "value": "请先将所有摇杆和轴归中或归零，然后按任意按钮，或等待计时结束。"
+    },
+    {
+      "key": "Press a key to assign it to\n<color=#ffff00>Activate 2</color>\n\nModifier keys may also be used. To assign a modifier key alone, hold it down for 1 second.",
+      "value": "按下一个按键，将其分配给\n<color=#ffff00>激活组 2</color>\n\n也可以使用修饰键。若要单独分配修饰键，请按住 1 秒。"
     }
   ],
   "contextEntries": [
@@ -444,6 +1252,13 @@
       "value": "控制",
       "sceneName": "MainMenu",
       "gameObjectPathContains": "/settings-dialog/"
+    }
+  ],
+  "dynamicPrefixEntries": [
+    {
+      "sourcePrefix": "Press any button or move an axis on the controller you would like to use. \n \n",
+      "valuePrefix": "按下任意按钮，或移动你想使用的控制器轴。\n \n",
+      "valueSuffix": ""
     }
   ]
 }

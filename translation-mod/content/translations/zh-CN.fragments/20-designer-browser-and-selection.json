@@ -77,5 +77,242 @@
       "key": "CRAFT FILTERS",
       "value": "载具筛选器"
     }
+  ],
+  "contextEntries": [
+    {
+      "key": "Add Tag",
+      "value": "添加标签",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Aerobatic",
+      "value": "特技飞行",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Agricultural",
+      "value": "农用",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Aircraft Carrier",
+      "value": "航空母舰",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Airliner",
+      "value": "客机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Artillery",
+      "value": "火炮",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Attack",
+      "value": "攻击机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Biplane",
+      "value": "双翼机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Bomber",
+      "value": "轰炸机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Bush Plane",
+      "value": "野外飞机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Cargo",
+      "value": "货运",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Civilian",
+      "value": "民用",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Clear",
+      "value": "清除",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Cold War",
+      "value": "冷战",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Drone",
+      "value": "无人机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Fictional",
+      "value": "虚构",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Fighter",
+      "value": "战斗机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Flying wing",
+      "value": "飞翼",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Funny",
+      "value": "搞笑",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "General Aviation",
+      "value": "通用航空",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Glider",
+      "value": "滑翔机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Heavy Bomber",
+      "value": "重型轰炸机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Helicopter",
+      "value": "直升机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Hidden",
+      "value": "隐藏",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Jet",
+      "value": "喷气式",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Military",
+      "value": "军用",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Naval",
+      "value": "海军",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "No Subdirectory",
+      "value": "无子目录",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "No Tags",
+      "value": "无标签",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Off-Road",
+      "value": "越野",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Propeller",
+      "value": "螺旋桨",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Racing",
+      "value": "竞速",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Reconnaissance",
+      "value": "侦察",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Seaplane",
+      "value": "水上飞机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Search",
+      "value": "搜索",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Ship",
+      "value": "船舶",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Stock Craft",
+      "value": "内置作品",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "STOL",
+      "value": "短距起降",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Subdirectories",
+      "value": "子目录",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Tags",
+      "value": "标签",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Tank",
+      "value": "坦克",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Toy",
+      "value": "玩具",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Trainer",
+      "value": "教练机",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "Vehicle",
+      "value": "车辆",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "VTOL",
+      "value": "VTOL",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "World War II",
+      "value": "二战",
+      "gameObjectPathContains": "/craft-tags/"
+    },
+    {
+      "key": "XML Modded",
+      "value": "XML 修改",
+      "gameObjectPathContains": "/craft-tags/"
+    }
   ]
 }
