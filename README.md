@@ -4,7 +4,7 @@
 
 这是一个用于 `SimplePlanes 2` 的运行时本地化插件。目前主要提供简体中文汉化，覆盖主菜单、设计器、零件列表、零件属性、悬浮说明、设置、上传发布页面和部分飞行界面。
 
-插件基于 `BepInEx + Harmony`。普通玩家只需要安装 Release 包并启动游戏，不需要修改游戏文件，也不需要本地编译。
+插件基于 `BepInEx + Harmony`。普通发行包只包含插件本体和必要资源，不再内置 BepInEx；推荐通过 `simpleplanes2-mod-manager` 安装，也可以在已安装 BepInEx 5 Mono x64 后手动解压。
 
 ## 玩家使用
 
@@ -20,30 +20,22 @@ SimplePlanes2TranslationMod-Release.zip
 
 ### 安装
 
+推荐使用 `simpleplanes2-mod-manager`：
+
+1. 在管理器中先安装或确认 BepInEx 5 已安装。
+2. 选择本地 `SimplePlanes2TranslationMod-Release.zip` 安装，或输入仓库地址：
+
+```text
+https://github.com/hahaha8459812/simpleplanes2-localization-plugin
+```
+
+手动安装：
+
 1. 关闭 `SimplePlanes 2`。
-2. 解压 `SimplePlanes2TranslationMod-Release.zip`。
-3. 把压缩包里的全部内容放进 `SimplePlanes 2` 游戏根目录，也就是 `SimplePlanes 2.exe` 所在目录。
-4. 启动游戏。
-
-Release 包已经按游戏根目录结构打包，最省事的方式就是直接解压到 Steam 的“浏览本地文件”目录。
-
-如果不想手动复制，也可以运行备用安装脚本：
-
-```powershell
-.\install.ps1
-```
-
-如果游戏不在默认 Steam 路径，手动指定游戏目录：
-
-```powershell
-.\install.ps1 -GameDir "D:\SteamLibrary\steamapps\common\SimplePlanes 2"
-```
-
-如果 PowerShell 阻止脚本运行，在解压目录打开 PowerShell，先执行：
-
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-```
+2. 确认游戏目录已经安装 BepInEx 5 Mono x64。
+3. 解压 `SimplePlanes2TranslationMod-Release.zip`。
+4. 把压缩包里的 `BepInEx` 文件夹和 `mod.json` 放进 `SimplePlanes 2.exe` 所在目录。
+5. 启动游戏。
 
 安装成功后，插件会位于：
 
@@ -70,7 +62,7 @@ SimplePlanes 2\BepInEx\plugins\SimplePlanes2Translation
 SimplePlanes 2\BepInEx\plugins\SimplePlanes2Translation
 ```
 
-如果你只为了这个汉化安装了 BepInEx，也可以删除游戏目录下的这些文件和目录：
+如果你只为了这个汉化安装了 BepInEx，也可以通过管理器卸载 BepInEx，或手动删除游戏目录下的这些文件和目录：
 
 ```text
 BepInEx
@@ -148,7 +140,20 @@ cd translation-mod
 translation-mod/artifacts/SimplePlanes2Translation.dll
 translation-mod/release/SimplePlanes2TranslationMod-Release.zip
 translation-mod/release/SimplePlanes2TranslationMod-Dev.zip
+index.json
 ```
+
+Release zip 根目录包含 `mod.json`，插件内容按 BepInEx 目录结构放置：
+
+```text
+mod.json
+BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll
+BepInEx/plugins/SimplePlanes2Translation/settings.json
+BepInEx/plugins/SimplePlanes2Translation/translations/zh-CN.json
+BepInEx/plugins/SimplePlanes2Translation/fonts/
+```
+
+普通发行包不内置 BepInEx。仓库根目录的 `index.json` 会由构建脚本同步更新，供 `simpleplanes2-mod-manager` 从仓库地址安装和检查更新。
 
 如果只修改翻译文本，可以构建后把新的 `zh-CN.json` 复制到游戏插件目录，再在游戏内按 `F2` 热重载。
 

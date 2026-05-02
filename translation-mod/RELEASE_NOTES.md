@@ -1,20 +1,30 @@
-# v0.1.4
+# v0.1.5
 
-本次更新继续补齐汉化覆盖范围，重点是控制设置、键位绑定和作品标签筛选界面。
+本次更新主要调整发行结构，使插件包可以被 `simpleplanes2-mod-manager` 直接识别、安装和后续更新。
 
-## 主要更新
+## 发行结构调整
 
-- 补充控制设置与键位绑定界面翻译，覆盖控制器、键盘、鼠标、视角、移动、飞行控制、武器、设计器工具、镜像、隐藏零件和常用操作绑定。
-- 补充标签筛选界面翻译，覆盖常见作品标签，例如 `Aircraft Carrier`、`Civilian`、`Racing`、`Vehicle`、`World War II` 和 `XML Modded`。
-- 标签翻译使用上下文规则，仅在标签筛选界面生效，减少 `Vehicle`、`Racing` 这类短词在其他界面的误翻。
+- 普通发行包不再内置 BepInEx。
+- Release zip 根目录新增 `mod.json`。
+- 仓库根目录新增并由构建脚本同步更新 `index.json`。
+- 插件文件按 BepInEx 目录结构放置：
 
-## 术语调整
+```text
+BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll
+```
 
-- 标签语境下 `Racing` 译为“竞速”。
-- 标签语境下 `Vehicle` 译为“车辆”。
-- 保留 `Funky Trees`、`VR` 等专有名词或缩写，避免强行翻译造成理解成本。
+## 管理器兼容
 
-## 体验与分发
+- `mod.json` 包含插件 id、显示名称、版本、简介、包文件名、入口 DLL、插件目录和配置文件路径。
+- `index.json` 指向当前版本的 GitHub Release 下载地址，可供插件管理器从仓库 URL 或 `index.json` URL 安装。
+- Release 包只包含插件本体、翻译词表、中文字体、设置文件和 `mod.json`。
 
-- 为控制器绑定提示增加动态前缀翻译，降低不同控制器输入名称导致的漏翻。
-- 分发版默认保持普通翻译模式，不开启文本采集记录，适合普通玩家直接安装使用。
+## 使用说明
+
+- 使用插件管理器安装时，直接选择本 Release 的 `SimplePlanes2TranslationMod-Release.zip`，或输入仓库地址：
+
+```text
+https://github.com/hahaha8459812/simpleplanes2-localization-plugin
+```
+
+- 手动安装时，需要先安装 BepInEx 5 Mono x64，然后把 zip 内容解压到 `SimplePlanes 2.exe` 所在目录。

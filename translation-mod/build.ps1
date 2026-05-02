@@ -28,6 +28,17 @@ $bundledFontFileName = "SourceHanSansSC-Regular.otf"
 $bundledFontLicenseFileName = "SourceHanSansSC-LICENSE.txt"
 $sourceHanDownloadUrl = "https://github.com/adobe-fonts/source-han-sans/releases/download/${sourceHanReleaseTag}/09_SourceHanSansSC.zip"
 $managedDir = Join-Path $GameDir "SimplePlanes 2_Data\Managed"
+$pluginPackageId = "simpleplanes2-localization-plugin"
+$pluginDirectoryName = "SimplePlanes2Translation"
+$pluginDisplayName = "SimplePlanes 2 Localization Plugin"
+$pluginDescription = "Runtime localization plugin for SimplePlanes 2. Includes Simplified Chinese translations and required font resources."
+$repositoryUrl = "https://github.com/hahaha8459812/simpleplanes2-localization-plugin"
+$releasePackageName = "SimplePlanes2TranslationMod-Release"
+$devPackageName = "SimplePlanes2TranslationMod-Dev"
+$releasePackageFileName = "${releasePackageName}.zip"
+$devPackageFileName = "${devPackageName}.zip"
+$pluginDirectoryRelativePath = "BepInEx/plugins/${pluginDirectoryName}"
+$entryDllRelativePath = "${pluginDirectoryRelativePath}/SimplePlanes2Translation.dll"
 
 function Get-CSharpCompilerPath {
     $candidates = @(
@@ -133,20 +144,77 @@ function Ensure-BundledChineseFontPayload {
     Copy-Item -LiteralPath $licenseSourcePath -Destination (Join-Path $OutputDirectory $bundledFontLicenseFileName) -Force
 }
 
+function Get-PluginVersion {
+    $pluginSourcePath = Join-Path $projectRoot "src\SimplePlanes2TranslationPlugin.cs"
+    $pluginSource = Get-Content -LiteralPath $pluginSourcePath -Raw -Encoding UTF8
+    $versionMatch = [regex]::Match($pluginSource, 'PluginVersion\s*=\s*"([^"]+)"')
+
+    if (!$versionMatch.Success) {
+        throw "Unable to read PluginVersion from ${pluginSourcePath}."
+    }
+
+    return $versionMatch.Groups[1].Value
+}
+
+function Write-JsonFile {
+    param(
+        [string]$Path,
+        [object]$Value
+    )
+
+    $json = $Value | ConvertTo-Json -Depth 8
+    [System.IO.File]::WriteAllText($Path, $json + [Environment]::NewLine, [System.Text.Encoding]::UTF8)
+}
+
+function New-PluginManifest {
+    param(
+        [string]$Version,
+        [string]$FileName
+    )
+
+    return [PSCustomObject]@{
+        id = $pluginPackageId
+        name = $pluginDisplayName
+        version = $Version
+        description = $pluginDescription
+        fileName = $FileName
+        entryDll = $entryDllRelativePath
+        pluginDirectory = $pluginDirectoryRelativePath
+        configFiles = @(
+            "${pluginDirectoryRelativePath}/settings.json"
+        )
+    }
+}
+
+function Write-RepositoryIndex {
+    param(
+        [string]$Version
+    )
+
+    $indexPath = Join-Path $workspaceRoot "index.json"
+    $index = [PSCustomObject]@{
+        id = $pluginPackageId
+        name = $pluginDisplayName
+        version = $Version
+        description = $pluginDescription
+        fileName = $releasePackageFileName
+        downloadUrl = "${repositoryUrl}/releases/download/v${Version}/${releasePackageFileName}"
+        repository = $repositoryUrl
+        entryDll = $entryDllRelativePath
+    }
+
+    Write-JsonFile -Path $indexPath -Value $index
+}
+
 function New-Package {
     param(
         [string]$PackageName,
         [string]$SettingsTemplatePath,
-        [bool]$UseGameRootLayout = $false
+        [string]$Version
     )
 
     $packageRoot = Join-Path $releaseRoot $PackageName
-    $packageFilesDir = Join-Path $packageRoot "files"
-    if ($UseGameRootLayout) {
-        $packageFilesDir = $packageRoot
-    }
-
-    $packagePluginDir = Join-Path $packageFilesDir "BepInEx\plugins\SimplePlanes2Translation"
+    $packagePluginDir = Join-Path $packageRoot ($pluginDirectoryRelativePath.Replace("/", "\"))
     $packageFontDir = Join-Path $packagePluginDir "fonts"
     $packageTranslationDir = Join-Path $packagePluginDir "translations"
     $zipPath = Join-Path $releaseRoot ($PackageName + ".zip")
@@ -162,16 +230,14 @@ function New-Package {
     New-Item -ItemType Directory -Force -Path $packageTranslationDir | Out-Null
     New-Item -ItemType Directory -Force -Path $packageFontDir | Out-Null
 
-    Copy-DirectoryContents -Source $bepInExExtractPath -Destination $packageFilesDir
     Copy-Item -Path $pluginOutput -Destination (Join-Path $packagePluginDir "SimplePlanes2Translation.dll") -Force
     Copy-Item -Path $SettingsTemplatePath -Destination (Join-Path $packagePluginDir "settings.json") -Force
     Copy-Item -Path (Join-Path $projectRoot "content\translations\*.json") -Destination $packageTranslationDir -Force
     Copy-Item -Path (Join-Path $fontArtifactsDir "*") -Destination $packageFontDir -Force
-    Copy-Item -Path (Join-Path $projectRoot "install.ps1") -Destination (Join-Path $packageRoot "install.ps1") -Force
-    Copy-Item -Path (Join-Path $workspaceRoot "README.md") -Destination (Join-Path $packageRoot "README.md") -Force
-    Copy-Item -Path (Join-Path $workspaceRoot "README.en.md") -Destination (Join-Path $packageRoot "README.en.md") -Force
-    Copy-Item -Path (Join-Path $projectRoot "CHANGELOG.md") -Destination (Join-Path $packageRoot "CHANGELOG.md") -Force
-    Copy-DirectoryContents -Source (Join-Path $projectRoot "docs") -Destination (Join-Path $packageRoot "docs")
+
+    $manifestFileName = "${PackageName}.zip"
+    $manifest = New-PluginManifest -Version $Version -FileName $manifestFileName
+    Write-JsonFile -Path (Join-Path $packageRoot "mod.json") -Value $manifest
 
     Compress-PackageContents -PackageRoot $packageRoot -ZipPath $zipPath
 
@@ -535,24 +601,19 @@ if ($LASTEXITCODE -ne 0) {
     throw "Compilation failed."
 }
 
-$devPackageRoot = New-Package -PackageName "SimplePlanes2TranslationMod-Dev" -SettingsTemplatePath (Join-Path $projectRoot "content\settings.dev.json")
-$releasePackageRoot = New-Package -PackageName "SimplePlanes2TranslationMod-Release" -SettingsTemplatePath (Join-Path $projectRoot "content\settings.release.json") -UseGameRootLayout $true
+$pluginVersion = Get-PluginVersion
+Write-RepositoryIndex -Version $pluginVersion
+
+$devPackageRoot = New-Package -PackageName $devPackageName -SettingsTemplatePath (Join-Path $projectRoot "content\settings.dev.json") -Version $pluginVersion
+$releasePackageRoot = New-Package -PackageName $releasePackageName -SettingsTemplatePath (Join-Path $projectRoot "content\settings.release.json") -Version $pluginVersion
 
 if ($InstallToGame) {
-    $installPayloadNames = @(
-        "BepInEx",
-        ".doorstop_version",
-        "changelog.txt",
-        "doorstop_config.ini",
-        "winhttp.dll"
-    )
-
-    foreach ($payloadName in $installPayloadNames) {
-        $payloadPath = Join-Path $releasePackageRoot $payloadName
-        if (Test-Path $payloadPath) {
-            Copy-Item -LiteralPath $payloadPath -Destination $GameDir -Recurse -Force
-        }
+    $packageBepInExPath = Join-Path $releasePackageRoot "BepInEx"
+    if (!(Test-Path $packageBepInExPath)) {
+        throw "Release package is missing BepInEx plugin payload: ${packageBepInExPath}"
     }
+
+    Copy-Item -LiteralPath $packageBepInExPath -Destination $GameDir -Recurse -Force
 }
 
 Write-Host "Build completed: ${releaseRoot}"

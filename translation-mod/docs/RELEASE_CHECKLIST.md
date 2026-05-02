@@ -8,6 +8,7 @@
 - 确认没有把 `captured-texts.json`、`missing-texts.txt`、截图或临时记录放进分发包。
 - 确认 `content/settings.release.json` 使用 `translate` 模式。
 - 确认 `content/settings.dev.json` 使用 `collect` 模式。
+- 确认插件版本号、`CHANGELOG.md` 和 `RELEASE_NOTES.md` 已更新。
 - 如果改过 C#，确认游戏已退出，方便覆盖 DLL。
 
 ## 构建
@@ -20,18 +21,22 @@
 
 - `release/SimplePlanes2TranslationMod-Dev.zip`
 - `release/SimplePlanes2TranslationMod-Release.zip`
+- 仓库根目录 `index.json`
 
 ## 安装验证
 
 1. 解压 `SimplePlanes2TranslationMod-Release.zip`。
-2. 确认压缩包根目录直接包含 `BepInEx`、`.doorstop_version`、`doorstop_config.ini`、`winhttp.dll`。
-3. 把压缩包全部内容复制到 `SimplePlanes 2.exe` 所在目录。
-4. 也可以运行 `install.ps1` 验证备用安装方式。
-5. 启动游戏进入主菜单和设计器。
-6. 检查中文字体没有方框。
-7. 检查 `F2` 可以热重载。
-8. 检查 `F1` 可以开关翻译。
-9. 检查零件列表、悬浮说明、上传页面和设置页面没有明显英文残留。
+2. 确认压缩包根目录直接包含 `mod.json` 和 `BepInEx`。
+3. 确认压缩包不包含 BepInEx 本体文件，例如 `.doorstop_version`、`doorstop_config.ini`、`winhttp.dll`、`BepInEx/core/BepInEx.dll`。
+4. 确认插件 DLL 位于 `BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll`。
+5. 确认 `mod.json` 的 `version`、`fileName`、`entryDll` 和 `pluginDirectory` 正确。
+6. 确认仓库根目录 `index.json` 的 `version`、`fileName` 和 `downloadUrl` 指向本次 Release。
+7. 在已安装 BepInEx 5 的游戏目录中，把压缩包全部内容复制到 `SimplePlanes 2.exe` 所在目录，或使用 `simpleplanes2-mod-manager` 安装。
+8. 启动游戏进入主菜单和设计器。
+9. 检查中文字体没有方框。
+10. 检查 `F2` 可以热重载。
+11. 检查 `F1` 可以开关翻译。
+12. 检查零件列表、悬浮说明、上传页面和设置页面没有明显英文残留。
 
 ## 开发包验证
 
@@ -46,6 +51,8 @@
 给普通玩家只发 `SimplePlanes2TranslationMod-Release.zip`。
 
 给翻译协作者可以发 `SimplePlanes2TranslationMod-Dev.zip`，但要说明它会生成采集文件。
+
+普通插件发行包不内置 BepInEx。BepInEx 由 `simpleplanes2-mod-manager` 或玩家单独安装维护。
 
 ## GitHub Actions 发布
 

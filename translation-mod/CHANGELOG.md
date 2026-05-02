@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.5 - 2026-05-02
+
+- 调整普通发行包结构以兼容 `simpleplanes2-mod-manager`：Release zip 不再内置 BepInEx，只包含插件本体、必要资源和根目录 `mod.json`。
+- 发行包内容改为直接按游戏目录结构放置：`BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll`。
+- 构建时自动生成仓库根目录 `index.json`，并同步最新版本、下载地址、插件入口 DLL 和仓库信息。
+- Release 与 Dev 包都会生成 `mod.json`，方便插件管理器校验和安装；Dev 包仍使用采集模式设置，Release 包仍使用普通翻译模式设置。
+- 更新发布文档和检查清单，明确 BepInEx 由插件管理器或玩家单独安装维护。
+
 ## v0.1.4 - 2026-05-01
 
 - 补充控制设置与键位绑定界面翻译，覆盖控制器、键盘、鼠标、视角、移动、飞行控制、武器、设计器工具、镜像、隐藏零件和常用操作绑定。

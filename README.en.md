@@ -4,7 +4,7 @@
 
 A runtime localization plugin for `SimplePlanes 2`. The current package focuses on Simplified Chinese localization for the main menu, designer UI, part list, part properties, tooltips, settings, upload flow, and selected flight UI.
 
-The plugin uses `BepInEx + Harmony`. Players only need to install the release package and start the game; no local build is required.
+The plugin uses `BepInEx + Harmony`. Regular release packages contain only the plugin and required resources; they no longer bundle BepInEx. Install with `simpleplanes2-mod-manager`, or extract manually after BepInEx 5 Mono x64 is already installed.
 
 ## Player Guide
 
@@ -20,30 +20,22 @@ Do not download the `Dev` package unless you are helping with text collection. T
 
 ### Install
 
+Recommended path with `simpleplanes2-mod-manager`:
+
+1. Use the manager to install or confirm BepInEx 5.
+2. Install the local `SimplePlanes2TranslationMod-Release.zip`, or enter this repository URL:
+
+```text
+https://github.com/hahaha8459812/simpleplanes2-localization-plugin
+```
+
+Manual install:
+
 1. Close `SimplePlanes 2`.
-2. Extract `SimplePlanes2TranslationMod-Release.zip`.
-3. Put all extracted contents into the `SimplePlanes 2` game root, the same folder that contains `SimplePlanes 2.exe`.
-4. Start the game.
-
-The release package already uses the game root layout, so the easiest path is to extract the zip contents directly into Steam's local files folder.
-
-If you prefer the fallback installer script, run:
-
-```powershell
-.\install.ps1
-```
-
-If the game is installed somewhere else, pass the game directory manually:
-
-```powershell
-.\install.ps1 -GameDir "D:\SteamLibrary\steamapps\common\SimplePlanes 2"
-```
-
-If PowerShell blocks the script, run this first:
-
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-```
+2. Confirm BepInEx 5 Mono x64 is already installed in the game directory.
+3. Extract `SimplePlanes2TranslationMod-Release.zip`.
+4. Put the extracted `BepInEx` folder and `mod.json` into the folder that contains `SimplePlanes 2.exe`.
+5. Start the game.
 
 After installation, the plugin is placed under:
 
@@ -70,7 +62,7 @@ Close the game, then delete:
 SimplePlanes 2\BepInEx\plugins\SimplePlanes2Translation
 ```
 
-If BepInEx was installed only for this localization plugin, you may also remove:
+If BepInEx was installed only for this localization plugin, remove it through the manager or manually delete:
 
 ```text
 BepInEx
@@ -148,7 +140,20 @@ Build outputs:
 translation-mod/artifacts/SimplePlanes2Translation.dll
 translation-mod/release/SimplePlanes2TranslationMod-Release.zip
 translation-mod/release/SimplePlanes2TranslationMod-Dev.zip
+index.json
 ```
+
+The release zip contains `mod.json` at the package root, and plugin files use the BepInEx directory layout:
+
+```text
+mod.json
+BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll
+BepInEx/plugins/SimplePlanes2Translation/settings.json
+BepInEx/plugins/SimplePlanes2Translation/translations/zh-CN.json
+BepInEx/plugins/SimplePlanes2Translation/fonts/
+```
+
+Regular release packages do not bundle BepInEx. The repository root `index.json` is updated by the build script for `simpleplanes2-mod-manager` repository installs and update checks.
 
 For translation-only changes, build and copy the new `zh-CN.json` into the game plugin directory, then press `F2` in game.
 

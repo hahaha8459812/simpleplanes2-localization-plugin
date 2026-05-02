@@ -1,0 +1,10 @@
+﻿{
+    "id":  "simpleplanes2-localization-plugin",
+    "name":  "SimplePlanes 2 Localization Plugin",
+    "version":  "0.1.5",
+    "description":  "Runtime localization plugin for SimplePlanes 2. Includes Simplified Chinese translations and required font resources.",
+    "fileName":  "SimplePlanes2TranslationMod-Release.zip",
+    "downloadUrl":  "https://github.com/hahaha8459812/simpleplanes2-localization-plugin/releases/download/v0.1.5/SimplePlanes2TranslationMod-Release.zip",
+    "repository":  "https://github.com/hahaha8459812/simpleplanes2-localization-plugin",
+    "entryDll":  "BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll"
+}
