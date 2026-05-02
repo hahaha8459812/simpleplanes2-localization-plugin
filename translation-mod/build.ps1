@@ -163,7 +163,8 @@ function Write-JsonFile {
     )
 
     $json = $Value | ConvertTo-Json -Depth 8
-    [System.IO.File]::WriteAllText($Path, $json + [Environment]::NewLine, [System.Text.Encoding]::UTF8)
+    $utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
+    [System.IO.File]::WriteAllText($Path, $json + [Environment]::NewLine, $utf8WithoutBom)
 }
 
 function New-PluginManifest {

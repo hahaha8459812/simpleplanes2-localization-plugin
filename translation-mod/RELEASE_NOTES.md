@@ -1,12 +1,13 @@
-# v0.1.5
+# v0.1.6
 
-本次更新主要调整发行结构，使插件包可以被 `simpleplanes2-mod-manager` 直接识别、安装和后续更新。
+本次更新主要调整并完善发行结构，使插件包可以被 `simpleplanes2-mod-manager` 直接识别、安装和后续更新。
 
 ## 发行结构调整
 
 - 普通发行包不再内置 BepInEx。
 - Release zip 根目录新增 `mod.json`。
 - 仓库根目录新增并由构建脚本同步更新 `index.json`。
+- `mod.json` 与 `index.json` 使用无 BOM UTF-8，降低远程 JSON 解析和第三方工具读取时的兼容风险。
 - 插件文件按 BepInEx 目录结构放置：
 
 ```text

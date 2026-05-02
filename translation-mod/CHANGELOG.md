@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.6 - 2026-05-02
+
+- 继续完善 `simpleplanes2-mod-manager` 兼容发行结构。
+- `index.json` 与发行包内 `mod.json` 改为无 BOM UTF-8，降低远程 JSON 解析和第三方工具读取时的兼容风险。
+
 ## v0.1.5 - 2026-05-02
 
 - 调整普通发行包结构以兼容 `simpleplanes2-mod-manager`：Release zip 不再内置 BepInEx，只包含插件本体、必要资源和根目录 `mod.json`。
