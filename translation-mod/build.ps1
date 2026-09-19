@@ -90,8 +90,28 @@ function Compress-PackageContents {
         [string]$ZipPath
     )
 
-    $packageContents = Join-Path $PackageRoot "*"
-    Compress-Archive -Path $packageContents -DestinationPath $ZipPath -CompressionLevel Optimal
+    # Compress-Archive（PowerShell 5.1）写出的条目名使用反斜杠，不符合 ZIP 规范：
+    # 标准解压工具会把整段当成文件名，手工安装时会得到名为 "BepInEx\plugins\..." 的文件。
+    # 这里改用 .NET ZipArchive 并显式写入 "/" 分隔符。
+    Add-Type -AssemblyName System.IO.Compression | Out-Null
+    Add-Type -AssemblyName System.IO.Compression.FileSystem | Out-Null
+
+    $packageRootFullPath = [System.IO.Path]::GetFullPath($PackageRoot)
+    $archive = [System.IO.Compression.ZipFile]::Open($ZipPath, 'Create')
+
+    try {
+        foreach ($file in (Get-ChildItem -Path $packageRootFullPath -Recurse -File)) {
+            $relativePath = $file.FullName.Substring($packageRootFullPath.Length).TrimStart([char[]]('\', '/')).Replace('\', '/')
+            [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile(
+                $archive,
+                $file.FullName,
+                $relativePath,
+                'Optimal') | Out-Null
+        }
+    }
+    finally {
+        $archive.Dispose()
+    }
 }
 
 function Get-SystemDrawingReferencePath {
