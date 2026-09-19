@@ -28,17 +28,12 @@ $bundledFontFileName = "SourceHanSansSC-Regular.otf"
 $bundledFontLicenseFileName = "SourceHanSansSC-LICENSE.txt"
 $sourceHanDownloadUrl = "https://github.com/adobe-fonts/source-han-sans/releases/download/${sourceHanReleaseTag}/09_SourceHanSansSC.zip"
 $managedDir = Join-Path $GameDir "SimplePlanes 2_Data\Managed"
-$pluginPackageId = "simpleplanes2-localization-plugin"
 $pluginDirectoryName = "SimplePlanes2Translation"
-$pluginDisplayName = "SimplePlanes 2 Localization Plugin"
-$pluginDescription = "Runtime localization plugin for SimplePlanes 2. Includes Simplified Chinese translations and required font resources."
-$repositoryUrl = "https://github.com/hahaha8459812/simpleplanes2-localization-plugin"
 $releasePackageName = "SimplePlanes2TranslationMod-Release"
 $devPackageName = "SimplePlanes2TranslationMod-Dev"
 $releasePackageFileName = "${releasePackageName}.zip"
 $devPackageFileName = "${devPackageName}.zip"
 $pluginDirectoryRelativePath = "BepInEx/plugins/${pluginDirectoryName}"
-$entryDllRelativePath = "${pluginDirectoryRelativePath}/SimplePlanes2Translation.dll"
 
 function Get-CSharpCompilerPath {
     $candidates = @(
@@ -176,57 +171,6 @@ function Get-PluginVersion {
     return $versionMatch.Groups[1].Value
 }
 
-function Write-JsonFile {
-    param(
-        [string]$Path,
-        [object]$Value
-    )
-
-    $json = $Value | ConvertTo-Json -Depth 8
-    $utf8WithoutBom = New-Object System.Text.UTF8Encoding($false)
-    [System.IO.File]::WriteAllText($Path, $json + [Environment]::NewLine, $utf8WithoutBom)
-}
-
-function New-PluginManifest {
-    param(
-        [string]$Version,
-        [string]$FileName
-    )
-
-    return [PSCustomObject]@{
-        id = $pluginPackageId
-        name = $pluginDisplayName
-        version = $Version
-        description = $pluginDescription
-        fileName = $FileName
-        entryDll = $entryDllRelativePath
-        pluginDirectory = $pluginDirectoryRelativePath
-        configFiles = @(
-            "${pluginDirectoryRelativePath}/settings.json"
-        )
-    }
-}
-
-function Write-RepositoryIndex {
-    param(
-        [string]$Version
-    )
-
-    $indexPath = Join-Path $workspaceRoot "index.json"
-    $index = [PSCustomObject]@{
-        id = $pluginPackageId
-        name = $pluginDisplayName
-        version = $Version
-        description = $pluginDescription
-        fileName = $releasePackageFileName
-        downloadUrl = "${repositoryUrl}/releases/download/v${Version}/${releasePackageFileName}"
-        repository = $repositoryUrl
-        entryDll = $entryDllRelativePath
-    }
-
-    Write-JsonFile -Path $indexPath -Value $index
-}
-
 function New-Package {
     param(
         [string]$PackageName,
@@ -255,10 +199,6 @@ function New-Package {
     Copy-Item -Path $SettingsTemplatePath -Destination (Join-Path $packagePluginDir "settings.json") -Force
     Copy-Item -Path (Join-Path $projectRoot "content\translations\*.json") -Destination $packageTranslationDir -Force
     Copy-Item -Path (Join-Path $fontArtifactsDir "*") -Destination $packageFontDir -Force
-
-    $manifestFileName = "${PackageName}.zip"
-    $manifest = New-PluginManifest -Version $Version -FileName $manifestFileName
-    Write-JsonFile -Path (Join-Path $packageRoot "mod.json") -Value $manifest
 
     Compress-PackageContents -PackageRoot $packageRoot -ZipPath $zipPath
 
@@ -623,7 +563,6 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $pluginVersion = Get-PluginVersion
-Write-RepositoryIndex -Version $pluginVersion
 
 $devPackageRoot = New-Package -PackageName $devPackageName -SettingsTemplatePath (Join-Path $projectRoot "content\settings.dev.json") -Version $pluginVersion
 $releasePackageRoot = New-Package -PackageName $releasePackageName -SettingsTemplatePath (Join-Path $projectRoot "content\settings.release.json") -Version $pluginVersion

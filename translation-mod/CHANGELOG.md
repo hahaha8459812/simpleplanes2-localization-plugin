@@ -9,6 +9,8 @@
 - 含中文的字符串直接跳过翻译与采集记录，避免译文回流污染 `missing-texts.txt` 与采集结果。
 - 输入框（`TMP_InputField`、`UnityEngine.UI.InputField`）内的文本不翻译，避免改写用户输入。
 - 关闭翻译恢复原文时抑制钩子，避免刚恢复的英文被立即再次翻译。
+- 发行包改为纯手动部署结构：移除包内 `mod.json` 与仓库根 `index.json`（原先只服务于插件管理器），zip 内只有 `BepInEx/plugins/SimplePlanes2Translation/`。
+- 修正打包分隔符：条目名改用 `/`，避免标准解压工具把 `BepInEx\plugins\...` 当成单个文件名。
 
 ## v0.1.6 - 2026-05-02
 

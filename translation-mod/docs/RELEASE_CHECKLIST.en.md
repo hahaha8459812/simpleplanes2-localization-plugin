@@ -21,22 +21,19 @@ Expected output:
 
 - `release/SimplePlanes2TranslationMod-Dev.zip`
 - `release/SimplePlanes2TranslationMod-Release.zip`
-- repository root `index.json`
 
 ## Release Package Test
 
 1. Extract `SimplePlanes2TranslationMod-Release.zip`.
-2. Confirm the zip root directly contains `mod.json` and `BepInEx`.
+2. Confirm the zip contains only the `BepInEx/plugins/SimplePlanes2Translation/` tree and no extra root files such as `mod.json`.
 3. Confirm the zip does not contain bundled BepInEx files such as `.doorstop_version`, `doorstop_config.ini`, `winhttp.dll`, or `BepInEx/core/BepInEx.dll`.
 4. Confirm the plugin DLL is located at `BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll`.
-5. Confirm `mod.json` has the correct `version`, `fileName`, `entryDll`, and `pluginDirectory`.
-6. Confirm repository root `index.json` points `version`, `fileName`, and `downloadUrl` at this release.
-7. In a game directory that already has BepInEx 5 installed, copy all zip contents into the folder containing `SimplePlanes 2.exe`, or install it with `simpleplanes2-mod-manager`.
-8. Start the game and open the main menu and designer.
-9. Confirm Chinese text does not render as boxes.
-10. Confirm `F2` reloads translations.
-11. Confirm `F1` toggles localization.
-12. Check the part list, tooltips, upload page, and settings page for obvious untranslated text.
+5. In a game directory that already has BepInEx 5 installed, extract all zip contents into the folder containing `SimplePlanes 2.exe`.
+6. Start the game and open the main menu and designer.
+7. Confirm Chinese text does not render as boxes.
+8. Confirm `F2` reloads translations.
+9. Confirm `F1` toggles localization.
+10. Check the part list, tooltips, upload page, and settings page for obvious untranslated text.
 
 ## Dev Package Test
 
@@ -56,7 +53,7 @@ SimplePlanes2TranslationMod-Release.zip
 
 Give translation contributors the dev package only when they need to collect text.
 
-Regular plugin release packages do not bundle BepInEx. BepInEx is installed and maintained by `simpleplanes2-mod-manager` or by the player separately.
+Release packages do not bundle BepInEx. BepInEx is installed and maintained by the player separately.
 
 ## GitHub Actions Release
 
