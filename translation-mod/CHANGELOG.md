@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.8 - 2026-09-19
+
+- 修复关闭周期扫描后丢失的翻译：新增激活时翻译钩子（`TextMeshProUGUI.OnEnable`、`TextMeshPro.OnEnable`、`UnityEngine.UI.Text.OnEnable`）。零件列表、飞行界面等随预制体实例化或切换而出现、激活时不再赋值的文本，现在会在激活时翻译。
+- 补齐 `TMP_Text.SetText` 其余重载（`char[]`、`StringBuilder`、数值格式化）的翻译，覆盖不走 `text` 属性的赋值路径。
+- 上下文构造改为按需：仅采集模式或当前场景存在上下文条目时才拼接对象路径，仪器数值这类每帧赋值的文本不再产生额外开销。
+- 详细日志新增“赋值时应用的条数”，便于判断周期扫描是否仍有必要。
+
 ## v0.1.7 - 2026-09-19
 
 - 新增文本赋值钩子：`TMPro.TMP_Text` 的 `text` 属性、`SetText(string)`、`SetText(string, bool)`，以及 `UnityEngine.UI.Text` 的 `text`。文本在赋值时即翻译，不再依赖周期性扫描。

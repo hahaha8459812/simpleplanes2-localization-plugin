@@ -1,3 +1,13 @@
+# v0.1.8
+
+本次更新修复上一版关闭周期扫描后出现的漏翻：零件列表等随预制体实例化出现的界面，其文本在激活时并不经过赋值，需要新的激活时钩子。
+
+## 主要变化
+
+- 新增激活时翻译钩子：`TextMeshProUGUI.OnEnable`、`TextMeshPro.OnEnable` 与 `UnityEngine.UI.Text.OnEnable`。
+- 补齐 `TMP_Text.SetText` 的 `char[]`、`StringBuilder` 与数值格式化重载。
+- 上下文信息改为按需构造，降低每帧刷新文本的开销。
+
 # v0.1.7
 
 本次更新把翻译时机从“周期性扫描界面”改为“文本赋值时翻译”，并收敛了字体处理与字典查表的开销。

@@ -246,6 +246,21 @@ namespace SimplePlanes2TranslationMod
             return false;
         }
 
+        public bool HasContextEntriesForScene(string sceneName)
+        {
+            if (_contextEntriesWithoutScene.Count > 0)
+            {
+                return true;
+            }
+
+            if (string.IsNullOrEmpty(sceneName))
+            {
+                return false;
+            }
+
+            return _contextEntriesByScene.ContainsKey(sceneName);
+        }
+
         private List<ContextEntry> GetContextEntriesForContext(TextCaptureContext context)
         {
             List<ContextEntry> sceneEntries;

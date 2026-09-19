@@ -19,7 +19,7 @@ namespace SimplePlanes2TranslationMod
     {
         public const string PluginGuid = "com.codex.simpleplanes2.translation";
         public const string PluginName = "SimplePlanes 2 Translation Mod";
-        public const string PluginVersion = "0.1.7";
+        public const string PluginVersion = "0.1.8";
 
         private const string DefaultManualReloadHotkeyName = "F2";
         private const string DefaultToggleTranslationHotkeyName = "F1";
@@ -61,6 +61,7 @@ namespace SimplePlanes2TranslationMod
         private readonly HashSet<string> _preparedFontTexts = new HashSet<string>(StringComparer.Ordinal);
         private readonly Dictionary<int, bool> _userInputComponents = new Dictionary<int, bool>();
         private bool _suppressHookTranslation;
+        private int _hookAppliedTranslationCount;
         private float _nextCaptureFlushTime;
         private float _nextSceneScanTime;
         private float _interactiveSceneScanUntilTime;
@@ -517,6 +518,9 @@ namespace SimplePlanes2TranslationMod
         {
             TextCaptureContext captureContext;
             TMP_Text textComponent;
+            string translated;
+            bool needsCapture;
+            bool needsContext;
 
             if (_suppressHookTranslation || string.IsNullOrEmpty(source) || ContainsCjkCharacter(source))
             {
@@ -528,8 +532,16 @@ namespace SimplePlanes2TranslationMod
                 return source;
             }
 
-            captureContext = CreateCaptureContext(component, sourceTag);
-            ObserveText(source, captureContext);
+            // 上下文只在需要时构造：采集模式，或当前场景存在上下文条目。
+            // 仪器数值这类每帧赋值的文本因此不再付出拼路径的开销。
+            needsCapture = ShouldCaptureTexts();
+            needsContext = needsCapture || _catalog.HasContextEntriesForScene(SceneManager.GetActiveScene().name);
+
+            captureContext = needsContext ? CreateCaptureContext(component, sourceTag) : null;
+            if (needsCapture)
+            {
+                ObserveText(source, captureContext);
+            }
 
             if (!ShouldTranslateTexts())
             {
@@ -542,7 +554,59 @@ namespace SimplePlanes2TranslationMod
                 RememberOriginalText(textComponent, source);
             }
 
-            return Translate(source, captureContext);
+            translated = Translate(source, captureContext);
+            if (!string.Equals(translated, source, StringComparison.Ordinal))
+            {
+                _hookAppliedTranslationCount++;
+            }
+
+            return translated;
+        }
+
+        internal void TranslateComponentText(TMP_Text textComponent, string sourceTag)
+        {
+            string currentText;
+            string translatedText;
+
+            if (textComponent == null)
+            {
+                return;
+            }
+
+            currentText = textComponent.text;
+            if (string.IsNullOrEmpty(currentText))
+            {
+                return;
+            }
+
+            translatedText = TranslateFromHook(currentText, textComponent, sourceTag);
+            if (!string.Equals(translatedText, currentText, StringComparison.Ordinal))
+            {
+                textComponent.text = translatedText;
+            }
+        }
+
+        internal void TranslateComponentText(UnityEngine.UI.Text textComponent, string sourceTag)
+        {
+            string currentText;
+            string translatedText;
+
+            if (textComponent == null)
+            {
+                return;
+            }
+
+            currentText = textComponent.text;
+            if (string.IsNullOrEmpty(currentText))
+            {
+                return;
+            }
+
+            translatedText = TranslateFromHook(currentText, textComponent, sourceTag);
+            if (!string.Equals(translatedText, currentText, StringComparison.Ordinal))
+            {
+                textComponent.text = translatedText;
+            }
         }
 
         private void ApplySceneTranslations(string reason)
@@ -597,11 +661,7 @@ namespace SimplePlanes2TranslationMod
 
             if (!_settings.CaptureStandaloneTmpTexts)
             {
-                if (_settings.VerboseLogging && changedCount > 0)
-                {
-                    Logger.LogInfo(string.Format("Applied {0} translations during {1}.", changedCount, reason));
-                }
-
+                LogAppliedTranslations(changedCount, reason);
                 return;
             }
 
@@ -655,10 +715,22 @@ namespace SimplePlanes2TranslationMod
                 changedCount++;
             }
 
-            if (_settings.VerboseLogging && changedCount > 0)
+            LogAppliedTranslations(changedCount, reason);
+        }
+
+        private void LogAppliedTranslations(int changedCount, string reason)
+        {
+            if (!_settings.VerboseLogging || changedCount <= 0)
             {
-                Logger.LogInfo(string.Format("Applied {0} translations during {1}.", changedCount, reason));
+                return;
             }
+
+            Logger.LogInfo(string.Format(
+                "Applied {0} translations during {1} ({2} applied by text assignment since last scan).",
+                changedCount,
+                reason,
+                _hookAppliedTranslationCount));
+            _hookAppliedTranslationCount = 0;
         }
 
         private void ScheduleMouseReleaseSceneScan()
@@ -1483,6 +1555,89 @@ namespace SimplePlanes2TranslationMod
                 }
 
                 Instance.ApplyTranslatedTextStyle(__instance, __instance.text);
+            }
+        }
+
+        [HarmonyPatch(typeof(TextMeshProUGUI), "OnEnable")]
+        private static class TextMeshProUGUIOnEnablePatch
+        {
+            private static void Postfix(TextMeshProUGUI __instance)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                Instance.TranslateComponentText(__instance, "Harmony.TextMeshProUGUI.OnEnable");
+            }
+        }
+
+        [HarmonyPatch(typeof(TextMeshPro), "OnEnable")]
+        private static class TextMeshProOnEnablePatch
+        {
+            private static void Postfix(TextMeshPro __instance)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                Instance.TranslateComponentText(__instance, "Harmony.TextMeshPro.OnEnable");
+            }
+        }
+
+        [HarmonyPatch(typeof(UnityEngine.UI.Text), "OnEnable")]
+        private static class UguiTextOnEnablePatch
+        {
+            private static void Postfix(UnityEngine.UI.Text __instance)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                Instance.TranslateComponentText(__instance, "Harmony.UI.Text.OnEnable");
+            }
+        }
+
+        [HarmonyPatch]
+        private static class TmpTextSetTextOverloadPatch
+        {
+            private static IEnumerable<MethodBase> TargetMethods()
+            {
+                MethodInfo[] methods;
+                int i;
+
+                methods = typeof(TMP_Text).GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                for (i = 0; i < methods.Length; i++)
+                {
+                    MethodInfo method;
+                    ParameterInfo[] parameters;
+
+                    method = methods[i];
+                    if (!string.Equals(method.Name, "SetText", StringComparison.Ordinal))
+                    {
+                        continue;
+                    }
+
+                    parameters = method.GetParameters();
+                    if (parameters.Length == 0 || parameters[0].ParameterType == typeof(string))
+                    {
+                        continue;
+                    }
+
+                    yield return method;
+                }
+            }
+
+            private static void Postfix(TMP_Text __instance)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                Instance.TranslateComponentText(__instance, "Harmony.TMP_Text.SetText(overload)");
             }
         }
 
