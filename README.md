@@ -18,13 +18,28 @@ SimplePlanes2TranslationMod-Release.zip
 
 不要下载 `Dev` 包。`Dev` 包用于翻译采集，会生成额外的文本记录文件。
 
-### 安装
+### 安装 BepInEx
+
+发布包不含 BepInEx，需要单独安装。已经装好 BepInEx 5 的话跳到「安装本插件」。
+
+本插件在 BepInEx 5.4.23.5（Mono x64）上测试过，请使用 [5.4.x 版本的 BepInEx](https://github.com/BepInEx/BepInEx/releases)。下载 [BepInEx_win_x64_5.4.23.5.zip](https://github.com/BepInEx/BepInEx/releases/download/v5.4.23.5/BepInEx_win_x64_5.4.23.5.zip)，解压到游戏根目录，也就是 `SimplePlanes 2.exe` 所在的目录：
+
+```text
+SimplePlanes 2\
+├─ winhttp.dll
+├─ doorstop_config.ini
+├─ .doorstop_version
+└─ BepInEx\
+```
+
+启动一次游戏再退出，`BepInEx\plugins\` 与 `BepInEx\config\` 会自动生成。
+
+### 安装本插件
 
 1. 关闭 `SimplePlanes 2`。
-2. 确认游戏目录已经安装 BepInEx 5 Mono x64。
-3. 解压 `SimplePlanes2TranslationMod-Release.zip`。
-4. 把压缩包里的 `BepInEx` 文件夹放进 `SimplePlanes 2.exe` 所在目录。
-5. 启动游戏。
+2. 解压 `SimplePlanes2TranslationMod-Release.zip`。
+3. 把压缩包里的 `BepInEx` 文件夹放进游戏根目录。
+4. 启动游戏。
 
 安装成功后，插件会位于：
 
@@ -87,192 +102,8 @@ BepInEx\plugins\SimplePlanes2Translation\fonts\SourceHanSansSC-Regular.otf
 
 确认当前安装的是较新的 Release 包。旧版本使用过 `F6/F10`、`Alt + +/-` 等快捷键。
 
-## 开发者与翻译维护
+## 参考文档
 
-### 项目结构
-
-```text
-translation-mod/
-  src/                                  # BepInEx/Harmony 插件源码
-  content/settings.release.json          # 分发版设置，默认 translate
-  content/settings.dev.json              # 开发采集版设置，默认 collect
-  content/translations/zh-CN.fragments/  # 翻译源文件，按页面和功能拆分
-  content/translations/zh-CN.json        # 构建生成的合并词表，不要手工编辑
-  docs/                                  # 辅助文档和发布检查清单
-  build.ps1                              # 构建 DLL、合并词表、打包 Release/Dev
-```
-
-翻译源只编辑：
-
-```text
-translation-mod/content/translations/zh-CN.fragments/*.json
-```
-
-不要直接编辑：
-
-```text
-translation-mod/content/translations/zh-CN.json
-```
-
-`zh-CN.json` 会由 `build.ps1` 重新生成。
-
-### 构建
-
-```powershell
-cd translation-mod
-.\\build.ps1
-```
-
-构建产物：
-
-```text
-translation-mod/artifacts/SimplePlanes2Translation.dll
-translation-mod/release/SimplePlanes2TranslationMod-Release.zip
-translation-mod/release/SimplePlanes2TranslationMod-Dev.zip
-```
-
-Release zip 内只有 `BepInEx/plugins/SimplePlanes2Translation/` 一层，解压到游戏根目录即可：
-
-```text
-BepInEx/plugins/SimplePlanes2Translation/SimplePlanes2Translation.dll
-BepInEx/plugins/SimplePlanes2Translation/settings.json
-BepInEx/plugins/SimplePlanes2Translation/translations/zh-CN.json
-BepInEx/plugins/SimplePlanes2Translation/fonts/
-```
-
-发行包不内置 BepInEx，需要玩家自行安装 BepInEx 5 Mono x64。
-
-如果只修改翻译文本，可以构建后把新的 `zh-CN.json` 复制到游戏插件目录，再在游戏内按 `F2` 热重载。
-
-如果修改了 C# 代码，需要重新构建 DLL，并在游戏退出后覆盖 DLL，再重新启动游戏。
-
-### 运行模式
-
-插件设置位于：
-
-```text
-SimplePlanes 2\BepInEx\plugins\SimplePlanes2Translation\settings.json
-```
-
-常用模式：
-
-- `translate`：只翻译，不记录缺失文本。普通玩家使用。
-- `collect`：只采集文本，不翻译。适合第一次粗采集。
-- `hybrid`：一边翻译一边采集。适合边玩边补漏。
-
-开发时常用 `hybrid`，因为它能保留现有汉化效果，同时记录新出现的文本。
-
-### 标准翻译流程
-
-1. 确认游戏正在使用开发设置，通常为 `hybrid` 模式，并开启 `LogMissingTexts` 与 `CaptureStandaloneTmpTexts`。
-2. 清空或归档旧的 `captured-texts.json` 与 `missing-texts.txt`，避免不同页面的文本混在一起。
-3. 启动游戏，在目标页面按 `F2` 重载设置，然后完整走一遍目标 UI、悬浮窗、下拉选项和相关属性页。
-4. 退出游戏或等待采集文件落盘，查看插件目录里的 `captured-texts.json` 与 `missing-texts.txt`。
-5. 按对象路径、父节点路径、场景名和控件位置判断文本语境。优先使用页面逻辑整理，不要只按英文原文堆在一起。
-6. 判断文本类型：固定 UI 用 `entries`；同词不同义用 `contextEntries`；带数值的稳定模板用 `dynamicSuffixEntries` 或 `dynamicPrefixEntries`。
-7. 明确跳过玩家作品名、存档名、零件实例名、服务器名、标签、坐标、重量、容量、百分比数值和颜色编号。
-8. 在对应的 `zh-CN.fragments/*.json` 中补翻译。新增术语时保持和既有术语一致，必要时同步更新术语表。
-9. 运行 `.\build.ps1`，让脚本验证重复键并重新生成 `zh-CN.json`。
-10. 复制新的 `zh-CN.json` 到游戏插件目录，游戏内按 `F2` 验证。若修改了 DLL，则退出游戏后覆盖 DLL 再验证。
-11. 验证通过后，把运行模式切回 `translate`，关闭缺失文本记录，避免分发版继续写采集文件。
-12. 发版前按 `translation-mod/docs/RELEASE_CHECKLIST.md` 检查 Release 包。
-
-### 文本来源（可静态提取）
-
-除游玩采集外，大部分界面文本可以直接从游戏文件提取。静态提取适合盘点“一共存在哪些文本、字典漏了哪些”，运行期采集仍然是判断实际显示形态与语境的依据，两者互补。
-
-| 来源 | 可提取内容 | 说明 |
-|---|---|---|
-| `%USERPROFILE%\AppData\LocalLow\Jundroo\SimplePlanes 2\DesignerParts.xml` | 零件的 `name`、`category`、`header`、`description` | 游戏运行时通过 `Game.GetPathForDocument` 读取。本机 0.7.8 为 188 个零件；`description` 是选中零件后显示的说明段落 |
-| 同目录 `AircraftThemes.xml` | 涂装主题的 `name` | 本机 10 个 |
-| 同目录 `Levels.xml` | 关卡的 `name`、`category`、`description` | 本机 1 个（`Sandbox`） |
-| 同目录 `ControlInputData.xml` | Rewired 输入配置中的名称 | 按翻译规则，输入信号名英文优先、中文括注 |
-| `SimplePlanes 2_Data\Managed` 下的 `Game.dll`、`Jundroo.Common.dll`、`Jundroo.Packages.dll` | 代码内硬编码文案（IL 中的 `ldstr`） | 用 `monodis` 或 `ikdasm` 转 IL 后提取。`Game.dll` 约 8,500 条唯一字符串，其中一部分是 UI 文案 |
-| `SimplePlanes 2_Data\resources.assets` 等资源文件 | 资源内 XML 的节点文本与属性值 | 例如 `<Text text="FLY SOLO" />`、`<Style ... text="...">`。按属性值和节点文本取值，不要按“最长可打印串”取值，否则会把整块 XML 当成一个字符串 |
-
-注意：LocalLow 下的 XML 由游戏维护，更新或重置时可能被重写，因此静态提取只作为盘点手段，插件运行时不依赖这些文件。
-
-### 翻译规则
-
-应该翻译：
-
-- 菜单、按钮、标题、标签和设置项。
-- 零件分类、零件名称、零件属性和固定悬浮说明。
-- 固定提示、固定错误信息、教程文本和上传发布流程。
-
-谨慎翻译：
-
-- `Fly`、`Open`、`Public`、`Basic`、`Light` 这类短词。优先使用 `contextEntries`。
-- 梗、双关和很难直译的文本。必要时使用低可视度译者注。
-- 输入信号名。当前约定为英文优先、中文括注，例如 `Yaw（偏航）`；`VTOL` 保持英文。
-
-不要翻译：
-
-- 玩家作品名、存档名、飞机名、服务器名和用户名。
-- 零件实例名或可编辑输入框里的自定义名称。
-- 坐标、重量、容量、速度、百分比、颜色编号和运行时数值。
-- 临时调试文本或不能确定语境的短词。
-
-### 翻译数据格式
-
-普通固定文本：
-
-```json
-{
-  "entries": [
-    {
-      "key": "New Craft",
-      "value": "新建作品"
-    }
-  ]
-}
-```
-
-同词不同义时使用上下文：
-
-```json
-{
-  "contextEntries": [
-    {
-      "key": "Wheel",
-      "value": "方向盘",
-      "sceneName": "Designer",
-      "gameObjectPathContains": "/PartProperties_ControlBaseData/Preset/"
-    }
-  ]
-}
-```
-
-动态后缀文本：
-
-```json
-{
-  "dynamicSuffixEntries": [
-    {
-      "sourceSuffix": "% Favor Torque",
-      "valueSuffix": "% 倾向扭矩"
-    }
-  ]
-}
-```
-
-上面的规则可以把 `25% Favor Torque` 翻译为 `25% 倾向扭矩`，不需要为每个百分比写固定条目。
-
-### 发布
-
-仓库提供 GitHub Actions 发版流程，但编译依赖本机游戏程序集：
-
-```text
-SimplePlanes 2_Data\Managed
-```
-
-因此自动发版需要 Windows self-hosted runner，且 runner 上必须安装游戏或具备等效的合法本地依赖。
-
-常规发版：
-
-```powershell
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-也可以在 GitHub Actions 页面手动运行 `Build release packages`。
+- [开发与构建](translation-mod/docs/DEVELOPMENT.md)：项目结构、构建、运行模式、发布。
+- [翻译维护流程](translation-mod/docs/TRANSLATION_WORKFLOW.md)：翻译流程、翻译规则、数据格式与可提取的文本来源。
+- [发布检查清单](translation-mod/docs/RELEASE_CHECKLIST.md)。
