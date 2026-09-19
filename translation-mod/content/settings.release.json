@@ -1,7 +1,7 @@
 {
   "Mode": "translate",
   "Language": "zh-CN",
-  "EnableSceneScan": true,
+  "EnableSceneScan": false,
   "LogMissingTexts": false,
   "CaptureStandaloneTmpTexts": true,
   "CapturedTextsFileName": "captured-texts.json",

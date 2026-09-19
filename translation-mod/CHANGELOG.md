@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.7 - 2026-09-19
+
+- 新增文本赋值钩子：`TMPro.TMP_Text` 的 `text` 属性、`SetText(string)`、`SetText(string, bool)`，以及 `UnityEngine.UI.Text` 的 `text`。文本在赋值时即翻译，不再依赖周期性扫描。
+- 周期场景扫描默认关闭（`EnableSceneScan` 默认 `false`）；场景加载后仍保留一次性补扫。
+- 字体回退注入改为一次性完成，去掉每条文本一次的全量字体查找与 `ForceMeshUpdate` 调用。
+- 字典查表新增记忆化，并为上下文条目建立按场景的索引，重复文本不再重复构建候选列表。
+- 含中文的字符串直接跳过翻译与采集记录，避免译文回流污染 `missing-texts.txt` 与采集结果。
+- 输入框（`TMP_InputField`、`UnityEngine.UI.InputField`）内的文本不翻译，避免改写用户输入。
+- 关闭翻译恢复原文时抑制钩子，避免刚恢复的英文被立即再次翻译。
+
 ## v0.1.6 - 2026-05-02
 
 - 继续完善 `simpleplanes2-mod-manager` 兼容发行结构。

@@ -19,13 +19,15 @@ namespace SimplePlanes2TranslationMod
     {
         public const string PluginGuid = "com.codex.simpleplanes2.translation";
         public const string PluginName = "SimplePlanes 2 Translation Mod";
-        public const string PluginVersion = "0.1.6";
+        public const string PluginVersion = "0.1.7";
 
         private const string DefaultManualReloadHotkeyName = "F2";
         private const string DefaultToggleTranslationHotkeyName = "F1";
         private const float MinimumSceneScanIntervalSeconds = 0.1f;
         private const float DefaultIdleSceneScanIntervalSeconds = 1.0f;
         private const float DefaultInteractiveSceneScanDurationSeconds = 1.0f;
+        private const int PreparedFontTextCacheLimit = 4000;
+        private const float PostSceneLoadScanDelaySeconds = 1.5f;
         private const float MouseReleaseSceneScanDelaySeconds = 0.1f;
         private const int FloatingPanelWindowId = 270422;
         private const float CollapsedFloatingPanelWidth = 86.0f;
@@ -36,6 +38,8 @@ namespace SimplePlanes2TranslationMod
 
         private sealed class TrackedTextState
         {
+            public TMP_Text Component { get; set; }
+
             public string OriginalText { get; set; }
 
             public FontStyles OriginalFontStyle { get; set; }
@@ -53,11 +57,15 @@ namespace SimplePlanes2TranslationMod
         private TranslationSettings _settings = TranslationSettings.CreateDefault();
         private bool _isTranslationTemporarilyDisabled;
         private bool _hasLoggedBundledFontFallbackInjection;
-        private TMP_FontAsset _preferredChineseFontAsset;
+        private TMP_FontAsset _injectedFontFallbackAsset;
+        private readonly HashSet<string> _preparedFontTexts = new HashSet<string>(StringComparer.Ordinal);
+        private readonly Dictionary<int, bool> _userInputComponents = new Dictionary<int, bool>();
+        private bool _suppressHookTranslation;
         private float _nextCaptureFlushTime;
         private float _nextSceneScanTime;
         private float _interactiveSceneScanUntilTime;
         private float _delayedMouseReleaseSceneScanTime = -1.0f;
+        private float _postSceneLoadScanTime = -1.0f;
         private Rect _floatingPanelRect = new Rect(18.0f, 120.0f, 260.0f, 210.0f);
         private Font _floatingPanelFont;
         private bool _hasTriedFloatingPanelFontLoad;
@@ -145,6 +153,12 @@ namespace SimplePlanes2TranslationMod
             {
                 _nextCaptureFlushTime = Time.unscaledTime + Math.Max(2.0f, _settings.CaptureFlushIntervalSeconds);
                 FlushCapturedTexts();
+            }
+
+            if (_postSceneLoadScanTime > 0.0f && Time.unscaledTime >= _postSceneLoadScanTime)
+            {
+                _postSceneLoadScanTime = -1.0f;
+                ApplySceneTranslations("Post Scene Load");
             }
 
             if (!_settings.EnableSceneScan)
@@ -485,7 +499,7 @@ namespace SimplePlanes2TranslationMod
         {
             string translated;
 
-            if (string.IsNullOrEmpty(source))
+            if (string.IsNullOrEmpty(source) || ContainsCjkCharacter(source))
             {
                 return source;
             }
@@ -497,6 +511,38 @@ namespace SimplePlanes2TranslationMod
 
             RecordMissingText(source);
             return source;
+        }
+
+        internal string TranslateFromHook(string source, Component component, string sourceTag)
+        {
+            TextCaptureContext captureContext;
+            TMP_Text textComponent;
+
+            if (_suppressHookTranslation || string.IsNullOrEmpty(source) || ContainsCjkCharacter(source))
+            {
+                return source;
+            }
+
+            if (IsUserInputComponent(component))
+            {
+                return source;
+            }
+
+            captureContext = CreateCaptureContext(component, sourceTag);
+            ObserveText(source, captureContext);
+
+            if (!ShouldTranslateTexts())
+            {
+                return source;
+            }
+
+            textComponent = component as TMP_Text;
+            if (textComponent != null)
+            {
+                RememberOriginalText(textComponent, source);
+            }
+
+            return Translate(source, captureContext);
         }
 
         private void ApplySceneTranslations(string reason)
@@ -759,8 +805,10 @@ namespace SimplePlanes2TranslationMod
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode loadMode)
         {
-            InjectBundledChineseFontFallbacks();
             _lastSceneScanTexts.Clear();
+            _userInputComponents.Clear();
+            PruneTrackedTexts();
+            _postSceneLoadScanTime = Time.unscaledTime + PostSceneLoadScanDelaySeconds;
             RequestInteractiveSceneScan();
             ApplySceneTranslations("Scene Loaded: " + scene.name);
         }
@@ -803,6 +851,7 @@ namespace SimplePlanes2TranslationMod
             _trackedTexts.Clear();
             _lastSceneScanTexts.Clear();
             _isTranslationTemporarilyDisabled = false;
+            _postSceneLoadScanTime = Time.unscaledTime + PostSceneLoadScanDelaySeconds;
             RequestInteractiveSceneScan();
             ApplySceneTranslations("Manual Reload (" + _settings.ManualReloadHotkeyName + ")");
             Logger.LogInfo(string.Format("Reloaded translations from '{0}'.", _translationsPath));
@@ -837,7 +886,7 @@ namespace SimplePlanes2TranslationMod
                 captureContext);
         }
 
-        private TextCaptureContext CreateCaptureContext(TMP_Text textComponent, string source)
+        private TextCaptureContext CreateCaptureContext(Component component, string source)
         {
             GameObject gameObject;
             Transform transform;
@@ -845,7 +894,7 @@ namespace SimplePlanes2TranslationMod
             Transform parentTransform;
             string anchoredPosition;
 
-            if (textComponent == null)
+            if (component == null)
             {
                 return new TextCaptureContext
                 {
@@ -855,7 +904,7 @@ namespace SimplePlanes2TranslationMod
                 };
             }
 
-            gameObject = textComponent.gameObject;
+            gameObject = component.gameObject;
             transform = gameObject != null ? gameObject.transform : null;
             rectTransform = transform as RectTransform;
             parentTransform = transform != null ? transform.parent : null;
@@ -869,7 +918,7 @@ namespace SimplePlanes2TranslationMod
                 ParentName = parentTransform != null ? parentTransform.name : string.Empty,
                 GameObjectPath = GetTransformPath(transform),
                 ParentPath = GetTransformPath(parentTransform),
-                ComponentType = textComponent.GetType().Name,
+                ComponentType = component.GetType().Name,
                 SiblingIndex = transform != null ? (int?)transform.GetSiblingIndex() : null,
                 AnchoredPosition = anchoredPosition
             };
@@ -923,6 +972,7 @@ namespace SimplePlanes2TranslationMod
             {
                 trackedTextState = new TrackedTextState
                 {
+                    Component = textComponent,
                     OriginalText = originalText,
                     OriginalFontStyle = textComponent.fontStyle,
                     OriginalFontAsset = textComponent.font
@@ -951,6 +1001,31 @@ namespace SimplePlanes2TranslationMod
             RequestInteractiveSceneScan();
             ApplySceneTranslations("Toggle Translation (" + _settings.ToggleTranslationHotkeyName + ")");
             Logger.LogInfo(string.Format("Translation enabled ({0}).", _settings.ToggleTranslationHotkeyName));
+        }
+
+        private void PruneTrackedTexts()
+        {
+            List<int> destroyedInstanceIds;
+            int i;
+
+            if (_trackedTexts.Count == 0)
+            {
+                return;
+            }
+
+            destroyedInstanceIds = new List<int>();
+            foreach (KeyValuePair<int, TrackedTextState> trackedText in _trackedTexts)
+            {
+                if (trackedText.Value == null || trackedText.Value.Component == null)
+                {
+                    destroyedInstanceIds.Add(trackedText.Key);
+                }
+            }
+
+            for (i = 0; i < destroyedInstanceIds.Count; i++)
+            {
+                _trackedTexts.Remove(destroyedInstanceIds[i]);
+            }
         }
 
         private void RestoreTrackedTexts()
@@ -983,7 +1058,16 @@ namespace SimplePlanes2TranslationMod
                     continue;
                 }
 
-                textWidget.SetText(trackedTextState.OriginalText, true);
+                _suppressHookTranslation = true;
+                try
+                {
+                    textWidget.SetText(trackedTextState.OriginalText, true);
+                }
+                finally
+                {
+                    _suppressHookTranslation = false;
+                }
+
                 textComponent.font = trackedTextState.OriginalFontAsset;
                 textComponent.fontStyle = trackedTextState.OriginalFontStyle;
                 textComponent.ForceMeshUpdate();
@@ -1012,7 +1096,16 @@ namespace SimplePlanes2TranslationMod
                     continue;
                 }
 
-                tmpText.text = trackedTextState.OriginalText;
+                _suppressHookTranslation = true;
+                try
+                {
+                    tmpText.text = trackedTextState.OriginalText;
+                }
+                finally
+                {
+                    _suppressHookTranslation = false;
+                }
+
                 tmpText.font = trackedTextState.OriginalFontAsset;
                 tmpText.fontStyle = trackedTextState.OriginalFontStyle;
                 tmpText.ForceMeshUpdate();
@@ -1037,58 +1130,40 @@ namespace SimplePlanes2TranslationMod
             {
                 textComponent.fontStyle = textComponent.fontStyle | FontStyles.Bold;
             }
-
-            textComponent.ForceMeshUpdate();
         }
 
         private void EnsureChineseFontSupport(TMP_Text textComponent, string displayedText)
         {
-            TMP_FontAsset currentFontAsset;
-            TMP_FontAsset fallbackFontAsset;
-
-            if (TryInjectBundledChineseFontFallback(textComponent, displayedText))
+            if (_bundledChineseFontAsset == null)
             {
                 return;
             }
 
-            currentFontAsset = textComponent.font;
-            if (CanFontAssetDisplayText(currentFontAsset, displayedText))
+            if (_bundledChineseFontLoader != null && !_preparedFontTexts.Contains(displayedText))
             {
-                return;
+                _bundledChineseFontLoader.PrepareFontAssetForText(_bundledChineseFontAsset, displayedText);
+
+                if (_preparedFontTexts.Count >= PreparedFontTextCacheLimit)
+                {
+                    _preparedFontTexts.Clear();
+                }
+
+                _preparedFontTexts.Add(displayedText);
             }
 
-            fallbackFontAsset = FindChineseCapableFontAsset(displayedText);
-            if (fallbackFontAsset == null || ReferenceEquals(fallbackFontAsset, currentFontAsset))
-            {
-                return;
-            }
-
-            textComponent.font = fallbackFontAsset;
-        }
-
-        private bool TryInjectBundledChineseFontFallback(TMP_Text textComponent, string displayedText)
-        {
-            if (_bundledChineseFontAsset == null || _bundledChineseFontLoader == null)
-            {
-                return false;
-            }
-
-            _bundledChineseFontLoader.PrepareFontAssetForText(_bundledChineseFontAsset, displayedText);
             InjectBundledChineseFontFallbacks();
+
             if (!ReferenceEquals(textComponent.font, _bundledChineseFontAsset))
             {
                 textComponent.font = _bundledChineseFontAsset;
             }
-
-            return true;
         }
-
         private void InjectBundledChineseFontFallbacks()
         {
             TMP_FontAsset[] fontAssets;
             int i;
 
-            if (_bundledChineseFontAsset == null)
+            if (_bundledChineseFontAsset == null || ReferenceEquals(_injectedFontFallbackAsset, _bundledChineseFontAsset))
             {
                 return;
             }
@@ -1108,6 +1183,8 @@ namespace SimplePlanes2TranslationMod
 
                 TryAddFallbackToFontAsset(fontAsset, _bundledChineseFontAsset);
             }
+
+            _injectedFontFallbackAsset = _bundledChineseFontAsset;
 
             if (!_hasLoggedBundledFontFallbackInjection)
             {
@@ -1213,89 +1290,6 @@ namespace SimplePlanes2TranslationMod
             value = fieldInfo.GetValue(target);
             return value as IList;
         }
-
-        private TMP_FontAsset FindChineseCapableFontAsset(string displayedText)
-        {
-            TMP_FontAsset[] fontAssets;
-            int i;
-
-            if (CanFontAssetDisplayText(_preferredChineseFontAsset, displayedText))
-            {
-                return _preferredChineseFontAsset;
-            }
-
-            fontAssets = Resources.FindObjectsOfTypeAll<TMP_FontAsset>();
-            for (i = 0; i < fontAssets.Length; i++)
-            {
-                TMP_FontAsset fontAsset;
-
-                fontAsset = fontAssets[i];
-                if (!CanFontAssetDisplayText(fontAsset, displayedText))
-                {
-                    continue;
-                }
-
-                _preferredChineseFontAsset = fontAsset;
-                return fontAsset;
-            }
-
-            return null;
-        }
-
-        private static bool CanFontAssetDisplayText(TMP_FontAsset fontAsset, string displayedText)
-        {
-            MethodInfo hasCharactersMethod;
-            MethodInfo hasCharacterMethod;
-            int i;
-
-            if (fontAsset == null || string.IsNullOrEmpty(displayedText))
-            {
-                return false;
-            }
-
-            hasCharactersMethod = fontAsset.GetType().GetMethod(
-                "HasCharacters",
-                BindingFlags.Instance | BindingFlags.Public,
-                null,
-                new Type[] { typeof(string) },
-                null);
-            if (hasCharactersMethod != null)
-            {
-                return (bool)hasCharactersMethod.Invoke(fontAsset, new object[] { displayedText });
-            }
-
-            hasCharacterMethod = fontAsset.GetType().GetMethod(
-                "HasCharacter",
-                BindingFlags.Instance | BindingFlags.Public,
-                null,
-                new Type[] { typeof(char) },
-                null);
-            if (hasCharacterMethod == null)
-            {
-                return true;
-            }
-
-            for (i = 0; i < displayedText.Length; i++)
-            {
-                char currentCharacter;
-
-                currentCharacter = displayedText[i];
-                if (currentCharacter == '\r' || currentCharacter == '\n' || currentCharacter == '\t')
-                {
-                    continue;
-                }
-
-                if ((bool)hasCharacterMethod.Invoke(fontAsset, new object[] { currentCharacter }))
-                {
-                    continue;
-                }
-
-                return false;
-            }
-
-            return true;
-        }
-
         private bool ShouldCaptureTexts()
         {
             return _settings.IsCollectMode() || _settings.IsHybridMode();
@@ -1340,7 +1334,7 @@ namespace SimplePlanes2TranslationMod
             bool hasLetter = false;
             int i;
 
-            if (string.IsNullOrWhiteSpace(source))
+            if (string.IsNullOrWhiteSpace(source) || ContainsCjkCharacter(source))
             {
                 return false;
             }
@@ -1373,32 +1367,39 @@ namespace SimplePlanes2TranslationMod
             return hasLetter;
         }
 
+        private bool IsUserInputComponent(Component component)
+        {
+            int instanceId;
+            bool isUserInput;
+
+            if (component == null)
+            {
+                return false;
+            }
+
+            instanceId = component.GetInstanceID();
+            if (_userInputComponents.TryGetValue(instanceId, out isUserInput))
+            {
+                return isUserInput;
+            }
+
+            isUserInput = component.GetComponentInParent<TMP_InputField>() != null ||
+                          component.GetComponentInParent<UnityEngine.UI.InputField>() != null;
+            _userInputComponents[instanceId] = isUserInput;
+            return isUserInput;
+        }
+
         [HarmonyPatch(typeof(TextWidget), "SetText")]
         private static class TextWidgetSetTextPatch
         {
             private static void Prefix(TextWidget __instance, ref string text)
             {
-                TextCaptureContext captureContext;
-
-                if (Instance == null)
+                if (Instance == null || __instance == null)
                 {
                     return;
                 }
 
-                captureContext = Instance.CreateCaptureContext(__instance != null ? __instance.TextMeshPro : null, "Harmony.TextWidget.SetText");
-                Instance.ObserveText(text, captureContext);
-
-                if (!Instance.ShouldTranslateTexts())
-                {
-                    return;
-                }
-
-                if (__instance != null && __instance.TextMeshPro != null)
-                {
-                    Instance.RememberOriginalText(__instance.TextMeshPro, text);
-                }
-
-                text = Instance.Translate(text, captureContext);
+                text = Instance.TranslateFromHook(text, __instance.TextMeshPro, "Harmony.TextWidget.SetText");
             }
 
             private static void Postfix(TextWidget __instance)
@@ -1410,6 +1411,92 @@ namespace SimplePlanes2TranslationMod
 
                 Instance.ApplyTranslatedTextStyle(__instance.TextMeshPro, __instance.TextMeshPro != null ? __instance.TextMeshPro.text : string.Empty);
                 Instance.RememberSceneScanText(__instance.TextMeshPro, __instance.TextMeshPro != null ? __instance.TextMeshPro.text : string.Empty);
+            }
+        }
+
+        [HarmonyPatch(typeof(TMP_Text), "set_text")]
+        private static class TmpTextSetTextPatch
+        {
+            private static void Prefix(TMP_Text __instance, ref string value)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                value = Instance.TranslateFromHook(value, __instance, "Harmony.TMP_Text.set_text");
+            }
+
+            private static void Postfix(TMP_Text __instance)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                Instance.ApplyTranslatedTextStyle(__instance, __instance.text);
+            }
+        }
+
+        [HarmonyPatch(typeof(TMP_Text), "SetText", new Type[] { typeof(string) })]
+        private static class TmpTextSetTextStringPatch
+        {
+            private static void Prefix(TMP_Text __instance, ref string sourceText)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                sourceText = Instance.TranslateFromHook(sourceText, __instance, "Harmony.TMP_Text.SetText");
+            }
+
+            private static void Postfix(TMP_Text __instance)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                Instance.ApplyTranslatedTextStyle(__instance, __instance.text);
+            }
+        }
+
+        [HarmonyPatch(typeof(TMP_Text), "SetText", new Type[] { typeof(string), typeof(bool) })]
+        private static class TmpTextSetTextStringBoolPatch
+        {
+            private static void Prefix(TMP_Text __instance, ref string sourceText)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                sourceText = Instance.TranslateFromHook(sourceText, __instance, "Harmony.TMP_Text.SetText");
+            }
+
+            private static void Postfix(TMP_Text __instance)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                Instance.ApplyTranslatedTextStyle(__instance, __instance.text);
+            }
+        }
+
+        [HarmonyPatch(typeof(UnityEngine.UI.Text), "set_text")]
+        private static class UguiTextSetTextPatch
+        {
+            private static void Prefix(UnityEngine.UI.Text __instance, ref string value)
+            {
+                if (Instance == null || __instance == null)
+                {
+                    return;
+                }
+
+                value = Instance.TranslateFromHook(value, __instance, "Harmony.UI.Text.set_text");
             }
         }
     }

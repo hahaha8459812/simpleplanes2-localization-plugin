@@ -64,10 +64,16 @@ namespace SimplePlanes2TranslationMod
             new List<DynamicSuffixEntry>(),
             new List<DynamicPrefixEntry>());
 
+        private const int ContextFreeCacheLimit = 20000;
+
         private readonly List<ContextEntry> _contextEntries;
         private readonly List<DynamicSuffixEntry> _dynamicSuffixEntries;
         private readonly List<DynamicPrefixEntry> _dynamicPrefixEntries;
         private readonly Dictionary<string, string> _entries;
+        private readonly Dictionary<string, List<ContextEntry>> _contextEntriesByScene;
+        private readonly List<ContextEntry> _contextEntriesWithoutScene;
+        private readonly Dictionary<string, string> _contextFreeCache = new Dictionary<string, string>(StringComparer.Ordinal);
+        private readonly HashSet<string> _contextFreeMisses = new HashSet<string>(StringComparer.Ordinal);
 
         private TranslationCatalog(
             Dictionary<string, string> entries,
@@ -75,10 +81,52 @@ namespace SimplePlanes2TranslationMod
             List<DynamicSuffixEntry> dynamicSuffixEntries,
             List<DynamicPrefixEntry> dynamicPrefixEntries)
         {
+            HashSet<string> sceneNames;
+            int i;
+
             _entries = entries;
             _contextEntries = contextEntries;
             _dynamicSuffixEntries = dynamicSuffixEntries;
             _dynamicPrefixEntries = dynamicPrefixEntries;
+            _contextEntriesByScene = new Dictionary<string, List<ContextEntry>>(StringComparer.Ordinal);
+            _contextEntriesWithoutScene = new List<ContextEntry>();
+            sceneNames = new HashSet<string>(StringComparer.Ordinal);
+
+            for (i = 0; i < contextEntries.Count; i++)
+            {
+                ContextEntry contextEntry;
+                string sceneName;
+
+                contextEntry = contextEntries[i];
+                sceneName = contextEntry.SceneName;
+                if (string.IsNullOrEmpty(sceneName))
+                {
+                    _contextEntriesWithoutScene.Add(contextEntry);
+                    continue;
+                }
+
+                sceneNames.Add(sceneName);
+            }
+
+            foreach (string sceneName in sceneNames)
+            {
+                List<ContextEntry> sceneEntries;
+
+                sceneEntries = new List<ContextEntry>();
+                for (i = 0; i < contextEntries.Count; i++)
+                {
+                    ContextEntry contextEntry;
+
+                    contextEntry = contextEntries[i];
+                    if (string.IsNullOrEmpty(contextEntry.SceneName) ||
+                        string.Equals(contextEntry.SceneName, sceneName, StringComparison.Ordinal))
+                    {
+                        sceneEntries.Add(contextEntry);
+                    }
+                }
+
+                _contextEntriesByScene[sceneName] = sceneEntries;
+            }
         }
 
         public int Count
@@ -152,31 +200,89 @@ namespace SimplePlanes2TranslationMod
 
         public bool TryTranslate(string source, TextCaptureContext context, out string translated)
         {
+            List<ContextEntry> contextEntries;
             List<LookupCandidate> lookupCandidates;
+            string cachedTranslation;
 
-            lookupCandidates = CreateLookupCandidates(source);
-            if (TryTranslateFromContextEntries(lookupCandidates, context, out translated))
+            contextEntries = GetContextEntriesForContext(context);
+            lookupCandidates = null;
+
+            if (contextEntries.Count > 0)
             {
+                lookupCandidates = CreateLookupCandidates(source);
+                if (TryTranslateFromContextEntries(contextEntries, lookupCandidates, context, out translated))
+                {
+                    return true;
+                }
+            }
+
+            if (_contextFreeCache.TryGetValue(source, out cachedTranslation))
+            {
+                translated = cachedTranslation;
                 return true;
             }
 
-            if (TryTranslateFromDictionary(lookupCandidates, out translated))
+            if (_contextFreeMisses.Contains(source))
             {
+                translated = source;
+                return false;
+            }
+
+            if (lookupCandidates == null)
+            {
+                lookupCandidates = CreateLookupCandidates(source);
+            }
+
+            if (TryTranslateFromDictionary(lookupCandidates, out translated) ||
+                TryTranslateFromDynamicSuffixEntries(lookupCandidates, out translated) ||
+                TryTranslateFromDynamicPrefixEntries(lookupCandidates, out translated))
+            {
+                CacheContextFreeTranslation(source, translated);
                 return true;
             }
 
-            if (TryTranslateFromDynamicSuffixEntries(lookupCandidates, out translated))
-            {
-                return true;
-            }
-
-            if (TryTranslateFromDynamicPrefixEntries(lookupCandidates, out translated))
-            {
-                return true;
-            }
-
+            CacheContextFreeMiss(source);
             translated = source;
             return false;
+        }
+
+        private List<ContextEntry> GetContextEntriesForContext(TextCaptureContext context)
+        {
+            List<ContextEntry> sceneEntries;
+
+            if (context == null || string.IsNullOrEmpty(context.SceneName))
+            {
+                return _contextEntriesWithoutScene;
+            }
+
+            if (_contextEntriesByScene.TryGetValue(context.SceneName, out sceneEntries))
+            {
+                return sceneEntries;
+            }
+
+            return _contextEntriesWithoutScene;
+        }
+
+        private void CacheContextFreeTranslation(string source, string translated)
+        {
+            if (_contextFreeCache.Count + _contextFreeMisses.Count >= ContextFreeCacheLimit)
+            {
+                _contextFreeCache.Clear();
+                _contextFreeMisses.Clear();
+            }
+
+            _contextFreeCache[source] = translated;
+        }
+
+        private void CacheContextFreeMiss(string source)
+        {
+            if (_contextFreeCache.Count + _contextFreeMisses.Count >= ContextFreeCacheLimit)
+            {
+                _contextFreeCache.Clear();
+                _contextFreeMisses.Clear();
+            }
+
+            _contextFreeMisses.Add(source);
         }
 
         private static List<ContextEntry> LoadContextEntries(JToken contextEntriesToken)
@@ -316,22 +422,22 @@ namespace SimplePlanes2TranslationMod
             return dynamicPrefixEntries;
         }
 
-        private bool TryTranslateFromContextEntries(List<LookupCandidate> lookupCandidates, TextCaptureContext context, out string translated)
+        private bool TryTranslateFromContextEntries(List<ContextEntry> contextEntries, List<LookupCandidate> lookupCandidates, TextCaptureContext context, out string translated)
         {
             int i;
             int j;
 
-            if (context == null || _contextEntries.Count == 0)
+            if (context == null || contextEntries.Count == 0)
             {
                 translated = null;
                 return false;
             }
 
-            for (i = 0; i < _contextEntries.Count; i++)
+            for (i = 0; i < contextEntries.Count; i++)
             {
                 ContextEntry contextEntry;
 
-                contextEntry = _contextEntries[i];
+                contextEntry = contextEntries[i];
                 if (!IsContextMatch(contextEntry, context))
                 {
                     continue;

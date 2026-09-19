@@ -52,7 +52,7 @@ namespace SimplePlanes2TranslationMod
             {
                 Mode = "collect",
                 Language = "zh-CN",
-                EnableSceneScan = true,
+                EnableSceneScan = false,
                 LogMissingTexts = true,
                 CaptureStandaloneTmpTexts = true,
                 CapturedTextsFileName = "captured-texts.json",
