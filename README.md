@@ -177,6 +177,21 @@ SimplePlanes 2\BepInEx\plugins\SimplePlanes2Translation\settings.json
 11. 验证通过后，把运行模式切回 `translate`，关闭缺失文本记录，避免分发版继续写采集文件。
 12. 发版前按 `translation-mod/docs/RELEASE_CHECKLIST.md` 检查 Release 包。
 
+### 文本来源（可静态提取）
+
+除游玩采集外，大部分界面文本可以直接从游戏文件提取。静态提取适合盘点“一共存在哪些文本、字典漏了哪些”，运行期采集仍然是判断实际显示形态与语境的依据，两者互补。
+
+| 来源 | 可提取内容 | 说明 |
+|---|---|---|
+| `%USERPROFILE%\AppData\LocalLow\Jundroo\SimplePlanes 2\DesignerParts.xml` | 零件的 `name`、`category`、`header`、`description` | 游戏运行时通过 `Game.GetPathForDocument` 读取。本机 0.7.8 为 188 个零件；`description` 是选中零件后显示的说明段落 |
+| 同目录 `AircraftThemes.xml` | 涂装主题的 `name` | 本机 10 个 |
+| 同目录 `Levels.xml` | 关卡的 `name`、`category`、`description` | 本机 1 个（`Sandbox`） |
+| 同目录 `ControlInputData.xml` | Rewired 输入配置中的名称 | 按翻译规则，输入信号名英文优先、中文括注 |
+| `SimplePlanes 2_Data\Managed` 下的 `Game.dll`、`Jundroo.Common.dll`、`Jundroo.Packages.dll` | 代码内硬编码文案（IL 中的 `ldstr`） | 用 `monodis` 或 `ikdasm` 转 IL 后提取。`Game.dll` 约 8,500 条唯一字符串，其中一部分是 UI 文案 |
+| `SimplePlanes 2_Data\resources.assets` 等资源文件 | 资源内 XML 的节点文本与属性值 | 例如 `<Text text="FLY SOLO" />`、`<Style ... text="...">`。按属性值和节点文本取值，不要按“最长可打印串”取值，否则会把整块 XML 当成一个字符串 |
+
+注意：LocalLow 下的 XML 由游戏维护，更新或重置时可能被重写，因此静态提取只作为盘点手段，插件运行时不依赖这些文件。
+
 ### 翻译规则
 
 应该翻译：

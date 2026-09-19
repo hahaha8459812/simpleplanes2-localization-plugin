@@ -175,6 +175,21 @@ Common modes:
 11. After verification, switch runtime mode back to `translate` and disable missing-text logging before distribution.
 12. Before release, run through `translation-mod/docs/RELEASE_CHECKLIST.md`.
 
+### Text Sources (Static Extraction)
+
+Besides play-session capture, most UI text can be extracted directly from game files. Static extraction is the way to inventory what text exists and what the dictionary is missing; play-session capture remains the authority on how text actually renders and in which context. The two are complementary.
+
+| Source | Extractable content | Notes |
+|---|---|---|
+| `%USERPROFILE%\AppData\LocalLow\Jundroo\SimplePlanes 2\DesignerParts.xml` | Part `name`, `category`, `header`, `description` | Read at runtime through `Game.GetPathForDocument`. 188 parts on this machine (0.7.8); `description` is the paragraph shown for a selected part |
+| `AircraftThemes.xml` in the same folder | Livery theme `name` | 10 on this machine |
+| `Levels.xml` in the same folder | Level `name`, `category`, `description` | 1 on this machine (`Sandbox`) |
+| `ControlInputData.xml` in the same folder | Names in the Rewired input configuration | Per the translation rules, input signal names stay English-first with a Chinese note in parentheses |
+| `Game.dll`, `Jundroo.Common.dll`, `Jundroo.Packages.dll` under `SimplePlanes 2_Data\Managed` | Hardcoded strings in code (IL `ldstr`) | Dump with `monodis` or `ikdasm` and extract `ldstr`. `Game.dll` holds roughly 8,500 unique strings, part of them UI copy |
+| Asset files such as `SimplePlanes 2_Data\resources.assets` | Node text and attribute values inside embedded XML | For example `<Text text="FLY SOLO" />` or `<Style ... text="...">`. Take attribute values and node text; do not take "longest printable runs", or a whole XML blob becomes one string |
+
+Note: the XML files under LocalLow are maintained by the game and may be rewritten on update or reset, so static extraction is an inventory aid only; the plugin does not depend on those files at runtime.
+
 ### Translation Rules
 
 Translate:
