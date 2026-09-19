@@ -19,7 +19,7 @@ namespace SimplePlanes2TranslationMod
     {
         public const string PluginGuid = "com.codex.simpleplanes2.translation";
         public const string PluginName = "SimplePlanes 2 Translation Mod";
-        public const string PluginVersion = "0.1.8";
+        public const string PluginVersion = "0.1.9";
 
         private const string DefaultManualReloadHotkeyName = "F2";
         private const string DefaultToggleTranslationHotkeyName = "F1";
@@ -62,6 +62,14 @@ namespace SimplePlanes2TranslationMod
         private readonly Dictionary<int, bool> _userInputComponents = new Dictionary<int, bool>();
         private bool _suppressHookTranslation;
         private int _hookAppliedTranslationCount;
+        private readonly Dictionary<string, int> _hookCallCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+        private readonly Dictionary<string, int> _hookHitCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+        private int _hookGuardNullCount;
+        private int _hookGuardSuppressedCount;
+        private int _hookGuardCjkCount;
+        private int _hookGuardInputCount;
+        private int _hookGuardModeCount;
+        private float _nextHookStatsLogTime;
         private float _nextCaptureFlushTime;
         private float _nextSceneScanTime;
         private float _interactiveSceneScanUntilTime;
@@ -102,6 +110,7 @@ namespace SimplePlanes2TranslationMod
 
             _harmony = new Harmony(PluginGuid);
             _harmony.PatchAll(typeof(SimplePlanes2TranslationPlugin));
+            LogPatchStatus();
 
             SceneManager.sceneLoaded += OnSceneLoaded;
             ApplySceneTranslations("Awake");
@@ -113,6 +122,7 @@ namespace SimplePlanes2TranslationMod
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
 
+            LogHookStats("shutdown");
             FlushCapturedTexts();
 
             if (_harmony != null)
@@ -145,6 +155,12 @@ namespace SimplePlanes2TranslationMod
             if (_settings.EnableHotkeys && Input.GetKeyDown(_toggleTranslationHotkey))
             {
                 ToggleTranslation();
+            }
+
+            if (_settings.VerboseLogging && Time.unscaledTime >= _nextHookStatsLogTime)
+            {
+                _nextHookStatsLogTime = Time.unscaledTime + 15.0f;
+                LogHookStats("periodic");
             }
 
             RefreshInteractiveSceneScanWindow();
@@ -522,13 +538,29 @@ namespace SimplePlanes2TranslationMod
             bool needsCapture;
             bool needsContext;
 
-            if (_suppressHookTranslation || string.IsNullOrEmpty(source) || ContainsCjkCharacter(source))
+            CountHookCall(sourceTag);
+
+            if (string.IsNullOrEmpty(source))
             {
+                _hookGuardNullCount++;
+                return source;
+            }
+
+            if (_suppressHookTranslation)
+            {
+                _hookGuardSuppressedCount++;
+                return source;
+            }
+
+            if (ContainsCjkCharacter(source))
+            {
+                _hookGuardCjkCount++;
                 return source;
             }
 
             if (IsUserInputComponent(component))
             {
+                _hookGuardInputCount++;
                 return source;
             }
 
@@ -545,6 +577,7 @@ namespace SimplePlanes2TranslationMod
 
             if (!ShouldTranslateTexts())
             {
+                _hookGuardModeCount++;
                 return source;
             }
 
@@ -558,6 +591,7 @@ namespace SimplePlanes2TranslationMod
             if (!string.Equals(translated, source, StringComparison.Ordinal))
             {
                 _hookAppliedTranslationCount++;
+                CountHookHit(sourceTag);
             }
 
             return translated;
@@ -633,6 +667,10 @@ namespace SimplePlanes2TranslationMod
                     continue;
                 }
 
+                // 样式自愈：这条文本可能早就翻过，之后被界面自己重设了样式（例如重新套用 stylesheet），
+                // 这里每轮对含中文的组件补齐字体与粗体，不受去重影响。
+                ApplyTranslatedTextStyle(textWidget.TextMeshPro, originalText);
+
                 if (!ShouldProcessSceneText(textWidget.TextMeshPro, originalText))
                 {
                     continue;
@@ -689,6 +727,8 @@ namespace SimplePlanes2TranslationMod
                     continue;
                 }
 
+                ApplyTranslatedTextStyle(tmpText, originalText);
+
                 if (!ShouldProcessSceneText(tmpText, originalText))
                 {
                     continue;
@@ -716,6 +756,113 @@ namespace SimplePlanes2TranslationMod
             }
 
             LogAppliedTranslations(changedCount, reason);
+        }
+
+        private void CountHookCall(string sourceTag)
+        {
+            int count;
+
+            if (_hookCallCounts.TryGetValue(sourceTag, out count))
+            {
+                _hookCallCounts[sourceTag] = count + 1;
+                return;
+            }
+
+            _hookCallCounts[sourceTag] = 1;
+        }
+
+        private void CountHookHit(string sourceTag)
+        {
+            int count;
+
+            if (_hookHitCounts.TryGetValue(sourceTag, out count))
+            {
+                _hookHitCounts[sourceTag] = count + 1;
+                return;
+            }
+
+            _hookHitCounts[sourceTag] = 1;
+        }
+
+        private void LogPatchStatus()
+        {
+            LogPatchStatus(typeof(TextWidget), "SetText", null);
+            LogPatchStatus(typeof(TMP_Text), "set_text", null);
+            LogPatchStatus(typeof(TMP_Text), "SetText", new Type[] { typeof(string) });
+            LogPatchStatus(typeof(TMP_Text), "SetText", new Type[] { typeof(string), typeof(bool) });
+            LogPatchStatus(typeof(TextMeshProUGUI), "OnEnable", null);
+            LogPatchStatus(typeof(TextMeshPro), "OnEnable", null);
+            LogPatchStatus(typeof(UnityEngine.UI.Text), "set_text", null);
+            LogPatchStatus(typeof(UnityEngine.UI.Text), "OnEnable", null);
+        }
+
+        private void LogPatchStatus(Type declaringType, string methodName, Type[] argumentTypes)
+        {
+            MethodInfo method;
+            Patches patchInfo;
+
+            method = argumentTypes == null
+                ? AccessTools.Method(declaringType, methodName)
+                : AccessTools.Method(declaringType, methodName, argumentTypes);
+
+            if (method == null)
+            {
+                Logger.LogWarning(string.Format("Patch target not found: {0}.{1}", declaringType.Name, methodName));
+                return;
+            }
+
+            patchInfo = Harmony.GetPatchInfo(method);
+            if (patchInfo == null)
+            {
+                Logger.LogWarning(string.Format("Patch NOT applied: {0}.{1}", declaringType.Name, methodName));
+                return;
+            }
+
+            Logger.LogInfo(string.Format(
+                "Patch applied: {0}.{1} prefixes={2} postfixes={3}",
+                declaringType.Name,
+                methodName,
+                patchInfo.Prefixes.Count,
+                patchInfo.Postfixes.Count));
+        }
+
+        private void LogHookStats(string reason)
+        {
+            System.Text.StringBuilder builder;
+
+            if (!_settings.VerboseLogging)
+            {
+                return;
+            }
+
+            builder = new System.Text.StringBuilder();
+            foreach (KeyValuePair<string, int> hookCall in _hookCallCounts)
+            {
+                int hits;
+
+                _hookHitCounts.TryGetValue(hookCall.Key, out hits);
+                if (builder.Length > 0)
+                {
+                    builder.Append("; ");
+                }
+
+                builder.Append(hookCall.Key).Append(" called=").Append(hookCall.Value).Append(" hit=").Append(hits);
+            }
+
+            if (builder.Length == 0)
+            {
+                builder.Append("(no hook calls)");
+            }
+
+            Logger.LogInfo(string.Format(
+                "Hook stats ({0}): {1} | skipped: empty={2} suppressed={3} cjk={4} input={5} mode={6}",
+                reason,
+                builder,
+                _hookGuardNullCount,
+                _hookGuardSuppressedCount,
+                _hookGuardCjkCount,
+                _hookGuardInputCount,
+                _hookGuardModeCount));
         }
 
         private void LogAppliedTranslations(int changedCount, string reason)
@@ -1621,8 +1768,20 @@ namespace SimplePlanes2TranslationMod
                     }
 
                     parameters = method.GetParameters();
-                    if (parameters.Length == 0 || parameters[0].ParameterType == typeof(string))
+                    if (parameters.Length == 0)
                     {
+                        continue;
+                    }
+
+                    if (parameters[0].ParameterType == typeof(string))
+                    {
+                        // (string) 与 (string, bool) 已由前置补丁处理；
+                        // 这里补上 (string, float...) 这类 HUD 数值格式化重载。
+                        if (parameters.Length >= 2 && parameters[1].ParameterType == typeof(float))
+                        {
+                            yield return method;
+                        }
+
                         continue;
                     }
 
